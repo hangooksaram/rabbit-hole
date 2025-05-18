@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Rabbit Hole",
+  "version": "1.0.0",
+  "description": "Chrome Extension with TypeScript",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["https://*/*", "http://*/*"],
+  "background": {
+    "service_worker": "/js/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_start",
+      "js": ["/js/checkHistory.js"],
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": ["<all_urls>"],
+      "resources": ["/js/checkHistory.js"]
+    }
+  ]
+}

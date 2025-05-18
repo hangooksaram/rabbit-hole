@@ -1,0 +1,1 @@
+(()=>{"use strict";const s=window.history.state;chrome.runtime.sendMessage(s)})();
