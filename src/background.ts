@@ -1,7 +1,2 @@
-chrome.runtime.onInstalled.addListener(() => {
-  console.log("Extension installed");
-});
-
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.log("Message received:", request);
-});
+import "./observeSearch.ts";
+import "./saveHistory.ts";
