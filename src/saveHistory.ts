@@ -4,7 +4,7 @@ type HistoryItem = Partial<{
   visitTime: number;
 }>;
 
-interface StorageData {
+export interface StorageData {
   savedHistory: HistoryItem[];
 }
 
@@ -14,6 +14,10 @@ const isUrlDuplicated = (
 ): boolean => {
   return savedHistory.some((item) => item.searchUrl === searchUrl);
 };
+
+export function getSavedHistory(cb: (data: StorageData) => void) {
+  chrome.storage.local.get<StorageData>("savedHistory", cb);
+}
 
 export function saveHistoryFromSearch(
   searchUrl: string,
