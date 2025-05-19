@@ -8,6 +8,7 @@ module.exports = {
     background: "./src/background.ts",
     observeSearch: "./src/observeSearch.ts",
     saveHistory: "./src/saveHistory.ts",
+    popup: "./src/popup.ts",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
