@@ -6,7 +6,8 @@ module.exports = {
   mode: "production",
   entry: {
     background: "./src/background.ts",
-    checkHistory: "./src/checkHistory.ts",
+    observeSearch: "./src/observeSearch.ts",
+    saveHistory: "./src/saveHistory.ts",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
