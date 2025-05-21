@@ -1,4 +1,6 @@
-import { saveHistoryFromSearch } from "./saveHistory";
+import { RabbitHole } from "./chromeApi/chromeLocalData";
+import { getChromeLocalData } from "./chromeApi/localData";
+import { saveRabbitHoleHistories, saveRecentSearch } from "./saveHistory";
 
 // 검색 엔진 URL 패턴 (예: 구글 검색)
 export const SEARCH_PATTERNS: string[] = [
@@ -12,14 +14,21 @@ export const SEARCH_PATTERNS: string[] = [
 chrome.tabs.onUpdated.addListener((_, changeInfo, tab) => {
   if (changeInfo.status === "complete" && tab.url !== undefined) {
     const { url, title } = tab;
-
     // 검색 엔진 URL인지 확인
     const isSearchUrl = SEARCH_PATTERNS.some((pattern) =>
       url?.includes(pattern)
     );
 
-    if (isSearchUrl) {
-      saveHistoryFromSearch(url, title!);
-    }
+    saveRecentSearch({ searchUrl: url, searchQuery: title! });
+
+    getChromeLocalData("rabbitHole", (rabbitHole: RabbitHole) => {
+      if (!isSearchUrl) {
+        return;
+      }
+
+      if (rabbitHole) {
+        saveRabbitHoleHistories(url, title!);
+      }
+    });
   }
 });
