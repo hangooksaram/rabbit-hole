@@ -1,4 +1,6 @@
-import { getSavedHistory, StorageData } from "./saveHistory";
+import { StorageData } from "./chromeLocalData";
+import { saveRabbitHole } from "./rabbltHole";
+import { getSavedHistory } from "./saveHistory";
 
 // 시간 형식화 함수
 function formatTime(timestamp: number) {
@@ -35,7 +37,7 @@ function initPopup() {
       searchStatusElement!.innerHTML = `
         <strong>최근 검색어:</strong> ${
           savedHistory[savedHistory.length - 1].searchQuery
-        }<br>
+        }<br> 
         <small>${formatTime(
           savedHistory[savedHistory.length - 1].visitTime!
         )}</small>

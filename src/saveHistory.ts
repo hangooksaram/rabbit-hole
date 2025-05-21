@@ -1,12 +1,4 @@
-type HistoryItem = Partial<{
-  searchUrl: string;
-  searchQuery: string;
-  visitTime: number;
-}>;
-
-export interface StorageData {
-  savedHistory: HistoryItem[];
-}
+import { HistoryItem, StorageData } from "./chromeLocalData";
 
 const isUrlDuplicated = (
   searchUrl: string,
