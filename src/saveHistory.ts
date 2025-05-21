@@ -1,25 +1,29 @@
-import { HistoryItem, StorageData } from "./chromeLocalData";
+import { History, RabbitHole, StorageData } from "./chromeApi/chromeLocalData";
+import { getChromeLocalData } from "./chromeApi/localData";
 
 const isUrlDuplicated = (
   searchUrl: string,
-  savedHistory: HistoryItem[]
+  savedHistory: History[]
 ): boolean => {
   return savedHistory.some((item) => item.searchUrl === searchUrl);
 };
 
-export function getSavedHistory(cb: (data: StorageData) => void) {
-  chrome.storage.local.get<StorageData>("savedHistory", cb);
+export function saveRecentSearch(searchQuery: History): void {
+  const searchTime = new Date().getTime();
+  chrome.storage.local.set({
+    recentSearch: { ...searchQuery, visitTime: searchTime },
+  });
 }
 
-export function saveHistoryFromSearch(
+export function saveRabbitHoleHistories(
   searchUrl: string,
   searchQuery: string
 ): void {
   // 현재 시간 저장
   const searchTime = new Date().getTime();
 
-  chrome.storage.local.get<StorageData>("savedHistory", (histories) => {
-    let savedHistory = histories.savedHistory || [];
+  getChromeLocalData("rabbitHole", (rabbitHole: RabbitHole) => {
+    const savedHistory = rabbitHole.history || [];
 
     // 검색 URL이 이미 저장되어 있는지 확인
     if (isUrlDuplicated(searchUrl, savedHistory)) {
@@ -34,8 +38,11 @@ export function saveHistoryFromSearch(
     });
 
     // 업데이트된 기록 저장
-    chrome.storage.local.set({ savedHistory }, () => {
-      console.log("새 검색 기록이 저장되었습니다:", savedHistory);
-    });
+    chrome.storage.local.set(
+      { rabbitHole: { ...rabbitHole, history: savedHistory } },
+      () => {
+        console.log("Rabbit Hole 의 history가 갱신되었습니다 :", rabbitHole);
+      }
+    );
   });
 }
