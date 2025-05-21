@@ -1,15 +1,16 @@
-type HistoryItem = Partial<{
-  searchUrl: string;
-  searchQuery: string;
-  visitTime: number;
-}>;
+interface History {
+  searchUrl?: string;
+  searchQuery?: string;
+  visitTime?: number;
+}
 
 interface RabbitHole {
-  searchUrl: string;
+  query: string;
   holeDepth: number;
+  history: History[];
 }
 
 export interface StorageData {
-  savedHistory: HistoryItem[];
+  recentSearch: History;
   rabbitHole: RabbitHole;
 }
