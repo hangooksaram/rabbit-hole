@@ -1,9 +1,9 @@
-import { RabbitHole } from "./chromeApi/chromeLocalData";
-import ChromeStorage from "./chromeApi/storageData";
+import { RabbitHole } from "../chromeApi/chromeLocalData";
+import ChromeStorage from "../chromeApi/storageData";
 import {
   saveRabbitHoleHistories,
   saveRecentSearch,
-} from "./rabbitHole/saveHistory";
+} from "../rabbitHole/saveHistory";
 
 // 검색 엔진 URL 패턴 (예: 구글 검색)
 export const SEARCH_PATTERNS: string[] = [
