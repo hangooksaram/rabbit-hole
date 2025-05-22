@@ -1,5 +1,5 @@
 import { RabbitHole } from "./chromeApi/chromeLocalData";
-import { getChromeLocalData } from "./chromeApi/localData";
+import ChromeStorage from "./chromeApi/storageData";
 import { saveRabbitHoleHistories, saveRecentSearch } from "./saveHistory";
 
 // 검색 엔진 URL 패턴 (예: 구글 검색)
@@ -11,24 +11,23 @@ export const SEARCH_PATTERNS: string[] = [
 ];
 
 // 탭 업데이트 이벤트 리스너
-chrome.tabs.onUpdated.addListener((_, changeInfo, tab) => {
+chrome.tabs.onUpdated.addListener(async (_, changeInfo, tab) => {
   if (changeInfo.status === "complete" && tab.url !== undefined) {
     const { url, title } = tab;
     // 검색 엔진 URL인지 확인
     const isSearchUrl = SEARCH_PATTERNS.some((pattern) =>
       url?.includes(pattern)
     );
+    if (!isSearchUrl) {
+      return;
+    }
 
     saveRecentSearch({ searchUrl: url, searchQuery: title! });
 
-    getChromeLocalData("rabbitHole", (rabbitHole: RabbitHole) => {
-      if (!isSearchUrl) {
-        return;
-      }
+    const rabbitHole = await ChromeStorage.get("rabbitHole");
 
-      if (rabbitHole) {
-        saveRabbitHoleHistories(url, title!);
-      }
-    });
+    if (rabbitHole) {
+      saveRabbitHoleHistories(url, title!);
+    }
   }
 });
