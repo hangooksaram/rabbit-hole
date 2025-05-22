@@ -1,7 +1,8 @@
-export function initRabbitHole(query: string, cb?: () => void): void {
-  const updatedRabbitHole = { query, holeDepth: 0, history: [] };
+import { RabbitHole } from "./chromeApi/chromeLocalData";
+import ChromeStorage from "./chromeApi/storageData";
 
-  chrome.storage.local.set({ rabbitHole: { ...updatedRabbitHole } }, () => {
-    if (cb) cb();
-  });
+export function initRabbitHole(query: string, cb?: () => void): void {
+  const updatedRabbitHole: RabbitHole = { query, holeDepth: 0, history: [] };
+
+  ChromeStorage.set("rabbitHole", { ...updatedRabbitHole }, cb);
 }

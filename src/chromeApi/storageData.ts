@@ -13,12 +13,14 @@ export default class ChromeStorage {
 
   static async set<T extends keyof StorageData>(
     key: T,
-    value: StorageData[T]
+    value: StorageData[T],
+    cb?: () => void
   ): Promise<void> {
     return new Promise((resolve) => {
       const data = { [key]: value };
       chrome.storage.local.set(data, () => {
         resolve();
+        cb?.();
       });
     });
   }

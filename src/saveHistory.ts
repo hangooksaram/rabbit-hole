@@ -10,8 +10,9 @@ const isUrlDuplicated = (
 
 export function saveRecentSearch(searchQuery: History): void {
   const searchTime = new Date().getTime();
-  chrome.storage.local.set({
-    recentSearch: { ...searchQuery, visitTime: searchTime },
+  ChromeStorage.set("recentSearch", {
+    ...searchQuery,
+    visitTime: searchTime,
   });
 }
 
@@ -38,10 +39,5 @@ export async function saveRabbitHoleHistories(
   });
 
   // 업데이트된 기록 저장
-  chrome.storage.local.set(
-    { rabbitHole: { ...rabbitHole, history: savedHistory } },
-    () => {
-      console.log("Rabbit Hole 의 history가 갱신되었습니다 :", rabbitHole);
-    }
-  );
+  ChromeStorage.set("rabbitHole", { ...rabbitHole, history: savedHistory });
 }
