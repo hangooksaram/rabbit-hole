@@ -8,14 +8,6 @@ const isUrlDuplicated = (
   return savedHistory.some((item) => item.searchUrl === searchUrl);
 };
 
-export function saveRecentSearch(searchQuery: History): void {
-  const searchTime = new Date().getTime();
-  ChromeStorage.set("recentSearch", {
-    ...searchQuery,
-    visitTime: searchTime,
-  });
-}
-
 export async function saveRabbitHoleHistories(
   searchUrl: string,
   searchQuery: string
