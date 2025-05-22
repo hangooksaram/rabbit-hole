@@ -1,6 +1,6 @@
 import { History, RabbitHole } from "./chromeApi/chromeLocalData";
 import ChromeStorage from "./chromeApi/storageData";
-import { initRabbitHole } from "./rabbltHole";
+import { initRabbitHole } from "./rabbitHole/rabbltHole";
 
 class Popup {
   private searchStatusElement: HTMLElement | null = null;

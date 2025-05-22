@@ -1,5 +1,5 @@
-import { History, RabbitHole } from "./chromeApi/chromeLocalData";
-import ChromeStorage from "./chromeApi/storageData";
+import { History, RabbitHole } from "../chromeApi/chromeLocalData";
+import ChromeStorage from "../chromeApi/storageData";
 
 const isUrlDuplicated = (
   searchUrl: string,

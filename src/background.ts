@@ -1,2 +1,2 @@
 import "./observeSearch.ts";
-import "./saveHistory.ts";
+import "./rabbitHole/saveHistory.js";
