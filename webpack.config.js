@@ -6,8 +6,8 @@ module.exports = {
   mode: "production",
   entry: {
     background: "./src/background.ts",
-    observeSearch: "./src/observeSearch.ts",
-    saveHistory: "./src/saveHistory.ts",
+    observeSearch: "./src/search/observeSearch.ts",
+    saveHistory: "./src/rabbitHole/saveHistory.ts",
     popup: "./src/popup.ts",
   },
   output: {
