@@ -9,6 +9,7 @@ module.exports = {
     observeSearch: "./src/search/observeSearch.ts",
     saveHistory: "./src/rabbitHole/saveHistory.ts",
     action: "./src/action.ts",
+    badge: "./src/badge/badge.ts",
     popup: "./src/popup.ts",
   },
   output: {
