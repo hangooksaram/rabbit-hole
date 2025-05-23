@@ -1,0 +1,1 @@
+export const DEFAULT_RABBIT_HOLE_MAX_DEPTH = 5;

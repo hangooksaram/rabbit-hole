@@ -8,6 +8,7 @@ module.exports = {
     background: "./src/background.ts",
     observeSearch: "./src/search/observeSearch.ts",
     saveHistory: "./src/rabbitHole/saveHistory.ts",
+    action: "./src/action.ts",
     popup: "./src/popup.ts",
   },
   output: {
