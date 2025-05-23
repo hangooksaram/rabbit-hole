@@ -31,5 +31,9 @@ export async function saveRabbitHoleHistories(
   });
 
   // 업데이트된 기록 저장
-  ChromeStorage.set("rabbitHole", { ...rabbitHole, history: savedHistory });
+  ChromeStorage.set("rabbitHole", {
+    ...rabbitHole,
+    history: savedHistory,
+    holeDepth: savedHistory.length,
+  });
 }
