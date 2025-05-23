@@ -6,6 +6,8 @@ class Popup {
   private searchStatusElement: HTMLElement | null = null;
   private startButton: HTMLButtonElement | null = null;
   private statusText: HTMLElement | null = null;
+  private rabbitHoleHistoryElement: HTMLUListElement | null = null;
+  private rabbitHoleDepthElement: HTMLSpanElement | null = null;
   private rabbitHole: RabbitHole | null = null;
   private recentSearch: History | null = null;
 
@@ -19,6 +21,13 @@ class Popup {
       "startButton"
     ) as HTMLButtonElement;
     this.statusText = document.getElementById("statusText");
+    this.rabbitHoleHistoryElement = document.getElementById(
+      "rabbitHoleHistory"
+    ) as HTMLUListElement;
+
+    this.rabbitHoleDepthElement = document.getElementById(
+      "rabbitHoleDepth"
+    ) as HTMLSpanElement;
   }
 
   private async setSearchStatusElement() {
@@ -37,6 +46,17 @@ class Popup {
     }
   }
 
+  private async setRabbitHoleElement() {
+    const rabbitHole = await ChromeStorage.get("rabbitHole");
+
+    rabbitHole.history.map((item) => {
+      const historyElement = document.createElement("div");
+      historyElement.innerHTML = item.searchQuery!;
+      this.rabbitHoleHistoryElement?.appendChild(historyElement);
+      this.rabbitHoleDepthElement!.innerHTML = rabbitHole.holeDepth!.toString();
+    });
+  }
+
   private initPopup() {
     this.getPopupElements();
 
@@ -49,6 +69,7 @@ class Popup {
         }, 1000);
       });
     });
+    this.setRabbitHoleElement();
 
     this.setSearchStatusElement();
   }
