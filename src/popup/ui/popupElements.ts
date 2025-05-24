@@ -1,4 +1,4 @@
-class PopupUI {
+class PopupElements {
   private recentSearchElement!: HTMLElement;
   private startButtonElement!: HTMLButtonElement;
   private statusTextElement!: HTMLElement;
@@ -63,4 +63,4 @@ class PopupUI {
   }
 }
 
-export default PopupUI;
+export default PopupElements;

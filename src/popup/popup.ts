@@ -1,6 +1,6 @@
 import ChromeStorage from "../chromeApi/storageData";
 import { initRabbitHole } from "../rabbitHole/rabbltHole";
-import PopupUI from "./popupUI";
+import PopupUI from "./ui/popupUI";
 
 class Popup {
   private popupUI!: PopupUI;
@@ -10,46 +10,26 @@ class Popup {
     this.initPopup();
   }
 
-  private async setRecentSearch() {
-    const recentSearch = await ChromeStorage.get("recentSearch");
-
-    if (!recentSearch) {
-      this.popupUI.setRecentSearchElement(
-        "검색 페이지에서 검색을 먼저 수행해주세요."
-      );
-      return;
-    }
-    this.popupUI.setRecentSearchElement(recentSearch.searchQuery!);
-  }
-
   private async setRabbitHole() {
     const rabbitHole = await ChromeStorage.get("rabbitHole");
 
-    rabbitHole.history.forEach((item) => {
-      const historyElement = document.createElement("li");
-      historyElement.innerHTML = item.searchQuery!;
-      this.popupUI.appendRabbitHoleHistoryElement(historyElement);
-      this.popupUI.setRabbitHoleDepthElement(rabbitHole.holeDepth!);
+    this.popupUI.setRabbitHoleDepthUI(rabbitHole.holeDepth);
+
+    rabbitHole.history.forEach(({ searchQuery }) => {
+      this.popupUI.setRabbitHoleHistoryItemUI(searchQuery);
     });
   }
 
-  private async setNewRabbitHole() {
+  private async initPopup() {
     const recentSearch = await ChromeStorage.get("recentSearch");
-
-    initRabbitHole(recentSearch?.searchQuery || "", () => {
-      this.popupUI.setStatusTextElement("새로운 Rabbit Hole이 저장되었습니다.");
-
-      setTimeout(() => {
-        this.popupUI.setStatusTextElement("");
-      }, 1000);
-    });
-  }
-
-  private initPopup() {
-    this.popupUI.addStartButtonClickListener(() => this.setNewRabbitHole());
+    this.popupUI.addStartButtonClickListener(() =>
+      initRabbitHole(recentSearch?.searchQuery || "", () => {
+        this.popupUI.toastNewRabbitHole();
+      })
+    );
     this.setRabbitHole();
 
-    this.setRecentSearch();
+    this.popupUI.setRecentSearchQueryUI(recentSearch.searchQuery);
   }
 }
 
