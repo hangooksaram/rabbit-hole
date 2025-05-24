@@ -1,15 +1,9 @@
-import { badge, setBadge } from "./badge/badge";
-import ChromeStorage from "./chromeApi/storageData";
-import { DEFAULT_RABBIT_HOLE_MAX_DEPTH } from "./rabbitHole/rabbit-hole-constants";
+import { setBadgeConditional } from "./badge/badge";
 
 chrome.tabs.onUpdated.addListener(async (_, __, tab) => {
-  const rabbitHole = await ChromeStorage.get("rabbitHole");
-  const isTooDeepFromEntrance =
-    rabbitHole.holeDepth >= DEFAULT_RABBIT_HOLE_MAX_DEPTH;
+  await setBadgeConditional();
+});
 
-  setBadge(badge.default(rabbitHole.holeDepth));
-
-  if (isTooDeepFromEntrance) {
-    setBadge(badge.warning);
-  }
+chrome.runtime.onMessage.addListener(async (_, __, sendResponse) => {
+  await setBadgeConditional();
 });
