@@ -6,8 +6,5 @@ export function initRabbitHole(query: string, cb?: () => void): void {
 
   ChromeStorage.set("rabbitHole", { ...updatedRabbitHole }, cb);
 
-  chrome.runtime.sendMessage("Hi!", (response) => {
-    alert(response); // Yeah
-    console.log(response); // Yeah
-  });
+  chrome.runtime.sendMessage(updatedRabbitHole.holeDepth.toString());
 }

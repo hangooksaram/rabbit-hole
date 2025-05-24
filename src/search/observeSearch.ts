@@ -1,3 +1,4 @@
+import { setBadgeConditional } from "../badge/badge";
 import { RabbitHole } from "../chromeApi/chromeLocalData";
 import ChromeStorage from "../chromeApi/storageData";
 import { saveRabbitHoleHistories } from "../rabbitHole/saveHistory";
@@ -28,6 +29,7 @@ chrome.tabs.onUpdated.addListener(async (_, changeInfo, tab) => {
 
     if (rabbitHole) {
       saveRabbitHoleHistories(url, title!);
+      await setBadgeConditional();
     }
   }
 });
