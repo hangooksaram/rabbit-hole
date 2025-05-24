@@ -44,6 +44,10 @@ class PopupElements {
     this.statusTextElement.innerHTML = value;
   }
 
+  public removeRabbitHoleHistoryElement() {
+    this.rabbitHoleHistoryElement.innerHTML = "";
+  }
+
   public appendRabbitHoleHistoryElement(value: HTMLLIElement) {
     this.rabbitHoleHistoryElement.appendChild(value);
   }

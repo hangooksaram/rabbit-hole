@@ -1,4 +1,5 @@
 import { History } from "../../chromeApi/chromeLocalData";
+import { initRabbitHole } from "../../rabbitHole/rabbitHole";
 import PopupElements from "./popupElements";
 
 const noSearchQueryText = "검색 페이지에서 검색을 먼저 수행해주세요.";
@@ -22,6 +23,10 @@ class PopupUI {
     const historyElement = document.createElement("li");
     historyElement.innerHTML = searchQuery!;
     this.popupElements.appendRabbitHoleHistoryElement(historyElement);
+  }
+
+  initRabbitHoleUI() {
+    this.popupElements.removeRabbitHoleHistoryElement();
   }
 
   setRabbitHoleDepthUI(holeDepth: number | undefined) {

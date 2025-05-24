@@ -25,6 +25,8 @@ class Popup {
     this.popupUI.addStartButtonClickListener(() =>
       initRabbitHole(recentSearch?.searchQuery || "", () => {
         this.popupUI.toastNewRabbitHole();
+        this.popupUI.initRabbitHoleUI();
+        this.popupUI.setRabbitHoleDepthUI(0);
       })
     );
     this.setRabbitHole();
