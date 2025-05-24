@@ -1,5 +1,5 @@
 import ChromeStorage from "../chromeApi/storageData";
-import { initRabbitHole } from "../rabbitHole/rabbltHole";
+import { initRabbitHole } from "../rabbitHole/rabbitHole";
 import PopupUI from "./ui/popupUI";
 
 class Popup {
