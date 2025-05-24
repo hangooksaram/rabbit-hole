@@ -1,5 +1,4 @@
 import { setBadgeConditional } from "../badge/badge";
-import { RabbitHole } from "../chromeApi/chromeLocalData";
 import ChromeStorage from "../chromeApi/storageData";
 import { saveRabbitHoleHistories } from "../rabbitHole/saveHistory";
 
@@ -11,11 +10,9 @@ export const SEARCH_PATTERNS: string[] = [
   "youtube.com/results?search_query=",
 ];
 
-// 탭 업데이트 이벤트 리스너
 chrome.tabs.onUpdated.addListener(async (_, changeInfo, tab) => {
   if (changeInfo.status === "complete" && tab.url !== undefined) {
     const { url, title } = tab;
-    // 검색 엔진 URL인지 확인
     const isSearchUrl = SEARCH_PATTERNS.some((pattern) =>
       url?.includes(pattern)
     );
@@ -28,7 +25,8 @@ chrome.tabs.onUpdated.addListener(async (_, changeInfo, tab) => {
     const rabbitHole = await ChromeStorage.get("rabbitHole");
 
     if (rabbitHole) {
-      saveRabbitHoleHistories(url, title!);
+      await saveRabbitHoleHistories(url, title!);
+
       await setBadgeConditional();
     }
   }
