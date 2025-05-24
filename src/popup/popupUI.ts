@@ -37,29 +37,29 @@ class PopupUI {
   }
 
   public setStartButtonElement(value: string) {
-    this.startButtonElement!.innerHTML = value;
+    this.startButtonElement.innerHTML = value;
   }
 
   public setStatusTextElement(value: string) {
-    this.statusTextElement!.innerHTML = value;
+    this.statusTextElement.innerHTML = value;
   }
 
   public appendRabbitHoleHistoryElement(value: HTMLLIElement) {
-    this.rabbitHoleHistoryElement?.appendChild(value);
+    this.rabbitHoleHistoryElement.appendChild(value);
   }
 
   public setRabbitHoleHistoryElement(value: string) {
     const historyElement = document.createElement("li");
     historyElement.innerHTML = value;
-    this.rabbitHoleHistoryElement!.appendChild(historyElement);
+    this.rabbitHoleHistoryElement.appendChild(historyElement);
   }
 
   public setRabbitHoleDepthElement(value: number) {
-    this.rabbitHoleDepthElement!.innerHTML = value.toString();
+    this.rabbitHoleDepthElement.innerHTML = value.toString();
   }
 
   public addStartButtonClickListener(callback: () => void) {
-    this.startButtonElement!.addEventListener("click", callback);
+    this.startButtonElement.addEventListener("click", callback);
   }
 }
 
