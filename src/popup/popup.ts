@@ -1,12 +1,12 @@
 import ChromeStorage from "../chromeApi/storageData";
 import { initRabbitHole } from "../rabbitHole/rabbltHole";
-import PopupElements from "./popupElements";
+import PopupUI from "./popupUI";
 
 class Popup {
-  private popupElements!: PopupElements;
+  private popupUI!: PopupUI;
 
   constructor() {
-    this.popupElements = new PopupElements();
+    this.popupUI = new PopupUI();
     this.initPopup();
   }
 
@@ -14,12 +14,12 @@ class Popup {
     const recentSearch = await ChromeStorage.get("recentSearch");
 
     if (!recentSearch) {
-      this.popupElements.setRecentSearchElement(
+      this.popupUI.setRecentSearchElement(
         "검색 페이지에서 검색을 먼저 수행해주세요."
       );
       return;
     }
-    this.popupElements.setRecentSearchElement(recentSearch.searchQuery!);
+    this.popupUI.setRecentSearchElement(recentSearch.searchQuery!);
   }
 
   private async setRabbitHole() {
@@ -28,8 +28,8 @@ class Popup {
     rabbitHole.history.forEach((item) => {
       const historyElement = document.createElement("li");
       historyElement.innerHTML = item.searchQuery!;
-      this.popupElements.appendRabbitHoleHistoryElement(historyElement);
-      this.popupElements.setRabbitHoleDepthElement(rabbitHole.holeDepth!);
+      this.popupUI.appendRabbitHoleHistoryElement(historyElement);
+      this.popupUI.setRabbitHoleDepthElement(rabbitHole.holeDepth!);
     });
   }
 
@@ -37,20 +37,16 @@ class Popup {
     const recentSearch = await ChromeStorage.get("recentSearch");
 
     initRabbitHole(recentSearch?.searchQuery || "", () => {
-      this.popupElements.setStatusTextElement(
-        "새로운 Rabbit Hole이 저장되었습니다."
-      );
+      this.popupUI.setStatusTextElement("새로운 Rabbit Hole이 저장되었습니다.");
 
       setTimeout(() => {
-        this.popupElements.setStatusTextElement("");
+        this.popupUI.setStatusTextElement("");
       }, 1000);
     });
   }
 
   private initPopup() {
-    this.popupElements.addStartButtonClickListener(() =>
-      this.setNewRabbitHole()
-    );
+    this.popupUI.addStartButtonClickListener(() => this.setNewRabbitHole());
     this.setRabbitHole();
 
     this.setRecentSearch();
