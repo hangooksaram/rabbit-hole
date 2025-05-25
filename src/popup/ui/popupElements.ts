@@ -15,7 +15,7 @@ class PopupElements {
 
   private init() {
     this.recentSearchElement = document.getElementById(
-      "searchStatus"
+      "recentSearch"
     ) as HTMLElement;
     this.startButtonElement = document.getElementById(
       "startButton"
