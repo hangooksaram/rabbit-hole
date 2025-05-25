@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "production",
@@ -23,6 +24,11 @@ module.exports = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        exclude: /node_modules/,
+      },
     ],
   },
   resolve: {
@@ -43,6 +49,9 @@ module.exports = {
       template: "./public/index.html",
       filename: "index.html",
       chunks: ["index"],
+    }),
+    new MiniCssExtractPlugin({
+      filename: "css/[name].css",
     }),
   ],
 };
