@@ -5,12 +5,6 @@ const noSearchQueryText = "검색 페이지에서 검색을 먼저 수행해주�
 const newRabbitHoleText = "새로운 Rabbit Hole이 생성되었습니다.";
 
 class PopupUI {
-  constructor() {
-    this.init();
-  }
-
-  private init() {}
-
   static setRecentSearchQueryUI(query: string | undefined) {
     PopupElements.setRecentSearchElement(query || noSearchQueryText);
   }

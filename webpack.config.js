@@ -12,6 +12,7 @@ module.exports = {
     action: "./src/action.ts",
     badge: "./src/badge/badge.ts",
     popup: "./src/popup/popup.ts",
+    addPopupEvents: "./src/popup/ui/addPopupEvents.ts",
   },
   output: {
     path: path.resolve(__dirname, "dist"),

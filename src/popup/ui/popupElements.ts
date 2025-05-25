@@ -1,36 +1,16 @@
 class PopupElements {
-  private static recentSearchElement: HTMLElement;
-  private static startButtonElement: HTMLButtonElement;
-  private static statusTextElement: HTMLElement;
-  private static rabbitHoleHistoryElement: HTMLUListElement;
-  private static rabbitHoleDepthElement: HTMLSpanElement;
-
-  constructor() {
-    try {
-      this.init();
-    } catch (error) {
-      console.error("Initialization failed:", error);
-    }
-  }
-
-  private init() {
-    PopupElements.recentSearchElement = document.getElementById(
-      "recentSearch"
-    ) as HTMLElement;
-    PopupElements.startButtonElement = document.getElementById(
-      "startButton"
-    ) as HTMLButtonElement;
-    PopupElements.statusTextElement = document.getElementById(
-      "statusText"
-    ) as HTMLElement;
-    PopupElements.rabbitHoleHistoryElement = document.getElementById(
-      "rabbitHoleHistory"
-    ) as HTMLUListElement;
-
-    PopupElements.rabbitHoleDepthElement = document.getElementById(
-      "rabbitHoleDepth"
-    ) as HTMLSpanElement;
-  }
+  private static recentSearchElement: HTMLElement = document.getElementById(
+    "recentSearch"
+  ) as HTMLElement;
+  private static startButtonElement: HTMLButtonElement =
+    document.getElementById("startButton") as HTMLButtonElement;
+  private static statusTextElement: HTMLElement = document.getElementById(
+    "statusText"
+  ) as HTMLElement;
+  private static rabbitHoleHistoryElement: HTMLUListElement =
+    document.getElementById("rabbitHoleHistory") as HTMLUListElement;
+  private static rabbitHoleDepthElement: HTMLSpanElement =
+    document.getElementById("rabbitHoleDepth") as HTMLSpanElement;
 
   public static setRecentSearchElement(value: string) {
     PopupElements.recentSearchElement.innerHTML = value;
