@@ -1,3 +1,5 @@
+import ChromeStorage from "../../chromeApi/storageData";
+import { initRabbitHole } from "../../rabbitHole/rabbitHole";
 import { toastStyle } from "./pop-up-constants";
 import PopupElements from "./popupElements";
 
@@ -37,12 +39,19 @@ class PopupUI {
     }, 1500);
   }
 
-  static addStartButtonClickListener(callback: () => void) {
-    PopupElements.addStartButtonClickListener(callback);
+  static initRabbitHoleOnClickStartButton() {
+    PopupElements.addStartButtonClickListener(async () => {
+      const recentSearch = await ChromeStorage.get("recentSearch");
+      initRabbitHole(recentSearch?.searchQuery || "", () => {
+        PopupUI.toastNewRabbitHole();
+        PopupUI.initRabbitHoleUI();
+        PopupUI.setRabbitHoleDepthUI(0);
+      });
+    });
   }
 
-  static onMouseOverRecentSearch(callback: () => void) {
-    PopupElements.setRecentSearchElement("새로운 토끼굴 생성!");
+  static onMouseOverRecentSearch() {
+    PopupElements.addRecentSearchMouseOverListener(() => {});
   }
   static onMouseOutRecentSearch(callback: () => void) {}
 }
