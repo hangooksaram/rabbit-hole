@@ -1,4 +1,4 @@
-import { StorageData } from "./chromeLocalData";
+import { StorageData } from "./storageDataType";
 
 export default class ChromeStorage {
   static async get<T extends keyof StorageData>(

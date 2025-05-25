@@ -1,4 +1,4 @@
-import { RabbitHole } from "../chromeApi/chromeLocalData";
+import { RabbitHole } from "../chromeApi/storageDataType";
 import ChromeStorage from "../chromeApi/storageData";
 
 export function initRabbitHole(query: string, cb?: () => void): void {
