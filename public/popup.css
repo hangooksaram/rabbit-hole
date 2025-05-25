@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.recent-search-container {
+.recent-search {
   margin-bottom: 15px;
   width: 100%;
   padding: 10px;
@@ -54,4 +54,39 @@ body {
   margin-top: 10px;
   font-size: 12px;
   color: #666;
+}
+
+.flip-2-hor-top-2 {
+  -webkit-animation: flip-2-hor-top-2 0.5s
+    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: flip-2-hor-top-2 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+@-webkit-keyframes flip-2-hor-top-2 {
+  0% {
+    -webkit-transform: translateY(0) rotateX(0);
+    transform: translateY(0) rotateX(0);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+  }
+  100% {
+    -webkit-transform: translateY(-100%) rotateX(180deg);
+    transform: translateY(-100%) rotateX(180deg);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+}
+@keyframes flip-2-hor-top-2 {
+  0% {
+    -webkit-transform: translateY(0) rotateX(0);
+    transform: translateY(0) rotateX(0);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+  }
+  100% {
+    -webkit-transform: translateY(-100%) rotateX(180deg);
+    transform: translateY(-100%) rotateX(180deg);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
 }

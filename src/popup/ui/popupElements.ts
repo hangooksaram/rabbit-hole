@@ -2,8 +2,6 @@ class PopupElements {
   private static recentSearchElement: HTMLElement = document.getElementById(
     "recentSearch"
   ) as HTMLElement;
-  private static recentSearchContainerElement: HTMLDivElement =
-    document.getElementById("recentSearchContainer") as HTMLDivElement;
   private static recentSearchLabelElement: HTMLSpanElement =
     document.getElementById("recentSearchLabel") as HTMLSpanElement;
   private static startButtonElement: HTMLButtonElement =
@@ -19,11 +17,9 @@ class PopupElements {
   public static setRecentSearchElement(value: string) {
     PopupElements.recentSearchElement.innerHTML = value;
   }
-
-  public static setRecentSearchContainerElement(value: string) {
-    PopupElements.recentSearchContainerElement.innerHTML = value;
+  public static setRecentSearchElementClass(value: string) {
+    PopupElements.recentSearchElement.className = value;
   }
-
   public static setRecentSearchLabelElement(value: string) {
     PopupElements.recentSearchLabelElement.innerHTML = value;
   }
@@ -58,19 +54,11 @@ class PopupElements {
     PopupElements.startButtonElement.addEventListener("click", callback);
   }
 
-  public static addRecentSearchContainerMouseOverListener(
-    callback: () => void
-  ) {
-    PopupElements.recentSearchContainerElement.addEventListener(
-      "mouseover",
-      callback
-    );
+  public static addRecentSearchMouseOverListener(callback: () => void) {
+    PopupElements.recentSearchElement.addEventListener("mouseover", callback);
   }
-  public static addRecentSearchContainerMouseOutListener(callback: () => void) {
-    PopupElements.recentSearchContainerElement.addEventListener(
-      "mouseout",
-      callback
-    );
+  public static addRecentSearchMouseOutListener(callback: () => void) {
+    PopupElements.recentSearchElement.addEventListener("mouseout", callback);
   }
 }
 

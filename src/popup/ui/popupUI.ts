@@ -51,11 +51,13 @@ class PopupUI {
   }
 
   static toggleRecentSearchLabel() {
-    PopupElements.addRecentSearchContainerMouseOverListener(() => {
+    PopupElements.addRecentSearchMouseOverListener(() => {
+      PopupElements.setRecentSearchElementClass("flip-2-hor-top-2");
       PopupElements.setRecentSearchLabelElement("새로운 토끼굴 생성하기!");
     });
 
-    PopupElements.addRecentSearchContainerMouseOutListener(() => {
+    PopupElements.addRecentSearchMouseOutListener(() => {
+      PopupElements.setRecentSearchElementClass("");
       PopupElements.setRecentSearchLabelElement("최근 검색어");
     });
   }
