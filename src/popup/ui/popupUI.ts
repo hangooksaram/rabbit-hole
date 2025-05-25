@@ -51,14 +51,21 @@ class PopupUI {
   }
 
   static toggleRecentSearchLabel() {
-    PopupElements.addRecentSearchMouseOverListener(() => {
-      PopupElements.setRecentSearchElementClass("flip-2-hor-top-2");
+    PopupElements.addRecentSearchContainerMouseEnterListener(() => {
+      PopupElements.addRecentSearchElementClass("flip-2-hor-top-2");
       PopupElements.setRecentSearchLabelElement("새로운 토끼굴 생성하기!");
+
+      document
+        .getElementById("createRabbitHoleImage")
+        ?.classList.add("flip-2-hor-top-1");
     });
 
-    PopupElements.addRecentSearchMouseOutListener(() => {
-      PopupElements.setRecentSearchElementClass("");
+    PopupElements.addRecentSearchContainerMouseLeaveListener(() => {
+      PopupElements.removeRecentSearchElementClass("flip-2-hor-top-2");
       PopupElements.setRecentSearchLabelElement("최근 검색어");
+      document
+        .getElementById("createRabbitHoleImage")
+        ?.classList.remove("flip-2-hor-top-1");
     });
   }
 }

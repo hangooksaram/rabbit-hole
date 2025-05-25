@@ -2,6 +2,8 @@ class PopupElements {
   private static recentSearchElement: HTMLElement = document.getElementById(
     "recentSearch"
   ) as HTMLElement;
+  private static recentSearchContainerElement: HTMLElement =
+    document.getElementById("recentSearchContainer") as HTMLElement;
   private static recentSearchLabelElement: HTMLSpanElement =
     document.getElementById("recentSearchLabel") as HTMLSpanElement;
   private static startButtonElement: HTMLButtonElement =
@@ -17,25 +19,30 @@ class PopupElements {
   public static setRecentSearchElement(value: string) {
     PopupElements.recentSearchElement.innerHTML = value;
   }
-  public static setRecentSearchElementClass(value: string) {
-    PopupElements.recentSearchElement.className = value;
+  public static addRecentSearchElementClass(value: string) {
+    PopupElements.recentSearchElement.classList.add(value);
+  }
+  public static removeRecentSearchElementClass(value: string) {
+    PopupElements.recentSearchElement.classList.remove(value);
   }
   public static setRecentSearchLabelElement(value: string) {
     PopupElements.recentSearchLabelElement.innerHTML = value;
   }
-
+  public static addRecentSearchContainerElementClass(value: string) {
+    PopupElements.recentSearchContainerElement.classList.add(value);
+  }
+  public static removeRecentSearchContainerElementClass(value: string) {
+    PopupElements.recentSearchContainerElement.classList.remove(value);
+  }
   public static setStartButtonElement(value: string) {
     PopupElements.startButtonElement.innerHTML = value;
   }
-
   public static setStatusTextElement(value: string) {
     PopupElements.statusTextElement.innerHTML = value;
   }
-
   public static removeRabbitHoleHistoryElement() {
     PopupElements.rabbitHoleHistoryElement.innerHTML = "";
   }
-
   public static appendRabbitHoleHistoryElement(value: HTMLLIElement) {
     PopupElements.rabbitHoleHistoryElement.appendChild(value);
   }
@@ -54,11 +61,24 @@ class PopupElements {
     PopupElements.startButtonElement.addEventListener("click", callback);
   }
 
-  public static addRecentSearchMouseOverListener(callback: () => void) {
-    PopupElements.recentSearchElement.addEventListener("mouseover", callback);
+  public static addRecentSearchContainerMouseEnterListener(
+    callback: () => void
+  ) {
+    PopupElements.recentSearchContainerElement.addEventListener(
+      "mouseenter",
+      (e: MouseEvent) => {
+        e.stopPropagation();
+        callback();
+      }
+    );
   }
-  public static addRecentSearchMouseOutListener(callback: () => void) {
-    PopupElements.recentSearchElement.addEventListener("mouseout", callback);
+  public static addRecentSearchContainerMouseLeaveListener(
+    callback: () => void
+  ) {
+    PopupElements.recentSearchContainerElement.addEventListener(
+      "mouseleave",
+      callback
+    );
   }
 }
 
