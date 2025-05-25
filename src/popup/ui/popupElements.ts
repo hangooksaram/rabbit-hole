@@ -2,6 +2,10 @@ class PopupElements {
   private static recentSearchElement: HTMLElement = document.getElementById(
     "recentSearch"
   ) as HTMLElement;
+  private static recentSearchContainerElement: HTMLDivElement =
+    document.getElementById("recentSearchContainer") as HTMLDivElement;
+  private static recentSearchLabelElement: HTMLSpanElement =
+    document.getElementById("recentSearchLabel") as HTMLSpanElement;
   private static startButtonElement: HTMLButtonElement =
     document.getElementById("startButton") as HTMLButtonElement;
   private static statusTextElement: HTMLElement = document.getElementById(
@@ -14,6 +18,14 @@ class PopupElements {
 
   public static setRecentSearchElement(value: string) {
     PopupElements.recentSearchElement.innerHTML = value;
+  }
+
+  public static setRecentSearchContainerElement(value: string) {
+    PopupElements.recentSearchContainerElement.innerHTML = value;
+  }
+
+  public static setRecentSearchLabelElement(value: string) {
+    PopupElements.recentSearchLabelElement.innerHTML = value;
   }
 
   public static setStartButtonElement(value: string) {
@@ -44,6 +56,21 @@ class PopupElements {
 
   public static addStartButtonClickListener(callback: () => void) {
     PopupElements.startButtonElement.addEventListener("click", callback);
+  }
+
+  public static addRecentSearchContainerMouseOverListener(
+    callback: () => void
+  ) {
+    PopupElements.recentSearchContainerElement.addEventListener(
+      "mouseover",
+      callback
+    );
+  }
+  public static addRecentSearchContainerMouseOutListener(callback: () => void) {
+    PopupElements.recentSearchContainerElement.addEventListener(
+      "mouseout",
+      callback
+    );
   }
 }
 

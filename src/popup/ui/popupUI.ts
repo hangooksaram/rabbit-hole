@@ -50,10 +50,15 @@ class PopupUI {
     });
   }
 
-  static onMouseOverRecentSearch() {
-    PopupElements.addRecentSearchMouseOverListener(() => {});
+  static toggleRecentSearchLabel() {
+    PopupElements.addRecentSearchContainerMouseOverListener(() => {
+      PopupElements.setRecentSearchLabelElement("새로운 토끼굴 생성하기!");
+    });
+
+    PopupElements.addRecentSearchContainerMouseOutListener(() => {
+      PopupElements.setRecentSearchLabelElement("최근 검색어");
+    });
   }
-  static onMouseOutRecentSearch(callback: () => void) {}
 }
 
 export default PopupUI;
