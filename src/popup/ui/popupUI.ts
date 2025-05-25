@@ -5,34 +5,31 @@ const noSearchQueryText = "검색 페이지에서 검색을 먼저 수행해주�
 const newRabbitHoleText = "새로운 Rabbit Hole이 생성되었습니다.";
 
 class PopupUI {
-  private popupElements!: PopupElements;
   constructor() {
     this.init();
   }
 
-  private init() {
-    this.popupElements = new PopupElements();
+  private init() {}
+
+  static setRecentSearchQueryUI(query: string | undefined) {
+    PopupElements.setRecentSearchElement(query || noSearchQueryText);
   }
 
-  setRecentSearchQueryUI(query: string | undefined) {
-    this.popupElements.setRecentSearchElement(query || noSearchQueryText);
-  }
-
-  setRabbitHoleHistoryItemUI(searchQuery: string | undefined) {
+  static setRabbitHoleHistoryItemUI(searchQuery: string | undefined) {
     const historyElement = document.createElement("li");
     historyElement.innerHTML = searchQuery!;
-    this.popupElements.appendRabbitHoleHistoryElement(historyElement);
+    PopupElements.appendRabbitHoleHistoryElement(historyElement);
   }
 
-  initRabbitHoleUI() {
-    this.popupElements.removeRabbitHoleHistoryElement();
+  static initRabbitHoleUI() {
+    PopupElements.removeRabbitHoleHistoryElement();
   }
 
-  setRabbitHoleDepthUI(holeDepth: number | undefined) {
-    this.popupElements.setRabbitHoleDepthElement(holeDepth || 0);
+  static setRabbitHoleDepthUI(holeDepth: number | undefined) {
+    PopupElements.setRabbitHoleDepthElement(holeDepth || 0);
   }
 
-  toastNewRabbitHole() {
+  static toastNewRabbitHole() {
     const toastElement = document.createElement("div");
     toastElement.textContent = newRabbitHoleText;
     Object.assign(toastElement.style, toastStyle);
@@ -46,9 +43,14 @@ class PopupUI {
     }, 1500);
   }
 
-  addStartButtonClickListener(callback: () => void) {
-    this.popupElements.addStartButtonClickListener(callback);
+  static addStartButtonClickListener(callback: () => void) {
+    PopupElements.addStartButtonClickListener(callback);
   }
+
+  static onMouseOverRecentSearch(callback: () => void) {
+    PopupElements.setRecentSearchElement("새로운 토끼굴 생성!");
+  }
+  static onMouseOutRecentSearch(callback: () => void) {}
 }
 
 export default PopupUI;

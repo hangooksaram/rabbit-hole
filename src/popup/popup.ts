@@ -3,35 +3,32 @@ import { initRabbitHole } from "../rabbitHole/rabbitHole";
 import PopupUI from "./ui/popupUI";
 
 class Popup {
-  private popupUI!: PopupUI;
-
   constructor() {
-    this.popupUI = new PopupUI();
     this.initPopup();
   }
 
   private async setRabbitHole() {
     const rabbitHole = await ChromeStorage.get("rabbitHole");
 
-    this.popupUI.setRabbitHoleDepthUI(rabbitHole.holeDepth);
+    PopupUI.setRabbitHoleDepthUI(rabbitHole.holeDepth);
 
     rabbitHole.history.forEach(({ searchQuery }) => {
-      this.popupUI.setRabbitHoleHistoryItemUI(searchQuery);
+      PopupUI.setRabbitHoleHistoryItemUI(searchQuery);
     });
   }
 
   private async initPopup() {
     const recentSearch = await ChromeStorage.get("recentSearch");
-    this.popupUI.addStartButtonClickListener(() =>
+    PopupUI.addStartButtonClickListener(() =>
       initRabbitHole(recentSearch?.searchQuery || "", () => {
-        this.popupUI.toastNewRabbitHole();
-        this.popupUI.initRabbitHoleUI();
-        this.popupUI.setRabbitHoleDepthUI(0);
+        PopupUI.toastNewRabbitHole();
+        PopupUI.initRabbitHoleUI();
+        PopupUI.setRabbitHoleDepthUI(0);
       })
     );
     this.setRabbitHole();
 
-    this.popupUI.setRecentSearchQueryUI(recentSearch.searchQuery);
+    PopupUI.setRecentSearchQueryUI(recentSearch.searchQuery);
   }
 }
 

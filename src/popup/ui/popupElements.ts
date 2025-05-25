@@ -1,9 +1,9 @@
 class PopupElements {
-  private recentSearchElement!: HTMLElement;
-  private startButtonElement!: HTMLButtonElement;
-  private statusTextElement!: HTMLElement;
-  private rabbitHoleHistoryElement!: HTMLUListElement;
-  private rabbitHoleDepthElement!: HTMLSpanElement;
+  private static recentSearchElement: HTMLElement;
+  private static startButtonElement: HTMLButtonElement;
+  private static statusTextElement: HTMLElement;
+  private static rabbitHoleHistoryElement: HTMLUListElement;
+  private static rabbitHoleDepthElement: HTMLSpanElement;
 
   constructor() {
     try {
@@ -14,56 +14,56 @@ class PopupElements {
   }
 
   private init() {
-    this.recentSearchElement = document.getElementById(
+    PopupElements.recentSearchElement = document.getElementById(
       "recentSearch"
     ) as HTMLElement;
-    this.startButtonElement = document.getElementById(
+    PopupElements.startButtonElement = document.getElementById(
       "startButton"
     ) as HTMLButtonElement;
-    this.statusTextElement = document.getElementById(
+    PopupElements.statusTextElement = document.getElementById(
       "statusText"
     ) as HTMLElement;
-    this.rabbitHoleHistoryElement = document.getElementById(
+    PopupElements.rabbitHoleHistoryElement = document.getElementById(
       "rabbitHoleHistory"
     ) as HTMLUListElement;
 
-    this.rabbitHoleDepthElement = document.getElementById(
+    PopupElements.rabbitHoleDepthElement = document.getElementById(
       "rabbitHoleDepth"
     ) as HTMLSpanElement;
   }
 
-  public setRecentSearchElement(value: string) {
-    this.recentSearchElement.innerHTML = value;
+  public static setRecentSearchElement(value: string) {
+    PopupElements.recentSearchElement.innerHTML = value;
   }
 
-  public setStartButtonElement(value: string) {
-    this.startButtonElement.innerHTML = value;
+  public static setStartButtonElement(value: string) {
+    PopupElements.startButtonElement.innerHTML = value;
   }
 
-  public setStatusTextElement(value: string) {
-    this.statusTextElement.innerHTML = value;
+  public static setStatusTextElement(value: string) {
+    PopupElements.statusTextElement.innerHTML = value;
   }
 
-  public removeRabbitHoleHistoryElement() {
-    this.rabbitHoleHistoryElement.innerHTML = "";
+  public static removeRabbitHoleHistoryElement() {
+    PopupElements.rabbitHoleHistoryElement.innerHTML = "";
   }
 
-  public appendRabbitHoleHistoryElement(value: HTMLLIElement) {
-    this.rabbitHoleHistoryElement.appendChild(value);
+  public static appendRabbitHoleHistoryElement(value: HTMLLIElement) {
+    PopupElements.rabbitHoleHistoryElement.appendChild(value);
   }
 
-  public setRabbitHoleHistoryElement(value: string) {
+  public static setRabbitHoleHistoryElement(value: string) {
     const historyElement = document.createElement("li");
     historyElement.innerHTML = value;
-    this.rabbitHoleHistoryElement.appendChild(historyElement);
+    PopupElements.rabbitHoleHistoryElement.appendChild(historyElement);
   }
 
-  public setRabbitHoleDepthElement(value: number) {
-    this.rabbitHoleDepthElement.innerHTML = value.toString();
+  public static setRabbitHoleDepthElement(value: number) {
+    PopupElements.rabbitHoleDepthElement.innerHTML = value.toString();
   }
 
-  public addStartButtonClickListener(callback: () => void) {
-    this.startButtonElement.addEventListener("click", callback);
+  public static addStartButtonClickListener(callback: () => void) {
+    PopupElements.startButtonElement.addEventListener("click", callback);
   }
 }
 
