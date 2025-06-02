@@ -11,5 +11,11 @@
   "background": {
     "service_worker": "/js/background.js",
     "type": "module"
+  },
+
+  "icons": {
+    "16": "rabbit-hole-icon.png",
+    "48": "rabbit-hole-icon.png",
+    "128": "rabbit-hole-icon.png"
   }
 }
