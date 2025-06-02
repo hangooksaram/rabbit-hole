@@ -5,6 +5,8 @@ import PopupElements from "./popupElements";
 
 const noSearchQueryText = "검색 페이지에서 검색을 먼저 수행해주세요.";
 const newRabbitHoleText = "새로운 Rabbit Hole이 생성되었습니다.";
+const scaleDownAnimation = "scale-down-center";
+const kawaiAnimation = "jello-horizontal";
 
 class PopupUI {
   static setRecentSearchQueryUI(query: string | undefined) {
@@ -40,7 +42,7 @@ class PopupUI {
   }
 
   static initRabbitHoleOnClickStartButton() {
-    PopupElements.addStartButtonClickListener(async () => {
+    PopupElements.addCreateRabbitHoleImageEventListener(async () => {
       const recentSearch = await ChromeStorage.get("recentSearch");
       initRabbitHole(recentSearch?.searchQuery || "", () => {
         PopupUI.toastNewRabbitHole();
@@ -52,20 +54,15 @@ class PopupUI {
 
   static toggleRecentSearchLabel() {
     PopupElements.addRecentSearchContainerMouseEnterListener(() => {
-      PopupElements.addRecentSearchElementClass("flip-2-hor-top-2");
+      PopupElements.addRecentSearchElementClass(scaleDownAnimation);
       PopupElements.setRecentSearchLabelElement("새로운 토끼굴 생성하기!");
-
-      document
-        .getElementById("createRabbitHoleImage")
-        ?.classList.add("flip-2-hor-top-1");
+      PopupElements.addCreateRabbitHoleImageClass(kawaiAnimation);
     });
 
     PopupElements.addRecentSearchContainerMouseLeaveListener(() => {
-      PopupElements.removeRecentSearchElementClass("flip-2-hor-top-2");
+      PopupElements.removeRecentSearchElementClass(scaleDownAnimation);
       PopupElements.setRecentSearchLabelElement("최근 검색어");
-      document
-        .getElementById("createRabbitHoleImage")
-        ?.classList.remove("flip-2-hor-top-1");
+      PopupElements.removeCreateRabbitHoleImageClass(kawaiAnimation);
     });
   }
 }

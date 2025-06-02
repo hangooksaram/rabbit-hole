@@ -1,5 +1,5 @@
 import PopupUI from "./popupUI";
 
-// PopupUI.initRabbitHoleOnClickStartButton();
+PopupUI.initRabbitHoleOnClickStartButton();
 
 PopupUI.toggleRecentSearchLabel();

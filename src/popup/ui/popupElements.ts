@@ -6,8 +6,7 @@ class PopupElements {
     document.getElementById("recentSearchContainer") as HTMLElement;
   private static recentSearchLabelElement: HTMLSpanElement =
     document.getElementById("recentSearchLabel") as HTMLSpanElement;
-  private static startButtonElement: HTMLButtonElement =
-    document.getElementById("startButton") as HTMLButtonElement;
+
   private static statusTextElement: HTMLElement = document.getElementById(
     "statusText"
   ) as HTMLElement;
@@ -15,7 +14,8 @@ class PopupElements {
     document.getElementById("rabbitHoleHistory") as HTMLUListElement;
   private static rabbitHoleDepthElement: HTMLSpanElement =
     document.getElementById("rabbitHoleDepth") as HTMLSpanElement;
-
+  private static createRabbitHoleImageElement: HTMLDivElement =
+    document.getElementById("createRabbitHoleImage") as HTMLDivElement;
   public static setRecentSearchElement(value: string) {
     PopupElements.recentSearchElement.innerHTML = value;
   }
@@ -34,9 +34,7 @@ class PopupElements {
   public static removeRecentSearchContainerElementClass(value: string) {
     PopupElements.recentSearchContainerElement.classList.remove(value);
   }
-  public static setStartButtonElement(value: string) {
-    PopupElements.startButtonElement.innerHTML = value;
-  }
+
   public static setStatusTextElement(value: string) {
     PopupElements.statusTextElement.innerHTML = value;
   }
@@ -57,8 +55,22 @@ class PopupElements {
     PopupElements.rabbitHoleDepthElement.innerHTML = value.toString();
   }
 
-  public static addStartButtonClickListener(callback: () => void) {
-    PopupElements.startButtonElement.addEventListener("click", callback);
+  public static addCreateRabbitHoleImageEventListener(callback: () => void) {
+    PopupElements.createRabbitHoleImageElement.addEventListener(
+      "click",
+      (e: MouseEvent) => {
+        e.stopPropagation();
+        callback();
+      }
+    );
+  }
+
+  public static addCreateRabbitHoleImageClass(value: string) {
+    PopupElements.createRabbitHoleImageElement.classList.add(value);
+  }
+
+  public static removeCreateRabbitHoleImageClass(value: string) {
+    PopupElements.createRabbitHoleImageElement.classList.remove(value);
   }
 
   public static addRecentSearchContainerMouseEnterListener(
@@ -77,7 +89,10 @@ class PopupElements {
   ) {
     PopupElements.recentSearchContainerElement.addEventListener(
       "mouseleave",
-      callback
+      (e: MouseEvent) => {
+        e.stopPropagation();
+        callback();
+      }
     );
   }
 }
