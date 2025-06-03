@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <title>검색 추적기</title>
     <link rel="stylesheet" href="./popup.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
       <h2>Rabbit Hole</h2>
       <span class="recent-search-label" id="recentSearchLabel">최근 검색</span>
 
-      <div
-        style="position: relative; width: 100%; height: 25px"
-        id="recentSearchContainer"
-      >
-        <div class="recent-search" id="recentSearch">
+      <div class="recent-search-container" id="recentSearchContainer">
+        <div class="recent-search button" id="recentSearch">
           검색 정보를 불러오는 중...
         </div>
-        <div class="create-rabbit-hole-image" id="createRabbitHoleImage">
-          <img width="25px" height="25px" src="/create-rabbithole-image.png" />
+        <div class="create-rabbit-hole-image button" id="createRabbitHoleImage">
+          <img width="64px" height="64px" src="/create-rabbithole-image.png" />
         </div>
       </div>
       </div>
