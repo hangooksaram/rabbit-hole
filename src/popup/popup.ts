@@ -10,8 +10,6 @@ class Popup {
     const recentSearch = await ChromeStorage.get("recentSearch");
     const rabbitHole = await ChromeStorage.get("rabbitHole");
 
-    PopupUI.setRabbitHoleDepthUI(rabbitHole.holeDepth);
-
     rabbitHole.history.forEach(({ searchQuery }) => {
       PopupUI.setRabbitHoleHistoryItemUI(searchQuery);
     });
