@@ -3,7 +3,7 @@ import { initRabbitHole } from "../../rabbitHole/rabbitHole";
 import { toastStyle } from "./pop-up-constants";
 import PopupElements from "./popupElements";
 
-const noSearchQueryText = "검색 페이지에서 검색을 먼저 수행해주세요.";
+const noSearchQueryText = "감지된 검색이 없습니다.";
 const newRabbitHoleText = "새로운 Rabbit Hole이 생성되었습니다.";
 const scaleDownAnimation = "scale-down-center";
 const kawaiAnimation = "jello-horizontal";
