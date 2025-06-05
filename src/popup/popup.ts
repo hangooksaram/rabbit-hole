@@ -2,48 +2,30 @@ import ChromeStorage from "../chromeApi/storageData";
 import { History, RabbitHole } from "../chromeApi/storageDataType";
 import PopupUI from "./ui/popupUI";
 
-export class Popup {
-  private recentSearch: History | undefined;
-  private rabbitHole: RabbitHole | undefined;
-  constructor() {
-    (async () => {
-      await this.getStorageData();
-    })();
-    document.onload = () => {
-      this.initPopup();
-    };
+const renderPopup = (recentSearch?: History, rabbitHole?: RabbitHole) => {
+  PopupUI.setRecentSearchQueryUI(recentSearch?.searchQuery);
+
+  if (recentSearch) {
+    PopupUI.toggleRecentSearchLabel();
   }
 
-  async getStorageData() {
-    this.recentSearch = await ChromeStorage.get("recentSearch");
-    this.rabbitHole = await ChromeStorage.get("rabbitHole");
+  if (rabbitHole) {
+    rabbitHole?.history.forEach(({ searchQuery }) => {
+      PopupUI.setRabbitHoleHistoryItemUI(searchQuery);
+    });
   }
+};
 
-  initConditions() {
-    return {
-      canAddButtonEvent: this.recentSearch && this.recentSearch.searchQuery,
-      canSetRabbitHoleHistoryItemUI:
-        this.rabbitHole && this.rabbitHole.history.length > 0,
-    };
-  }
+const initPopup = async () => {
+  const recentSearch: History = await ChromeStorage.get("recentSearch");
+  const rabbitHole: RabbitHole = await ChromeStorage.get("rabbitHole");
 
-  private async initPopup() {
-    PopupUI.setRecentSearchQueryUI(this.recentSearch?.searchQuery);
+  renderPopup(recentSearch, rabbitHole);
+};
 
-    if (this.initConditions().canAddButtonEvent) {
-      PopupUI.toggleRecentSearchLabel();
-    }
-
-    if (this.initConditions().canSetRabbitHoleHistoryItemUI) {
-      this.rabbitHole?.history.forEach(({ searchQuery }) => {
-        PopupUI.setRabbitHoleHistoryItemUI(searchQuery);
-      });
-    }
-  }
-}
-
+// DOMContentLoaded 이후에 팝업 초기화
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => new Popup());
+  document.addEventListener("DOMContentLoaded", initPopup);
 } else {
-  new Popup();
+  initPopup();
 }
