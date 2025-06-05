@@ -5,12 +5,13 @@
     "target": "es6",
     "esModuleInterop": true,
     "sourceMap": true,
-    "rootDir": "src",
     "outDir": "dist/js",
+    "noEmit": false,
     "noEmitOnError": true,
     "typeRoots": ["node_modules/@types"],
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "noImplicitAny": true
-  }
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts"]
 }
