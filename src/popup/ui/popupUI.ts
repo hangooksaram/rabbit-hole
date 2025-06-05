@@ -15,7 +15,9 @@ class PopupUI {
 
   static setRabbitHoleHistoryItemUI(searchQuery: string | undefined) {
     const historyElement = document.createElement("li");
+
     historyElement.innerHTML = searchQuery!;
+    historyElement.classList.add("button", "rabbit-hole-history-item");
     PopupElements.appendRabbitHoleHistoryElement(historyElement);
   }
 
