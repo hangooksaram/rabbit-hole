@@ -1,5 +1,6 @@
 :root {
   --primary-color: #d8c8ff;
+  --primary-color-deep: #a896d6;
   --button-color: #f5f5f5;
   --button-hover-color: #d7d7d7;
 }
@@ -57,7 +58,7 @@ ul {
   position: relative;
 
   margin-bottom: 15px;
-  height: 60px;
+  height: 32px;
 }
 .create-rabbit-hole-image {
   position: absolute;
@@ -66,7 +67,15 @@ ul {
 }
 .recent-search {
   position: absolute;
+  background-color: #ffffff;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color-deep);
   will-change: transform opacity;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .recent-search-label {
   width: 100%;
