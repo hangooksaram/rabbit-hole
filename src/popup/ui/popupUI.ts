@@ -12,11 +12,11 @@ const kawaiAnimation = "jello-horizontal";
 
 class PopupUI {
   static setRecentSearchQueryUI(query: string | undefined) {
-    PopupElements.setRecentSearchElement(query || noSearchQueryText);
+    PopupElements.recentSearch.setText(query || noSearchQueryText);
   }
 
   static initRabbitHoleUI() {
-    PopupElements.removeRabbitHoleHistoryElement();
+    PopupElements.rabbitHoleHistory.clearChildren();
   }
 
   static setRabbitHoleHistoryItemUI(history: History) {
@@ -24,11 +24,11 @@ class PopupUI {
       history
     ).getElement();
 
-    PopupElements.appendRabbitHoleHistoryElement(newRabbitHoleHistoryItem);
+    PopupElements.rabbitHoleHistory.appendChild(newRabbitHoleHistoryItem);
   }
 
   static setRabbitHoleDepthUI(holeDepth: number | undefined) {
-    PopupElements.setRabbitHoleDepthElement(holeDepth || 0);
+    PopupElements.rabbitHoleDepth.setText(`토끼굴 깊이: ${holeDepth || 0}`);
   }
 
   static toastNewRabbitHole() {
@@ -46,7 +46,7 @@ class PopupUI {
   }
 
   static initRabbitHoleOnClickStartButton() {
-    PopupElements.addCreateRabbitHoleImageEventListener(async () => {
+    PopupElements.createRabbitHoleImage.addEvent("click", async () => {
       const recentSearch = await ChromeStorage.get("recentSearch");
       initRabbitHole(recentSearch?.searchQuery || "", () => {
         PopupUI.toastNewRabbitHole();
@@ -57,16 +57,16 @@ class PopupUI {
   }
 
   static toggleRecentSearchLabel() {
-    PopupElements.addRecentSearchContainerMouseEnterListener(() => {
-      PopupElements.addRecentSearchElementClass(scaleDownAnimation);
-      PopupElements.setRecentSearchLabelElement("새로운 토끼굴 생성하기!");
-      PopupElements.addCreateRabbitHoleImageClass(kawaiAnimation);
+    PopupElements.recentSearchContainer.addEvent("mouseenter", () => {
+      PopupElements.recentSearch.addClass(scaleDownAnimation);
+      PopupElements.recentSearchLabel.setText("새로운 토끼굴 생성하기!");
+      PopupElements.createRabbitHoleImage.addClass(kawaiAnimation);
     });
 
-    PopupElements.addRecentSearchContainerMouseLeaveListener(() => {
-      PopupElements.removeRecentSearchElementClass(scaleDownAnimation);
-      PopupElements.setRecentSearchLabelElement("최근 검색어");
-      PopupElements.removeCreateRabbitHoleImageClass(kawaiAnimation);
+    PopupElements.recentSearchContainer.addEvent("mouseleave", () => {
+      PopupElements.recentSearch.removeClass(scaleDownAnimation);
+      PopupElements.recentSearchLabel.setText("최근 검색어");
+      PopupElements.createRabbitHoleImage.removeClass(kawaiAnimation);
     });
   }
 }
