@@ -1,5 +1,6 @@
 import { setBadgeConditional } from "../badge/badge";
 import ChromeStorage from "../chromeApi/storageData";
+import { History } from "../chromeApi/storageDataType";
 import { saveRabbitHoleHistories } from "../rabbitHole/saveHistory";
 
 // 검색 엔진 URL 패턴 (예: 구글 검색)
@@ -20,12 +21,23 @@ chrome.tabs.onUpdated.addListener(async (_, changeInfo, tab) => {
       return;
     }
 
-    ChromeStorage.set("recentSearch", { searchUrl: url, searchQuery: title! });
+    const searchQueryMatch = title?.match(/^(.*?)\s-\s(.*)$/);
+    const searchQuery = searchQueryMatch ? searchQueryMatch[1] : title;
+    const searchEngine = searchQueryMatch ? searchQueryMatch[2] : title;
+
+    const newSearch: History = {
+      searchUrl: url,
+      searchQuery,
+      visitTime: new Date().getTime(),
+      searchEngine,
+    };
+
+    ChromeStorage.set("recentSearch", newSearch);
 
     const rabbitHole = await ChromeStorage.get("rabbitHole");
 
     if (rabbitHole) {
-      await saveRabbitHoleHistories(url, title!);
+      await saveRabbitHoleHistories(newSearch);
 
       await setBadgeConditional();
     }

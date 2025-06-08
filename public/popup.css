@@ -96,6 +96,14 @@ ul {
 }
 
 .rabbit-hole-history-item {
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.rabbit-hole-history-item img {
+  margin-right: 8px;
 }
 
 .status {

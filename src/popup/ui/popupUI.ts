@@ -1,7 +1,9 @@
 import ChromeStorage from "../../chromeApi/storageData";
+import { History } from "../../chromeApi/storageDataType";
 import { initRabbitHole } from "../../rabbitHole/rabbitHole";
 import { toastStyle } from "./pop-up-constants";
 import PopupElements from "./popupElements";
+import { RabbitHoleHistoryItem } from "./rabbitHole/rabbitHoleHistoryItem";
 
 const noSearchQueryText = "감지된 검색이 없습니다.";
 const newRabbitHoleText = "새로운 Rabbit Hole이 생성되었습니다.";
@@ -13,16 +15,16 @@ class PopupUI {
     PopupElements.setRecentSearchElement(query || noSearchQueryText);
   }
 
-  static setRabbitHoleHistoryItemUI(searchQuery: string | undefined) {
-    const historyElement = document.createElement("li");
-
-    historyElement.innerHTML = searchQuery!;
-    historyElement.classList.add("button", "rabbit-hole-history-item");
-    PopupElements.appendRabbitHoleHistoryElement(historyElement);
-  }
-
   static initRabbitHoleUI() {
     PopupElements.removeRabbitHoleHistoryElement();
+  }
+
+  static setRabbitHoleHistoryItemUI(history: History) {
+    const newRabbitHoleHistoryItem = new RabbitHoleHistoryItem(
+      history
+    ).getElement();
+
+    PopupElements.appendRabbitHoleHistoryElement(newRabbitHoleHistoryItem);
   }
 
   static setRabbitHoleDepthUI(holeDepth: number | undefined) {

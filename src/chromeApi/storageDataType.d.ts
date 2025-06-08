@@ -1,6 +1,7 @@
 interface History {
   searchUrl?: string;
   searchQuery?: string;
+  searchEngine?: string;
   visitTime?: number;
 }
 

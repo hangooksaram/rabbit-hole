@@ -1,4 +1,4 @@
-import { History, RabbitHole } from "../chromeApi/storageDataType";
+import { History } from "../chromeApi/storageDataType";
 import ChromeStorage from "../chromeApi/storageData";
 
 const isUrlDuplicated = (
@@ -8,30 +8,19 @@ const isUrlDuplicated = (
   return savedHistory.some((item) => item.searchUrl === searchUrl);
 };
 
-export async function saveRabbitHoleHistories(
-  searchUrl: string,
-  searchQuery: string
-) {
-  // 현재 시간 저장
-  const searchTime = new Date().getTime();
+export async function saveRabbitHoleHistories(newSearch: History) {
+  const { searchUrl } = newSearch;
 
   const rabbitHole = await ChromeStorage.get("rabbitHole");
   const savedHistory = rabbitHole.history || [];
 
-  // 검색 URL이 이미 저장되어 있는지 확인
-  if (isUrlDuplicated(searchUrl, savedHistory)) {
+  if (isUrlDuplicated(searchUrl!, savedHistory)) {
     return;
   }
 
-  // 새 검색 URL 추가
-  savedHistory.push({
-    searchUrl,
-    searchQuery,
-    visitTime: searchTime,
-  });
+  savedHistory.push(newSearch);
 
-  // 업데이트된 기록 저장
-  ChromeStorage.set("rabbitHole", {
+  await ChromeStorage.set("rabbitHole", {
     ...rabbitHole,
     history: savedHistory,
     holeDepth: savedHistory.length,

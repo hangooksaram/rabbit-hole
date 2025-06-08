@@ -10,8 +10,8 @@ const renderPopup = (recentSearch?: History, rabbitHole?: RabbitHole) => {
   }
 
   if (rabbitHole) {
-    rabbitHole?.history.forEach(({ searchQuery }) => {
-      PopupUI.setRabbitHoleHistoryItemUI(searchQuery);
+    rabbitHole?.history.forEach((history: History) => {
+      PopupUI.setRabbitHoleHistoryItemUI(history);
     });
   }
 };
