@@ -13,6 +13,10 @@ export default class ElementWrapper<T extends HTMLElement> {
     this.el.classList.remove(value);
   }
 
+  toggleClass(value: string) {
+    this.el.classList.toggle(value);
+  }
+
   addEvent<K extends keyof HTMLElementEventMap>(
     type: K,
     listener: (e: HTMLElementEventMap[K]) => void

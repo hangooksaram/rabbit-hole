@@ -58,15 +58,15 @@ class PopupUI {
 
   static toggleRecentSearchLabel() {
     PopupElements.recentSearchContainer.addEvent("mouseenter", () => {
-      PopupElements.recentSearch.addClass(scaleDownAnimation);
+      PopupElements.recentSearch.toggleClass(scaleDownAnimation);
       PopupElements.recentSearchLabel.setText("새로운 토끼굴 생성하기!");
-      PopupElements.createRabbitHoleImage.addClass(kawaiAnimation);
+      PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
     });
 
     PopupElements.recentSearchContainer.addEvent("mouseleave", () => {
-      PopupElements.recentSearch.removeClass(scaleDownAnimation);
+      PopupElements.recentSearch.toggleClass(scaleDownAnimation);
       PopupElements.recentSearchLabel.setText("최근 검색어");
-      PopupElements.createRabbitHoleImage.removeClass(kawaiAnimation);
+      PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
     });
   }
 }
