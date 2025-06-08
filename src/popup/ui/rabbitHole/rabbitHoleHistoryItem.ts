@@ -13,6 +13,7 @@ export class RabbitHoleHistoryItem {
     this.searchHistory = history;
 
     this.setRabbitHoleHistoryItemUI();
+    this.addClickEventListener();
   }
 
   getRabbitHoleHistoryIconPath() {
@@ -69,6 +70,16 @@ export class RabbitHoleHistoryItem {
     infoElement.classList.add("rabbit-hole-history-item-info");
 
     return infoElement;
+  }
+
+  addClickEventListener() {
+    this.element.addEventListener("click", () => {
+      if (this.searchHistory.searchUrl) {
+        window.open(this.searchHistory.searchUrl, "_blank");
+      } else {
+        console.warn("Search URL is not available for this history item.");
+      }
+    });
   }
 
   setRabbitHoleHistoryItemUI() {
