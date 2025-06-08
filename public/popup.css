@@ -101,6 +101,21 @@ ul {
   justify-content: flex-start;
   align-items: flex-start;
 }
+.rabbit-hole-history-item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6px;
+  width: 100%;
+  max-width: 100%;
+  font-size: 14px;
+  color: #333;
+}
+
+.rabbit-hole-history-item-info div:first-child {
+  font-weight: bold;
+}
 
 .rabbit-hole-history-item img {
   margin-right: 8px;
