@@ -11,6 +11,7 @@
   <body>
     <div class="container">
       <h2>Rabbit Hole</h2>
+      <img id="settingIcon" class="fixed-icon" src="/setting.svg" width="24" height="24" />
       <span class="recent-search-label" id="recentSearchLabel">최근 검색</span>
 
       <div class="recent-search-container" id="recentSearchContainer">
@@ -30,6 +31,18 @@
         <ul class="rabbit-hole-history" id="rabbitHoleHistory"></ul>
 
       <span id="rabbitHoleDepth"></span>
+
+      <div id="settingContainer" class="setting-container hidden">
+        <img id="closeSettingIcon" class="fixed-icon" src="/x-icon.svg"/>
+        <h2>설정</h2>
+        <ul class="setting-list">
+          <li class="setting-item">
+            <label class="setting-item-label" for="rabbit-hole-depth">토끼굴 깊이</label>
+            <input alt="input-rabbit-hole-depth" name="rabbit-hole-depth" type="number" min="1" max="10" step="1"/>
+          </li>
+        </ul>
+        <button class="button">저장</button>
+      </div>
     </div>
     <script src="./js/popup.js"></script>
     <script src="./js/addPopupEvents.js" defer></script>

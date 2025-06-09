@@ -21,6 +21,17 @@ const initPopup = async () => {
   const rabbitHole: RabbitHole = await ChromeStorage.get("rabbitHole");
 
   renderPopup(recentSearch, rabbitHole);
+  initSetting();
+};
+
+const initSetting = () => {
+  document.getElementById("settingIcon")?.addEventListener("click", () => {
+    document.getElementById("settingContainer")?.classList.toggle("hidden");
+  });
+
+  document.getElementById("closeSettingIcon")?.addEventListener("click", () => {
+    document.getElementById("settingContainer")?.classList.toggle("hidden");
+  });
 };
 
 // DOMContentLoaded 이후에 팝업 초기화
