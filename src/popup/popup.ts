@@ -1,6 +1,7 @@
 import ChromeStorage from "../chromeApi/storageData";
 import { History, RabbitHole } from "../chromeApi/storageDataType";
 import PopupUI from "./popupUI";
+import SettingUI from "./setting/settingUI";
 
 const renderPopup = (recentSearch?: History, rabbitHole?: RabbitHole) => {
   PopupUI.setRecentSearchQueryUI(recentSearch?.searchQuery);
@@ -22,7 +23,7 @@ const initPopup = async () => {
   const rabbitHole: RabbitHole = await ChromeStorage.get("rabbitHole");
 
   renderPopup(recentSearch, rabbitHole);
-  PopupUI.initSetting();
+  SettingUI.init();
 };
 
 // DOMContentLoaded 이후에 팝업 초기화

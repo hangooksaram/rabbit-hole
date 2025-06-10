@@ -75,20 +75,6 @@ class PopupUI {
       PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
     });
   }
-
-  static initSetting() {
-    PopupElements.settingOpenButton.addEvent("click", () => {
-      PopupElements.settingContainer.toggleClass(hiddenClass);
-      PopupElements.settingContainer.toggleClass(slideInBottomAnimation);
-      PopupElements.settingContainer.toggleClass(slideOutBottomAnimation);
-    });
-
-    PopupElements.settingCloseButton.addEvent("click", () => {
-      PopupElements.settingContainer.toggleClass(slideInBottomAnimation);
-      PopupElements.settingContainer.toggleClass(slideOutBottomAnimation);
-      PopupElements.settingContainer.toggleClass(hiddenClass);
-    });
-  }
 }
 
 export default PopupUI;
