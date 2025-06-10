@@ -1,16 +1,20 @@
 import ChromeStorage from "../../chromeApi/storageData";
 import { History } from "../../chromeApi/storageDataType";
 import { initRabbitHole } from "../../rabbitHole/rabbitHole";
-import { toastStyle } from "./pop-up-constants";
+import {
+  createNewRabbitHoleText,
+  hiddenClass,
+  kawaiAnimation,
+  newRabbitHoleText,
+  noSearchQueryText,
+  recentSearchQueryText,
+  scaleDownAnimation,
+  slideInBottomAnimation,
+  slideOutBottomAnimation,
+  toastStyle,
+} from "./constants";
 import PopupElements from "./popupElements";
 import { RabbitHoleHistoryItem } from "./rabbitHole/rabbitHoleHistoryItem";
-
-const noSearchQueryText = "감지된 검색이 없습니다.";
-const newRabbitHoleText = "새로운 Rabbit Hole이 생성되었습니다.";
-const scaleDownAnimation = "scale-down-center";
-const kawaiAnimation = "jello-horizontal";
-const slideInBottomAnimation = "slide-in-bottom";
-const slideOutBottomAnimation = "slide-out-bottom";
 
 class PopupUI {
   static setRecentSearchQueryUI(query: string | undefined) {
@@ -61,20 +65,20 @@ class PopupUI {
   static toggleRecentSearchLabel() {
     PopupElements.recentSearchContainer.addEvent("mouseenter", () => {
       PopupElements.recentSearch.toggleClass(scaleDownAnimation);
-      PopupElements.recentSearchLabel.setText("새로운 토끼굴 생성하기!");
+      PopupElements.recentSearchLabel.setText(createNewRabbitHoleText);
       PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
     });
 
     PopupElements.recentSearchContainer.addEvent("mouseleave", () => {
       PopupElements.recentSearch.toggleClass(scaleDownAnimation);
-      PopupElements.recentSearchLabel.setText("최근 검색어");
+      PopupElements.recentSearchLabel.setText(recentSearchQueryText);
       PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
     });
   }
 
   static initSetting() {
     PopupElements.settingOpenButton.addEvent("click", () => {
-      PopupElements.settingContainer.toggleClass("hidden");
+      PopupElements.settingContainer.toggleClass(hiddenClass);
       PopupElements.settingContainer.toggleClass(slideInBottomAnimation);
       PopupElements.settingContainer.toggleClass(slideOutBottomAnimation);
     });
@@ -82,7 +86,7 @@ class PopupUI {
     PopupElements.settingCloseButton.addEvent("click", () => {
       PopupElements.settingContainer.toggleClass(slideInBottomAnimation);
       PopupElements.settingContainer.toggleClass(slideOutBottomAnimation);
-      PopupElements.settingContainer.toggleClass("hidden");
+      PopupElements.settingContainer.toggleClass(hiddenClass);
     });
   }
 }
