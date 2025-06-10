@@ -1,4 +1,4 @@
-import ElementWrapper from "../../ui/ElementWrapper";
+import ElementWrapper from "../ui/ElementWrapper";
 
 class PopupElements {
   recentSearch: ElementWrapper<HTMLElement>;

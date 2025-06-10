@@ -1,6 +1,6 @@
-import ChromeStorage from "../../chromeApi/storageData";
-import { History } from "../../chromeApi/storageDataType";
-import { initRabbitHole } from "../../rabbitHole/rabbitHole";
+import ChromeStorage from "../chromeApi/storageData";
+import { History } from "../chromeApi/storageDataType";
+import { initRabbitHole } from "../rabbitHole/rabbitHole";
 import {
   createNewRabbitHoleText,
   hiddenClass,

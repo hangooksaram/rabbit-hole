@@ -1,6 +1,6 @@
 import ChromeStorage from "../chromeApi/storageData";
 import { History, RabbitHole } from "../chromeApi/storageDataType";
-import PopupUI from "./ui/popupUI";
+import PopupUI from "./popupUI";
 
 const renderPopup = (recentSearch?: History, rabbitHole?: RabbitHole) => {
   PopupUI.setRecentSearchQueryUI(recentSearch?.searchQuery);
