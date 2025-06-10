@@ -85,6 +85,10 @@ input {
 .setting-submit-button {
 }
 
+.input-rabbit-hole-depth {
+  width: 40%;
+}
+
 .hidden {
   opacity: 0;
   visibility: hidden;

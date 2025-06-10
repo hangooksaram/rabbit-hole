@@ -7,6 +7,7 @@ const renderPopup = (recentSearch?: History, rabbitHole?: RabbitHole) => {
 
   if (recentSearch) {
     PopupUI.toggleRecentSearchLabel();
+    PopupUI.initRabbitHoleOnClickStartButton();
   }
 
   if (rabbitHole) {
