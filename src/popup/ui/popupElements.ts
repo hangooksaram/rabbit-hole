@@ -8,6 +8,9 @@ class PopupElements {
   rabbitHoleHistory: ElementWrapper<HTMLUListElement>;
   rabbitHoleDepth: ElementWrapper<HTMLSpanElement>;
   createRabbitHoleImage: ElementWrapper<HTMLDivElement>;
+  settingContainer: ElementWrapper<HTMLDivElement>;
+  settingOpenButton: ElementWrapper<HTMLImageElement>;
+  settingCloseButton: ElementWrapper<HTMLImageElement>;
 
   constructor() {
     this.recentSearch = new ElementWrapper(
@@ -30,6 +33,15 @@ class PopupElements {
     );
     this.createRabbitHoleImage = new ElementWrapper(
       document.getElementById("createRabbitHoleImage") as HTMLDivElement
+    );
+    this.settingContainer = new ElementWrapper(
+      document.getElementById("settingContainer") as HTMLDivElement
+    );
+    this.settingOpenButton = new ElementWrapper(
+      document.getElementById("settingOpenButton") as HTMLImageElement
+    );
+    this.settingCloseButton = new ElementWrapper(
+      document.getElementById("closeSettingButton") as HTMLImageElement
     );
   }
 }

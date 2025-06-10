@@ -9,6 +9,8 @@ const noSearchQueryText = "감지된 검색이 없습니다.";
 const newRabbitHoleText = "새로운 Rabbit Hole이 생성되었습니다.";
 const scaleDownAnimation = "scale-down-center";
 const kawaiAnimation = "jello-horizontal";
+const slideInBottomAnimation = "slide-in-bottom";
+const slideOutBottomAnimation = "slide-out-bottom";
 
 class PopupUI {
   static setRecentSearchQueryUI(query: string | undefined) {
@@ -67,6 +69,20 @@ class PopupUI {
       PopupElements.recentSearch.toggleClass(scaleDownAnimation);
       PopupElements.recentSearchLabel.setText("최근 검색어");
       PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
+    });
+  }
+
+  static initSetting() {
+    PopupElements.settingOpenButton.addEvent("click", () => {
+      PopupElements.settingContainer.toggleClass("hidden");
+      PopupElements.settingContainer.toggleClass(slideInBottomAnimation);
+      PopupElements.settingContainer.toggleClass(slideOutBottomAnimation);
+    });
+
+    PopupElements.settingCloseButton.addEvent("click", () => {
+      PopupElements.settingContainer.toggleClass(slideInBottomAnimation);
+      PopupElements.settingContainer.toggleClass(slideOutBottomAnimation);
+      PopupElements.settingContainer.toggleClass("hidden");
     });
   }
 }
