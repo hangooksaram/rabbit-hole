@@ -22,6 +22,12 @@ const PopupElements = {
   createRabbitHoleImage: new ElementWrapper(
     document.getElementById("createRabbitHoleImage") as HTMLDivElement
   ),
+  currentRabbitHoleDepth: new ElementWrapper(
+    document.getElementById("currentRabbitHoleDepth") as HTMLSpanElement
+  ),
+  maxRabbitHoleDepth: new ElementWrapper(
+    document.getElementById("maxRabbitHoleDepth") as HTMLSpanElement
+  ),
   settingContainer: new ElementWrapper(
     document.getElementById("settingContainer") as HTMLDivElement
   ),

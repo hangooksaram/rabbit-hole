@@ -19,8 +19,8 @@ export const setBadge = ({ text, color }: { text: string; color: string }) => {
 
 export const setBadgeConditional = async () => {
   const rabbitHole = await ChromeStorage.get("rabbitHole");
-  const isTooDeepFromEntrance =
-    rabbitHole.holeDepth >= DEFAULT_RABBIT_HOLE_MAX_DEPTH;
+  const setting = await ChromeStorage.get("setting");
+  const isTooDeepFromEntrance = rabbitHole.holeDepth >= setting.maxHoleDepth;
 
   setBadge(badge.default(rabbitHole.holeDepth));
 

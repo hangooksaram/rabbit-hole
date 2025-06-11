@@ -75,6 +75,17 @@ class PopupUI {
       PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
     });
   }
+
+  static async setCurrentRabbitHoleDepthUI() {
+    const rabbitHole = await ChromeStorage.get("rabbitHole");
+    PopupElements.currentRabbitHoleDepth.setText(
+      rabbitHole.holeDepth.toString()
+    );
+  }
+  static async setMaxRabbitHoleDepthUI() {
+    const setting = await ChromeStorage.get("setting");
+    PopupElements.maxRabbitHoleDepth.setText(setting.maxHoleDepth.toString());
+  }
 }
 
 export default PopupUI;
