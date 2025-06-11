@@ -1,8 +1,14 @@
 export default class ElementWrapper<T extends HTMLElement> {
   constructor(public el: T) {}
 
-  setText(value: string) {
-    this.el.innerHTML = value;
+  getValue(): string {
+    if (
+      this.el instanceof HTMLInputElement ||
+      this.el instanceof HTMLTextAreaElement
+    ) {
+      return this.el.value;
+    }
+    return "";
   }
 
   addClass(value: string) {

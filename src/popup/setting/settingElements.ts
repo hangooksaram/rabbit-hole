@@ -13,6 +13,9 @@ const SettingElements = {
   rabbitHoleDepthInput: new ElementWrapper(
     document.getElementById("rabbitHoleDepthInput") as HTMLInputElement
   ),
+  submitSetting: new ElementWrapper(
+    document.getElementById("submit-setting") as HTMLButtonElement
+  ),
 };
 
 export default SettingElements;

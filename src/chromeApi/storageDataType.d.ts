@@ -11,7 +11,12 @@ interface RabbitHole {
   history: History[];
 }
 
+interface Setting {
+  maxHoleDepth: number;
+}
+
 export interface StorageData {
   recentSearch: History;
   rabbitHole: RabbitHole;
+  setting: Setting;
 }
