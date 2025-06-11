@@ -10,6 +10,9 @@ const SettingElements = {
   settingCloseButton: new ElementWrapper(
     document.getElementById("closeSettingButton") as HTMLImageElement
   ),
+  rabbitHoleDepthInput: new ElementWrapper(
+    document.getElementById("rabbitHoleDepthInput") as HTMLInputElement
+  ),
 };
 
 export default SettingElements;
