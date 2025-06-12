@@ -1,8 +1,11 @@
 import ChromeStorage from "../chromeApi/storageData";
 import { History } from "../chromeApi/storageDataType";
 import { initRabbitHole } from "../rabbitHole/rabbitHole";
+import toast from "../ui/toast";
 import {
   createNewRabbitHoleText,
+  fadeInAnimation,
+  fadeOutAnimation,
   hiddenClass,
   kawaiAnimation,
   newRabbitHoleText,
@@ -37,25 +40,11 @@ class PopupUI {
     PopupElements.rabbitHoleDepth.setText(`토끼굴 깊이: ${holeDepth || 0}`);
   }
 
-  static toastNewRabbitHole() {
-    const toastElement = document.createElement("div");
-    toastElement.textContent = newRabbitHoleText;
-    Object.assign(toastElement.style, toastStyle);
-
-    document.body.appendChild(toastElement);
-
-    toastElement.style.opacity = "1";
-
-    setTimeout(() => {
-      document.body.removeChild(toastElement);
-    }, 1500);
-  }
-
   static initRabbitHoleOnClickStartButton() {
     PopupElements.createRabbitHoleImage.addEvent("click", async () => {
       const recentSearch = await ChromeStorage.get("recentSearch");
       initRabbitHole(recentSearch?.searchQuery || "", () => {
-        PopupUI.toastNewRabbitHole();
+        toast(newRabbitHoleText);
         PopupUI.initRabbitHoleUI();
         PopupUI.setRabbitHoleDepthUI(0);
       });

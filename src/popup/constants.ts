@@ -8,19 +8,18 @@ const scaleDownAnimation = "scale-down-center";
 const kawaiAnimation = "jello-horizontal";
 const slideInBottomAnimation = "slide-in-bottom";
 const slideOutBottomAnimation = "slide-out-bottom";
+const fadeInAnimation = "fade-in";
+const fadeOutAnimation = "fade-out";
 const toastStyle = {
   position: "fixed",
-  bottom: "20px",
-  left: "50%",
-  transform: "translateX(-50%)",
+  top: "15px",
+  right: "15px",
   backgroundColor: "#333",
   color: "#fff",
   padding: "10px 20px",
   borderRadius: "5px",
   boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
-  zIndex: "1000",
-  opacity: "0",
-  transition: "opacity 0.5s",
+  zIndex: "2000",
 };
 
 export {
@@ -34,4 +33,6 @@ export {
   createNewRabbitHoleText,
   recentSearchQueryText,
   hiddenClass,
+  fadeInAnimation,
+  fadeOutAnimation,
 };
