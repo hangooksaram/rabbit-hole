@@ -1,3 +1,4 @@
+import ChromeStorage from "../../chromeApi/storageData";
 import {
   hiddenClass,
   slideInBottomAnimation,
@@ -6,8 +7,9 @@ import {
 import SettingElements from "./settingElements";
 
 class SettingUI {
-  static init() {
+  static async init() {
     SettingUI.addSettingOpenAndCloseEvent();
+    await SettingUI.setMaxRabbitHoleDepthInputInitialValue();
   }
 
   static addSettingOpenAndCloseEvent() {
@@ -24,6 +26,14 @@ class SettingUI {
     SettingElements.settingContainer.toggleClass(hiddenClass);
     SettingElements.settingContainer.toggleClass(slideInBottomAnimation);
     SettingElements.settingContainer.toggleClass(slideOutBottomAnimation);
+  }
+
+  static async setMaxRabbitHoleDepthInputInitialValue() {
+    const setting = await ChromeStorage.get("setting");
+
+    SettingElements.rabbitHoleDepthInput.setValue(
+      setting.maxHoleDepth.toString()
+    );
   }
 }
 

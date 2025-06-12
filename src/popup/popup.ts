@@ -26,7 +26,7 @@ const initPopup = async () => {
   const rabbitHole: RabbitHole = await ChromeStorage.get("rabbitHole");
 
   renderPopup(recentSearch, rabbitHole);
-  SettingUI.init();
+  await SettingUI.init();
   initSubmitSettingButton();
 };
 

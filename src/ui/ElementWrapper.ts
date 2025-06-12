@@ -15,6 +15,19 @@ export default class ElementWrapper<T extends HTMLElement> {
     return "";
   }
 
+  setValue(value: string) {
+    if (
+      this.el instanceof HTMLInputElement ||
+      this.el instanceof HTMLTextAreaElement
+    ) {
+      this.el.value = value;
+    } else {
+      throw new Error(
+        "setValue is only applicable to input or textarea elements."
+      );
+    }
+  }
+
   addClass(value: string) {
     this.el.classList.add(value);
   }
