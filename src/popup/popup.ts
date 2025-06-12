@@ -26,13 +26,21 @@ const initPopup = async () => {
   const rabbitHole: RabbitHole = await ChromeStorage.get("rabbitHole");
 
   renderPopup(recentSearch, rabbitHole);
+};
+
+const initSetting = async () => {
   await SettingUI.init();
   initSubmitSettingButton();
 };
 
-// DOMContentLoaded 이후에 팝업 초기화
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initPopup);
+  document.addEventListener("DOMContentLoaded", async () => {
+    await initPopup();
+    await initSetting();
+  });
 } else {
-  initPopup();
+  (async () => {
+    await initPopup();
+    await initSetting();
+  })();
 }
