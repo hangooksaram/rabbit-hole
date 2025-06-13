@@ -42,12 +42,13 @@ class PopupUI {
       const recentSearch = await ChromeStorage.get("recentSearch");
       initRabbitHole(recentSearch?.searchQuery || "", async () => {
         toast(newRabbitHoleText);
-        PopupUI.initRabbitHoleUI();
-        PopupUI.setRabbitHoleDepthUI(0);
 
         await PopupUI.RabbitHoleDepth.setCurrentRabbitHoleDepthUI();
         await PopupUI.RabbitHoleDepth.setMaxRabbitHoleDepthUI();
         await PopupUI.RabbitHoleDepth.setDepthProgressUI();
+
+        PopupUI.initRabbitHoleUI();
+        PopupUI.setRabbitHoleDepthUI(0);
       });
     });
   }
