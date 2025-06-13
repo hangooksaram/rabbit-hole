@@ -1,5 +1,6 @@
 import { setBadgeConditional } from "../../badge/badge";
 import ChromeStorage from "../../chromeApi/storageData";
+import toast from "../../ui/toast";
 import PopupUI from "../popupUI";
 import SettingElements from "./settingElements";
 
@@ -12,7 +13,9 @@ export const initSubmitSettingButton = async () => {
       maxHoleDepth: Number(rabbitHoleDepth),
     });
 
-    await PopupUI.setMaxRabbitHoleDepthUI();
+    await PopupUI.RabbitHoleDepth.setMaxRabbitHoleDepthUI();
+    await PopupUI.RabbitHoleDepth.setDepthProgressUI();
     await setBadgeConditional();
+    toast("저장이 완료되었습니다.");
   });
 };

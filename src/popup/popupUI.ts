@@ -4,22 +4,19 @@ import { initRabbitHole } from "../rabbitHole/rabbitHole";
 import toast from "../ui/toast";
 import {
   createNewRabbitHoleText,
-  fadeInAnimation,
-  fadeOutAnimation,
-  hiddenClass,
   kawaiAnimation,
   newRabbitHoleText,
   noSearchQueryText,
   recentSearchQueryText,
   scaleDownAnimation,
-  slideInBottomAnimation,
-  slideOutBottomAnimation,
-  toastStyle,
 } from "./constants";
 import PopupElements from "./popupElements";
+import RabbitHoleDepth from "./rabbitHole/depth";
 import { RabbitHoleHistoryItem } from "./rabbitHole/rabbitHoleHistoryItem";
 
 class PopupUI {
+  static RabbitHoleDepth = RabbitHoleDepth;
+
   static setRecentSearchQueryUI(query: string | undefined) {
     PopupElements.recentSearch.setText(query || noSearchQueryText);
   }
@@ -43,10 +40,14 @@ class PopupUI {
   static initRabbitHoleOnClickStartButton() {
     PopupElements.createRabbitHoleImage.addEvent("click", async () => {
       const recentSearch = await ChromeStorage.get("recentSearch");
-      initRabbitHole(recentSearch?.searchQuery || "", () => {
+      initRabbitHole(recentSearch?.searchQuery || "", async () => {
         toast(newRabbitHoleText);
         PopupUI.initRabbitHoleUI();
         PopupUI.setRabbitHoleDepthUI(0);
+
+        await PopupUI.RabbitHoleDepth.setCurrentRabbitHoleDepthUI();
+        await PopupUI.RabbitHoleDepth.setMaxRabbitHoleDepthUI();
+        await PopupUI.RabbitHoleDepth.setDepthProgressUI();
       });
     });
   }
@@ -63,17 +64,6 @@ class PopupUI {
       PopupElements.recentSearchLabel.setText(recentSearchQueryText);
       PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
     });
-  }
-
-  static async setCurrentRabbitHoleDepthUI() {
-    const rabbitHole = await ChromeStorage.get("rabbitHole");
-    PopupElements.currentRabbitHoleDepth.setText(
-      rabbitHole.holeDepth.toString()
-    );
-  }
-  static async setMaxRabbitHoleDepthUI() {
-    const setting = await ChromeStorage.get("setting");
-    PopupElements.maxRabbitHoleDepth.setText(setting.maxHoleDepth.toString());
   }
 }
 

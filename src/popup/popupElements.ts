@@ -37,6 +37,10 @@ const PopupElements = {
   settingCloseButton: new ElementWrapper(
     document.getElementById("closeSettingButton") as HTMLImageElement
   ),
+
+  depthProgress: new ElementWrapper(
+    document.getElementById("depthProgress") as HTMLDivElement
+  ),
 };
 
 export default PopupElements;

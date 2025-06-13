@@ -31,9 +31,20 @@
 
         <ul class="rabbit-hole-history" id="rabbitHoleHistory"></ul>
 
-      <span id="currentRabbitHoleDepth"></span>
-      <span>/</span>
-      <span id="maxRabbitHoleDepth"></span>
+    
+
+      <div class="depth-progress-wrapper">
+        <div class="depth-labels">
+        <span>토끼굴 깊이</span>
+        <span id="depth-count"><span id="currentRabbitHoleDepth"></span>
+          <span>/</span>
+        <span id="maxRabbitHoleDepth"></span></span>
+      </div>
+      <div class="depth-progress-bar">
+        <div id="depthProgress" class="depth-progress-inner"></div>
+      </div>
+</div>
+
 
       <div id="settingContainer" class="setting-container slide-out-bottom hidden">
         <div class="setting-content">

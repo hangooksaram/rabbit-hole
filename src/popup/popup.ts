@@ -6,8 +6,9 @@ import SettingUI from "./setting/settingUI";
 
 const renderPopup = (recentSearch?: History, rabbitHole?: RabbitHole) => {
   PopupUI.setRecentSearchQueryUI(recentSearch?.searchQuery);
-  PopupUI.setMaxRabbitHoleDepthUI();
-  PopupUI.setCurrentRabbitHoleDepthUI();
+  PopupUI.RabbitHoleDepth.setMaxRabbitHoleDepthUI();
+  PopupUI.RabbitHoleDepth.setCurrentRabbitHoleDepthUI();
+  PopupUI.RabbitHoleDepth.setDepthProgressUI();
 
   if (recentSearch) {
     PopupUI.toggleRecentSearchLabel();

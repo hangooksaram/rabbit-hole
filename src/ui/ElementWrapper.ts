@@ -5,6 +5,10 @@ export default class ElementWrapper<T extends HTMLElement> {
     this.el.innerHTML = value;
   }
 
+  getText(): string {
+    return this.el.textContent || "";
+  }
+
   getValue(): string {
     if (
       this.el instanceof HTMLInputElement ||
@@ -26,6 +30,10 @@ export default class ElementWrapper<T extends HTMLElement> {
         "setValue is only applicable to input or textarea elements."
       );
     }
+  }
+
+  setStyle(property: string, value: string) {
+    this.el.style.setProperty(property, value);
   }
 
   addClass(value: string) {
