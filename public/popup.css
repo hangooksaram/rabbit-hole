@@ -149,12 +149,18 @@ input[type="text"].number-input:focus {
   border: 2px solid var(--primary-color);
   color: var(--primary-color-deep);
   will-change: transform opacity;
-  white-space: nowrap;
+
   display: flex;
   align-items: center;
+}
+
+.recent-search-text {
+  min-width: 0;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .recent-search-label {
   width: 100%;
   text-align: left;

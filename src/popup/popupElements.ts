@@ -7,6 +7,9 @@ const PopupElements = {
   recentSearchContainer: new ElementWrapper(
     document.getElementById("recentSearchContainer") as HTMLElement
   ),
+  recentSearchText: new ElementWrapper(
+    document.getElementById("recentSearchText") as HTMLDivElement
+  ),
   recentSearchLabel: new ElementWrapper(
     document.getElementById("recentSearchLabel") as HTMLSpanElement
   ),

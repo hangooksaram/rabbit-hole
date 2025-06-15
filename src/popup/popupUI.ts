@@ -18,7 +18,7 @@ class PopupUI {
   static RabbitHoleDepth = RabbitHoleDepth;
 
   static setRecentSearchQueryUI(query: string | undefined) {
-    PopupElements.recentSearch.setText(query || noSearchQueryText);
+    PopupElements.recentSearchText.setText(query || noSearchQueryText);
   }
 
   static initRabbitHoleUI() {
