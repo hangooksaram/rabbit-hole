@@ -14,8 +14,8 @@
   },
 
   "icons": {
-    "16": "rabbit-hole-icon.png",
-    "48": "rabbit-hole-icon.png",
-    "128": "rabbit-hole-icon.png"
+    "16": "img/rabbit-hole-icon.png",
+    "48": "img/rabbit-hole-icon.png",
+    "128": "img/rabbit-hole-icon.png"
   }
 }

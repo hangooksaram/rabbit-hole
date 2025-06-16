@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>검색 추적기</title>
-    <link rel="stylesheet" href="./popup.css" />
+    <link rel="stylesheet" href="./css/popup.css" />
+    <link rel="stylesheet" href="./css/animation.css" />
+    <link rel="stylesheet" href="./css/common.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -11,7 +13,7 @@
   <body>
     <div class="container">
       <h2>Rabbit Hole</h2>
-      <img id="settingOpenButton" class="fixed-icon" src="/setting.svg" width="24" height="24" />
+      <img id="settingOpenButton" class="fixed-icon" src="/img/setting.svg" width="24" height="24" />
       <span class="recent-search-label" id="recentSearchLabel">최근 검색</span>
 
       <div class="recent-search-container" id="recentSearchContainer">
@@ -21,7 +23,7 @@
         </div>
         </div>
         <div class="create-rabbit-hole-image button" id="createRabbitHoleImage">
-          <img width="56px" height="56px" src="/create-rabbithole-image.png" />
+          <img width="56px" height="56px" src="/img/create-rabbithole-image.png" />
         </div>
       </div>
       
@@ -50,7 +52,7 @@
 
       <div id="settingContainer" class="setting-container slide-out-bottom hidden">
         <div class="setting-content">
-          <img id="closeSettingButton" class="fixed-icon" src="/x-icon.svg"/>
+          <img id="closeSettingButton" class="fixed-icon" src="/img/x-icon.svg"/>
           <h2>설정</h2>
           <ul class="setting-list">
             <li class="setting-item">

@@ -1,9 +1,9 @@
 import { History } from "../../chromeApi/storageDataType";
 
-const googleLogoImgPath = "/google-logo.png";
-const naverLogoImgPath = "/naver-logo.svg";
-const youtubeLogoImgPath = "/youtube-logo.jpeg";
-const defaultLogoImgPath = "/default-search-engine-logo.png";
+const googleLogoImgPath = "/img/google-logo.png";
+const naverLogoImgPath = "/img/naver-logo.svg";
+const youtubeLogoImgPath = "/img/youtube-logo.jpeg";
+const defaultLogoImgPath = "/img/default-search-engine-logo.png";
 
 export class RabbitHoleHistoryItem {
   private element: HTMLLIElement = document.createElement("li");
