@@ -1,4 +1,5 @@
 import ChromeStorage from "../../chromeApi/storageData";
+import { DEFAULT_RABBIT_HOLE_MAX_DEPTH } from "../../rabbitHole/rabbit-hole-constants";
 import PopupElements from "../popupElements";
 
 class RabbitHoleDepth {
@@ -9,7 +10,7 @@ class RabbitHoleDepth {
 
   static async getMaxDepth() {
     const setting = await ChromeStorage.get("setting");
-    return setting ? setting.maxHoleDepth : 0;
+    return setting ? setting.maxHoleDepth : DEFAULT_RABBIT_HOLE_MAX_DEPTH;
   }
 
   static setRabbitHoleDepthUI(holeDepth: number | undefined) {
