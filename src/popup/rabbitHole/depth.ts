@@ -4,12 +4,12 @@ import PopupElements from "../popupElements";
 class RabbitHoleDepth {
   static async getCurrentDepth() {
     const rabbitHole = await ChromeStorage.get("rabbitHole");
-    return rabbitHole.holeDepth;
+    return rabbitHole ? rabbitHole.holeDepth : 0;
   }
 
   static async getMaxDepth() {
     const setting = await ChromeStorage.get("setting");
-    return setting.maxHoleDepth;
+    return setting ? setting.maxHoleDepth : 0;
   }
 
   static setRabbitHoleDepthUI(holeDepth: number | undefined) {

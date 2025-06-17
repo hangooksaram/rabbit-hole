@@ -4,6 +4,7 @@ import {
   slideInBottomAnimation,
   slideOutBottomAnimation,
 } from "../constants";
+import RabbitHoleDepth from "../rabbitHole/depth";
 import SettingElements from "./settingElements";
 
 class SettingUI {
@@ -29,11 +30,9 @@ class SettingUI {
   }
 
   static async setMaxRabbitHoleDepthInputInitialValue() {
-    const setting = await ChromeStorage.get("setting");
+    const maxHoleDepth = await RabbitHoleDepth.getMaxDepth();
 
-    SettingElements.rabbitHoleDepthInput.setValue(
-      setting.maxHoleDepth.toString()
-    );
+    SettingElements.rabbitHoleDepthInput.setValue(maxHoleDepth.toString());
   }
 }
 

@@ -6,16 +6,22 @@ import SettingElements from "./settingElements";
 
 export const initSubmitSettingButton = async () => {
   SettingElements.submitSetting.addEvent("click", async (event) => {
-    const rabbitHoleDepth = SettingElements.rabbitHoleDepthInput.getValue();
-    event.preventDefault();
+    try {
+      const rabbitHoleDepth = SettingElements.rabbitHoleDepthInput.getValue();
+      event.preventDefault();
 
-    await ChromeStorage.set("setting", {
-      maxHoleDepth: Number(rabbitHoleDepth),
-    });
+      await ChromeStorage.set("setting", {
+        maxHoleDepth: Number(rabbitHoleDepth),
+      });
 
-    await PopupUI.RabbitHoleDepth.setMaxRabbitHoleDepthUI();
-    await PopupUI.RabbitHoleDepth.setDepthProgressUI();
-    await setBadgeConditional();
-    toast("저장이 완료되었습니다.");
+      await PopupUI.RabbitHoleDepth.setMaxRabbitHoleDepthUI();
+      await PopupUI.RabbitHoleDepth.setDepthProgressUI();
+      await setBadgeConditional();
+      toast("저장이 완료되었습니다.");
+    } catch (error) {
+      console.error("Error saving settings:", error);
+      toast("저장 중 오류가 발생했습니다.");
+    } finally {
+    }
   });
 };

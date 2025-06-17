@@ -31,7 +31,7 @@ const initPopup = async () => {
 
 const initSetting = async () => {
   await SettingUI.init();
-  initSubmitSettingButton();
+  await initSubmitSettingButton();
 };
 
 if (document.readyState === "loading") {
