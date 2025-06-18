@@ -33,22 +33,15 @@ class PopupUI {
     PopupElements.rabbitHoleHistory.appendChild(newRabbitHoleHistoryItem);
   }
 
-  static setRabbitHoleDepthUI(holeDepth: number | undefined) {
-    PopupElements.rabbitHoleDepth.setText(`토끼굴 깊이: ${holeDepth || 0}`);
-  }
-
   static initRabbitHoleOnClickStartButton() {
     PopupElements.createRabbitHoleImage.addEvent("click", async () => {
       const recentSearch = await ChromeStorage.get("recentSearch");
       initRabbitHole(recentSearch?.searchQuery || "", async () => {
         toast(newRabbitHoleText);
 
-        await PopupUI.RabbitHoleDepth.setCurrentRabbitHoleDepthUI();
-        await PopupUI.RabbitHoleDepth.setMaxRabbitHoleDepthUI();
-        await PopupUI.RabbitHoleDepth.setDepthProgressUI();
+        await PopupUI.setRabbitHoleDepthUI();
 
         PopupUI.initRabbitHoleUI();
-        PopupUI.setRabbitHoleDepthUI(0);
       });
     });
   }
@@ -65,6 +58,13 @@ class PopupUI {
       PopupElements.recentSearchLabel.setText(recentSearchQueryText);
       PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
     });
+  }
+
+  static async setRabbitHoleDepthUI() {
+    await PopupUI.RabbitHoleDepth.setMaxRabbitHoleDepthUI();
+    await PopupUI.RabbitHoleDepth.setCurrentRabbitHoleDepthUI();
+    await PopupUI.RabbitHoleDepth.setDepthProgressUI();
+    await PopupUI.RabbitHoleDepth.setDepthProgressStatusUI();
   }
 }
 

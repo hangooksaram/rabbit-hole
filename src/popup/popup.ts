@@ -4,11 +4,12 @@ import PopupUI from "./popupUI";
 import { initSubmitSettingButton } from "./setting/setting";
 import SettingUI from "./setting/settingUI";
 
-const renderPopup = (recentSearch?: History, rabbitHole?: RabbitHole) => {
+const initPopup = async () => {
+  const recentSearch: History = await ChromeStorage.get("recentSearch");
+  const rabbitHole: RabbitHole = await ChromeStorage.get("rabbitHole");
+
   PopupUI.setRecentSearchQueryUI(recentSearch?.searchQuery);
-  PopupUI.RabbitHoleDepth.setMaxRabbitHoleDepthUI();
-  PopupUI.RabbitHoleDepth.setCurrentRabbitHoleDepthUI();
-  PopupUI.RabbitHoleDepth.setDepthProgressUI();
+  await PopupUI.setRabbitHoleDepthUI();
 
   if (recentSearch) {
     PopupUI.toggleRecentSearchLabel();
@@ -20,13 +21,6 @@ const renderPopup = (recentSearch?: History, rabbitHole?: RabbitHole) => {
       PopupUI.setRabbitHoleHistoryItemUI(history);
     });
   }
-};
-
-const initPopup = async () => {
-  const recentSearch: History = await ChromeStorage.get("recentSearch");
-  const rabbitHole: RabbitHole = await ChromeStorage.get("rabbitHole");
-
-  renderPopup(recentSearch, rabbitHole);
 };
 
 const initSetting = async () => {

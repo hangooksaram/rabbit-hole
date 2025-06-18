@@ -39,13 +39,14 @@
 
       <div class="depth-progress-wrapper">
         <div class="depth-labels">
-        <span>토끼굴 깊이</span>
+        <span id="depthProgressStatus">토끼굴 깊이</span>
         <span id="depth-count"><span id="currentRabbitHoleDepth"></span>
           <span>/</span>
         <span id="maxRabbitHoleDepth"></span></span>
       </div>
-      <div class="depth-progress-bar">
+      <div class="depth-progress-bar" id="depthProgressBar">
         <div id="depthProgress" class="depth-progress-inner"></div>
+        <div class="tooltip hidden" id="depthTooltip">깊이 진행 상태</div>
       </div>
 </div>
 

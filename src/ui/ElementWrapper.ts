@@ -36,6 +36,14 @@ export default class ElementWrapper<T extends HTMLElement> {
     this.el.style.setProperty(property, value);
   }
 
+  removeStyle(property: string) {
+    this.el.style.removeProperty(property);
+  }
+
+  isPropertySet(property: string): boolean {
+    return this.el.style.getPropertyValue(property) !== "";
+  }
+
   addClass(value: string) {
     this.el.classList.add(value);
   }

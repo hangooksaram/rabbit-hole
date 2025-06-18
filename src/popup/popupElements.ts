@@ -44,6 +44,9 @@ const PopupElements = {
   depthProgress: new ElementWrapper(
     document.getElementById("depthProgress") as HTMLDivElement
   ),
+  depthProgressStatus: new ElementWrapper(
+    document.getElementById("depthProgressStatus") as HTMLSpanElement
+  ),
 };
 
 export default PopupElements;

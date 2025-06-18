@@ -14,8 +14,7 @@ export const initSubmitSettingButton = async () => {
         maxHoleDepth: Number(rabbitHoleDepth),
       });
 
-      await PopupUI.RabbitHoleDepth.setMaxRabbitHoleDepthUI();
-      await PopupUI.RabbitHoleDepth.setDepthProgressUI();
+      await PopupUI.setRabbitHoleDepthUI();
       await setBadgeConditional();
       toast("저장이 완료되었습니다.");
     } catch (error) {
