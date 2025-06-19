@@ -71,7 +71,7 @@ class PopupUI {
   }
 
   static setCurrentRabbitHoleGoalValueUI(goal: string) {
-    PopupElements.currentRabbitHoleGoalValue.setText(` ${goal} `);
+    PopupElements.currentRabbitHoleGoalValue.setText(`${goal}`);
   }
 }
 

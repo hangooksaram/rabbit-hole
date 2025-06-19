@@ -216,7 +216,9 @@
 
 .current-rabbit-hole-goal {
   display: flex;
+  gap: 4px;
   width: 100%;
   justify-content: flex-start;
+  align-items: center;
   text-align: left;
 }
