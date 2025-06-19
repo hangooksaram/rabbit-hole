@@ -13,9 +13,6 @@ const PopupElements = {
   recentSearchLabel: new ElementWrapper(
     document.getElementById("recentSearchLabel") as HTMLSpanElement
   ),
-  statusText: new ElementWrapper(
-    document.getElementById("statusText") as HTMLElement
-  ),
   rabbitHoleHistory: new ElementWrapper(
     document.getElementById("rabbitHoleHistory") as HTMLUListElement
   ),
@@ -46,6 +43,9 @@ const PopupElements = {
   ),
   depthProgressStatus: new ElementWrapper(
     document.getElementById("depthProgressStatus") as HTMLSpanElement
+  ),
+  currentRabbitHoleGoalValue: new ElementWrapper(
+    document.getElementById("currentRabbitHoleGoalValue") as HTMLSpanElement
   ),
 };
 

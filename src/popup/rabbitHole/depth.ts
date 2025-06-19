@@ -14,7 +14,7 @@ class RabbitHoleDepth {
 
   static async getMaxDepth() {
     const setting = await ChromeStorage.get("setting");
-    return setting ? setting.maxHoleDepth : DEFAULT_RABBIT_HOLE_MAX_DEPTH;
+    return setting.maxHoleDepth;
   }
 
   static async setDepthProgressStatusUI() {

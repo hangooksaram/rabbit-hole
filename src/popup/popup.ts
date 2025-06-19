@@ -8,10 +8,10 @@ const initPopup = async () => {
   const recentSearch: History = await ChromeStorage.get("recentSearch");
   const rabbitHole: RabbitHole = await ChromeStorage.get("rabbitHole");
 
-  PopupUI.setRecentSearchQueryUI(recentSearch?.searchQuery);
   await PopupUI.setRabbitHoleDepthUI();
 
   if (recentSearch) {
+    PopupUI.setRecentSearchQueryUI(recentSearch.searchQuery);
     PopupUI.toggleRecentSearchLabel();
     PopupUI.initRabbitHoleOnClickStartButton();
   }
@@ -20,6 +20,11 @@ const initPopup = async () => {
     rabbitHole?.history.forEach((history: History) => {
       PopupUI.setRabbitHoleHistoryItemUI(history);
     });
+    PopupUI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
+  } else {
+    PopupUI.setCurrentRabbitHoleGoalValueUI(
+      "아직 없어요. 새로운 토끼굴을 생성해 주세요!"
+    );
   }
 };
 

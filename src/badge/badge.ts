@@ -18,19 +18,20 @@ export const setBadge = ({ text, color }: { text: string; color: string }) => {
 };
 
 export const setBadgeConditional = async () => {
-  try {
-    const rabbitHole = await ChromeStorage.get("rabbitHole");
-    const setting = await ChromeStorage.get("setting");
+  const rabbitHole = await ChromeStorage.get("rabbitHole");
+  const setting = await ChromeStorage.get("setting");
 
-    const isTooDeepFromEntrance = rabbitHole.holeDepth >= setting.maxHoleDepth;
+  const isTooDeepFromEntrance = rabbitHole.holeDepth >= setting.maxHoleDepth;
 
-    if (isTooDeepFromEntrance) {
-      setBadge(badge.warning);
-      return;
-    }
-
-    setBadge(badge.default(rabbitHole.holeDepth));
-  } catch (e) {
-    setBadge(badge.default(0));
+  if (isTooDeepFromEntrance) {
+    setBadge(badge.warning);
+    return;
   }
+
+  if (rabbitHole) {
+    setBadge(badge.default(rabbitHole.holeDepth));
+    return;
+  }
+
+  setBadge(badge.default(0));
 };

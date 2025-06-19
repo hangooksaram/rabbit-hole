@@ -37,9 +37,12 @@ class PopupUI {
     PopupElements.createRabbitHoleImage.addEvent("click", async () => {
       const recentSearch = await ChromeStorage.get("recentSearch");
       initRabbitHole(recentSearch?.searchQuery || "", async () => {
+        const rabbitHole = await ChromeStorage.get("rabbitHole");
         toast(newRabbitHoleText);
 
         await PopupUI.setRabbitHoleDepthUI();
+
+        PopupUI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
 
         PopupUI.initRabbitHoleUI();
       });
@@ -65,6 +68,10 @@ class PopupUI {
     await PopupUI.RabbitHoleDepth.setCurrentRabbitHoleDepthUI();
     await PopupUI.RabbitHoleDepth.setDepthProgressUI();
     await PopupUI.RabbitHoleDepth.setDepthProgressStatusUI();
+  }
+
+  static setCurrentRabbitHoleGoalValueUI(goal: string) {
+    PopupElements.currentRabbitHoleGoalValue.setText(` ${goal} `);
   }
 }
 

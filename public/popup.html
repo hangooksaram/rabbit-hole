@@ -6,65 +6,87 @@
     <link rel="stylesheet" href="./css/popup.css" />
     <link rel="stylesheet" href="./css/animation.css" />
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
       <h2>Rabbit Hole</h2>
-      <img id="settingOpenButton" class="fixed-icon" src="/img/setting.svg" width="24" height="24" />
+      <img
+        id="settingOpenButton"
+        class="fixed-icon"
+        src="/img/setting.svg"
+        width="24"
+        height="24"
+      />
+      <div class="current-rabbit-hole-goal" id="currentRabbitHoleGoal">
+        <span>목표는 </span>
+        <span id="currentRabbitHoleGoalValue"></span>
+      </div>
+      <div class="depth-progress-wrapper">
+        <div class="depth-labels">
+          <span id="depthProgressStatus">토끼굴 깊이</span>
+          <span id="depth-count">
+            <span id="currentRabbitHoleDepth"></span>
+            <span>/</span>
+            <span id="maxRabbitHoleDepth"></span>
+          </span>
+        </div>
+        <div class="depth-progress-bar" id="depthProgressBar">
+          <div id="depthProgress" class="depth-progress-inner"></div>
+        </div>
+      </div>
       <span class="recent-search-label" id="recentSearchLabel">최근 검색</span>
 
       <div class="recent-search-container" id="recentSearchContainer">
         <div class="recent-search button" id="recentSearch">
-          <div class="recent-search-text" id="recentSearchText">
-          
-        </div>
+          <div class="recent-search-text" id="recentSearchText"></div>
         </div>
         <div class="create-rabbit-hole-image button" id="createRabbitHoleImage">
-          <img width="56px" height="56px" src="/img/create-rabbithole-image.png" />
+          <img
+            width="56px"
+            height="56px"
+            src="/img/create-rabbithole-image.png"
+          />
         </div>
       </div>
-      
-      </div>
 
-      <!-- <button id="startButton" class="start-button">새로운 토끼굴 생성</button> -->
+      <ul class="rabbit-hole-history" id="rabbitHoleHistory"></ul>
 
-      <p class="status" id="statusText"></p>
-
-        <ul class="rabbit-hole-history" id="rabbitHoleHistory"></ul>
-
-    
-
-      <div class="depth-progress-wrapper">
-        <div class="depth-labels">
-        <span id="depthProgressStatus">토끼굴 깊이</span>
-        <span id="depth-count"><span id="currentRabbitHoleDepth"></span>
-          <span>/</span>
-        <span id="maxRabbitHoleDepth"></span></span>
-      </div>
-      <div class="depth-progress-bar" id="depthProgressBar">
-        <div id="depthProgress" class="depth-progress-inner"></div>
-        <div class="tooltip hidden" id="depthTooltip">깊이 진행 상태</div>
-      </div>
-</div>
-
-
-      <div id="settingContainer" class="setting-container slide-out-bottom hidden">
+      <div
+        id="settingContainer"
+        class="setting-container slide-out-bottom hidden"
+      >
         <div class="setting-content">
-          <img id="closeSettingButton" class="fixed-icon" src="/img/x-icon.svg"/>
+          <img
+            id="closeSettingButton"
+            class="fixed-icon"
+            src="/img/x-icon.svg"
+          />
           <h2>설정</h2>
           <ul class="setting-list">
             <li class="setting-item">
-              <label class="setting-item-label" for="rabbit-hole-depth">토끼굴 깊이</label>
-              <input id="rabbitHoleDepthInput" class="rabbit-hole-depth-input" alt="input-rabbit-hole-depth" name="rabbit-hole-depth" type="number" min="1" max="10" step="1"/>
+              <label class="setting-item-label" for="rabbit-hole-depth"
+                >토끼굴 깊이</label
+              >
+              <input
+                id="rabbitHoleDepthInput"
+                class="rabbit-hole-depth-input"
+                alt="input-rabbit-hole-depth"
+                name="rabbit-hole-depth"
+                type="number"
+                min="1"
+                max="50"
+                step="1"
+              />
             </li>
           </ul>
           <button id="submit-setting" class="button">저장</button>
-          
         </div>
-        
       </div>
     </div>
     <script src="./js/popup.js"></script>
