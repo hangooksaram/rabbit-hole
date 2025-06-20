@@ -1,7 +1,10 @@
 import ChromeStorage from "../chromeApi/storageData";
 import { History, RabbitHole } from "../chromeApi/storageDataType";
 import PopupUI from "./popupUI";
-import { initSubmitSettingButton } from "./setting/setting";
+import {
+  addEnterEventToSubmitButton,
+  initSubmitSettingButton,
+} from "./setting/setting";
 import SettingUI from "./setting/settingUI";
 
 const initPopup = async () => {
@@ -31,6 +34,7 @@ const initPopup = async () => {
 const initSetting = async () => {
   await SettingUI.init();
   await initSubmitSettingButton();
+  addEnterEventToSubmitButton();
 };
 
 if (document.readyState === "loading") {

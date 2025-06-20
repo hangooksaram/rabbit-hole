@@ -74,4 +74,8 @@ export default class ElementWrapper<T extends HTMLElement> {
   appendChild(child: HTMLElement) {
     this.el.appendChild(child);
   }
+
+  click() {
+    this.el.click();
+  }
 }

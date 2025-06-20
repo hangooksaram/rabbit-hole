@@ -24,3 +24,12 @@ export const initSubmitSettingButton = async () => {
     }
   });
 };
+
+export const addEnterEventToSubmitButton = () => {
+  SettingElements.rabbitHoleDepthInput.addEvent("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      SettingElements.submitSetting.click();
+    }
+  });
+};
