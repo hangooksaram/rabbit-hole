@@ -24,7 +24,7 @@ class RabbitHoleDepth {
 
     for (let i = 0; i < depthProgressStatusCheckPoints.length; i++) {
       const checkPoint = depthProgressStatusCheckPoints[i];
-      const isInRange = p < Number(checkPoint);
+      const isInRange = p <= Number(checkPoint);
 
       if (isFull || isInRange) {
         RabbitHoleDepth.setDepthProgressStatusTextConditional(p, checkPoint);
@@ -43,7 +43,7 @@ class RabbitHoleDepth {
       return;
     }
 
-    if (p < Number(checkPoint)) {
+    if (p <= Number(checkPoint)) {
       PopupElements.depthProgressStatus.setText(
         depthProgressStatusText[checkPoint]
       );
@@ -87,6 +87,8 @@ class RabbitHoleDepth {
 
     if (currentDepthPercentage >= 100) {
       PopupElements.depthProgress.addClass("depth-progress-max");
+    } else if (PopupElements.depthProgress.hasClass("depth-progress-max")) {
+      PopupElements.depthProgress.removeClass("depth-progress-max");
     }
   }
 }

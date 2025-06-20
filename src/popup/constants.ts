@@ -4,7 +4,7 @@ const createNewRabbitHoleText = "새로운 토끼굴 생성하기!";
 const recentSearchQueryText = "최근 검색어";
 
 const depthProgressStatusCheckPoints: (keyof typeof depthProgressStatusText)[] =
-  [1, 25, 50, 75, 100, 125, 150, 175, 200];
+  [1, 25, 50, 75, 99, 100, 125, 150, 175, 200];
 
 const depthProgressStatusText = {
   1: "토끼굴 입구에서 멍하니 서 있는 중!",

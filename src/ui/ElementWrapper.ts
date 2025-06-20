@@ -48,6 +48,10 @@ export default class ElementWrapper<T extends HTMLElement> {
     this.el.classList.add(value);
   }
 
+  hasClass(value: string): boolean {
+    return this.el.classList.contains(value);
+  }
+
   removeClass(value: string) {
     this.el.classList.remove(value);
   }
