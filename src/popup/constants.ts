@@ -2,6 +2,8 @@ const noSearchQueryText = "감지된 검색이 없습니다.";
 const newRabbitHoleText = "새로운 Rabbit Hole이 생성되었습니다.";
 const createNewRabbitHoleText = "새로운 토끼굴 생성하기!";
 const recentSearchQueryText = "최근 검색어";
+const currentRabbitHoleGoalValueInitialText =
+  "아직 없어요. 새로운 토끼굴을 생성해 주세요!";
 
 const depthProgressStatusCheckPoints: (keyof typeof depthProgressStatusText)[] =
   [1, 25, 50, 75, 99, 100, 125, 150, 175, 200];
@@ -53,4 +55,5 @@ export {
   fadeOutAnimation,
   depthProgressStatusText,
   depthProgressStatusCheckPoints,
+  currentRabbitHoleGoalValueInitialText,
 };

@@ -1,5 +1,6 @@
 import ChromeStorage from "../chromeApi/storageData";
 import { History, RabbitHole } from "../chromeApi/storageDataType";
+import { currentRabbitHoleGoalValueInitialText } from "./constants";
 import PopupUI from "./popupUI";
 import {
   addEnterEventToSubmitButton,
@@ -26,7 +27,7 @@ const initPopup = async () => {
     PopupUI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
   } else {
     PopupUI.setCurrentRabbitHoleGoalValueUI(
-      "아직 없어요. 새로운 토끼굴을 생성해 주세요!"
+      currentRabbitHoleGoalValueInitialText
     );
   }
 };
