@@ -34,7 +34,7 @@ class PopupUI {
     PopupElements.rabbitHoleHistory.appendChild(newRabbitHoleHistoryItem);
   }
 
-  static initRabbitHoleOnClickStartButton() {
+  static addRabbitHoleStartButtonClickEvent() {
     PopupElements.createRabbitHoleImage.addEvent("click", async () => {
       const recentSearch = await ChromeStorage.get("recentSearch");
       initRabbitHole(recentSearch?.searchQuery || "", async () => {
@@ -51,7 +51,7 @@ class PopupUI {
     });
   }
 
-  static toggleRecentSearchLabel() {
+  static addToggleRecentSearchContentEvent() {
     PopupElements.recentSearchContainer.addEvent("mouseenter", () => {
       PopupElements.recentSearch.toggleClass(scaleDownAnimation);
       PopupElements.recentSearchLabel.setText(createNewRabbitHoleText);
