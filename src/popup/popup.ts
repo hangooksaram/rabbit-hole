@@ -14,7 +14,7 @@ const initPopup = async () => {
 
   await PopupUI.setRabbitHoleDepthUI();
 
-  PopupUI.setRecentSearchQueryUI(recentSearch.searchQuery);
+  PopupUI.setRecentSearchQueryUI(recentSearch?.searchQuery);
 
   if (recentSearch) {
     PopupUI.addToggleRecentSearchContentEvent();
