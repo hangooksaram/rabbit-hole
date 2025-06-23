@@ -46,7 +46,6 @@ class PopupUI {
         PopupUI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
 
         PopupUI.initRabbitHoleUI();
-        PopupUI.addCurrentRabbitHoleGoalValueAnimation();
       });
     });
   }
@@ -74,16 +73,6 @@ class PopupUI {
 
   static setCurrentRabbitHoleGoalValueUI(goal: string) {
     PopupElements.currentRabbitHoleGoalValue.setText(`${goal}`);
-
-    if (goal !== currentRabbitHoleGoalValueInitialText) {
-      PopupUI.addCurrentRabbitHoleGoalValueAnimation();
-    }
-  }
-
-  static addCurrentRabbitHoleGoalValueAnimation() {
-    if (!PopupElements.currentRabbitHoleGoalValue.hasClass("shake-lr")) {
-      PopupElements.currentRabbitHoleGoalValue.addClass("shake-lr");
-    }
   }
 }
 
