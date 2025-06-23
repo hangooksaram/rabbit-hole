@@ -7,7 +7,7 @@ export const badge = {
     color: "#FFA500",
   }),
   warning: {
-    text: "MAX",
+    text: "!",
     color: "red",
   },
 };

@@ -1,16 +1,25 @@
 body {
   width: 270px;
   height: 350px;
-  padding: 15px;
+  /* padding: 15px; */
   font-family: Arial, sans-serif;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
   font-family: "Noto Sans", "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
+header {
+  height: 40px;
+  display: flex;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 6px 150px var(--primary-color);
+}
+
 h2 {
+  color: white;
   margin-top: 0;
   margin-bottom: 8px;
   align-self: flex-start;
