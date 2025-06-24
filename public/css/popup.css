@@ -69,9 +69,6 @@
   padding: 15px;
 }
 
-.setting-submit-button {
-}
-
 .rabbit-hole-depth-input {
   width: 40%;
 }
@@ -203,6 +200,10 @@
   outline: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+#depth-count {
+  min-width: 29px;
+}
+
 .depth-labels {
   display: flex;
   justify-content: space-between;
@@ -246,7 +247,4 @@
 
 .current-rabbit-hole-goal #currentRabbitHoleGoalValue {
   font-weight: bold;
-}
-
-.logo {
 }

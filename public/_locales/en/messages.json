@@ -1,0 +1,78 @@
+{
+  "goalLabelText": {
+    "message": "Goal is",
+    "description": "Text for the goal input field"
+  },
+  "noSearchQueryText": {
+    "message": "No search query detected.",
+    "description": "Text displayed when no search query is detected"
+  },
+  "newRabbitHoleText": {
+    "message": "A new Rabbit Hole has been created.",
+    "description": "Text displayed when a new Rabbit Hole is created"
+  },
+  "createNewRabbitHoleText": {
+    "message": "Create a new Rabbit Hole!",
+    "description": "Button text for creating a new Rabbit Hole"
+  },
+  "recentSearchQueryText": {
+    "message": "Recent Search Queries",
+    "description": "Text for displaying recent search queries"
+  },
+  "currentRabbitHoleGoalValueInitialText": {
+    "message": "Not set yet.",
+    "description": "Text displayed when the Rabbit Hole goal is not set"
+  },
+  "depthProgressStatusText1": {
+    "message": "Standing idly at the entrance of the Rabbit Hole!",
+    "description": "Text displayed at depth level 1"
+  },
+  "depthProgressStatusText25": {
+    "message": "Taking a slight step inside!",
+    "description": "Text displayed at depth level 25"
+  },
+  "depthProgressStatusText50": {
+    "message": "Already halfway there.",
+    "description": "Text displayed at depth level 50"
+  },
+  "depthProgressStatusText75": {
+    "message": "Almost at the end.",
+    "description": "Text displayed at depth level 75"
+  },
+  "depthProgressStatusText99": {
+    "message": "Nearly there.",
+    "description": "Text displayed at depth level 99"
+  },
+  "depthProgressStatusText100": {
+    "message": "Maximum depth! Is this okay?",
+    "description": "Text displayed at depth level 100"
+  },
+  "depthProgressStatusText125": {
+    "message": "Try to recall what you were originally looking for!",
+    "description": "Text displayed at depth level 125"
+  },
+  "depthProgressStatusText150": {
+    "message": "You can still turn back!",
+    "description": "Text displayed at depth level 150"
+  },
+  "depthProgressStatusText175": {
+    "message": "Is the Rabbit Hole supposed to be this deep?",
+    "description": "Text displayed at depth level 175"
+  },
+  "depthProgressStatusText200": {
+    "message": "You've gone too far. You need to turn back!",
+    "description": "Text displayed at depth level 200"
+  },
+  "rabbitHoleDepthLabelText": {
+    "message": "Rabbit Hole Depth",
+    "description": "Label for displaying the Rabbit Hole depth"
+  },
+  "saveText": {
+    "message": "Save",
+    "description": "Text for the save button"
+  },
+  "settingText": {
+    "message": "Settings",
+    "description": "Text for the settings button"
+  }
+}

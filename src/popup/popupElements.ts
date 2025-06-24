@@ -47,6 +47,10 @@ const PopupElements = {
   currentRabbitHoleGoalValue: new ElementWrapper(
     document.getElementById("currentRabbitHoleGoalValue") as HTMLSpanElement
   ),
+
+  goalLabel: new ElementWrapper(
+    document.getElementById("goalLabel") as HTMLSpanElement
+  ),
 };
 
 export default PopupElements;

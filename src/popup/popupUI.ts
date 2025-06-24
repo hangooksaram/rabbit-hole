@@ -5,9 +5,11 @@ import toast from "../ui/toast";
 import {
   createNewRabbitHoleText,
   currentRabbitHoleGoalValueInitialText,
+  goalLabelText,
   kawaiAnimation,
   newRabbitHoleText,
   noSearchQueryText,
+  rabbitHoleDepthLabelText,
   recentSearchQueryText,
   scaleDownAnimation,
 } from "./constants";
@@ -73,6 +75,14 @@ class PopupUI {
 
   static setCurrentRabbitHoleGoalValueUI(goal: string) {
     PopupElements.currentRabbitHoleGoalValue.setText(`${goal}`);
+  }
+
+  static setGoalLabelText() {
+    PopupElements.goalLabel.setText(goalLabelText);
+  }
+
+  static setRecentSearchLabelText() {
+    PopupElements.recentSearchLabel.setText(recentSearchQueryText);
   }
 }
 

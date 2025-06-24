@@ -3,6 +3,7 @@
   "name": "Rabbit Hole",
   "version": "1.0.0",
   "description": "앨리스의 토끼굴 현상을 방지하기 위한 확장 프로그램",
+  "default_locale": "en",
   "action": {
     "default_popup": "popup.html"
   },

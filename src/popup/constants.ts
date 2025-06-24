@@ -1,23 +1,33 @@
-const noSearchQueryText = "감지된 검색이 없습니다.";
-const newRabbitHoleText = "새로운 Rabbit Hole이 생성되었습니다.";
-const createNewRabbitHoleText = "새로운 토끼굴 생성하기!";
-const recentSearchQueryText = "최근 검색어";
-const currentRabbitHoleGoalValueInitialText = "아직 없어요.";
+const goalLabelText = chrome.i18n.getMessage("goalLabelText");
+const rabbitHoleDepthLabelText = chrome.i18n.getMessage(
+  "rabbitHoleDepthLabelText"
+);
+const noSearchQueryText = chrome.i18n.getMessage("noSearchQueryText");
+const newRabbitHoleText = chrome.i18n.getMessage("newRabbitHoleText");
+const createNewRabbitHoleText = chrome.i18n.getMessage(
+  "createNewRabbitHoleText"
+);
+const recentSearchQueryText = chrome.i18n.getMessage("recentSearchQueryText");
+const currentRabbitHoleGoalValueInitialText = chrome.i18n.getMessage(
+  "currentRabbitHoleGoalValueInitialText"
+);
+const saveText = chrome.i18n.getMessage("saveText");
+const settingText = chrome.i18n.getMessage("settingText");
 
 const depthProgressStatusCheckPoints: (keyof typeof depthProgressStatusText)[] =
   [1, 25, 50, 75, 99, 100, 125, 150, 175, 200];
 
 const depthProgressStatusText = {
-  1: "토끼굴 입구에서 멍하니 서 있는 중!",
-  25: "슬쩍 들어가봅니다!",
-  50: "벌써 절반이네요.",
-  75: "곧 끝에 도착해요.",
-  99: "거의 다왔어요.",
-  100: "최대 깊이에요! 괜찮은거죠?",
-  125: "처음 찾고자 했던 게 뭔지 떠올려봅시다!",
-  150: "아직 돌아갈 수 있어요!",
-  175: "원래 토끼굴은 이렇게 깊은 건가요?",
-  200: "너무 멀리왔어요. 돌아가야 해요!",
+  1: chrome.i18n.getMessage("depthProgressStatusText1"),
+  25: chrome.i18n.getMessage("depthProgressStatusText25"),
+  50: chrome.i18n.getMessage("depthProgressStatusText50"),
+  75: chrome.i18n.getMessage("depthProgressStatusText75"),
+  99: chrome.i18n.getMessage("depthProgressStatusText99"),
+  100: chrome.i18n.getMessage("depthProgressStatusText100"),
+  125: chrome.i18n.getMessage("depthProgressStatusText125"),
+  150: chrome.i18n.getMessage("depthProgressStatusText150"),
+  175: chrome.i18n.getMessage("depthProgressStatusText175"),
+  200: chrome.i18n.getMessage("depthProgressStatusText200"),
 };
 
 const hiddenClass = "hidden";
@@ -55,4 +65,8 @@ export {
   depthProgressStatusText,
   depthProgressStatusCheckPoints,
   currentRabbitHoleGoalValueInitialText,
+  goalLabelText,
+  rabbitHoleDepthLabelText,
+  saveText,
+  settingText,
 };

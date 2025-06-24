@@ -1,0 +1,78 @@
+{
+  "goalLabelText": {
+    "message": "목표는",
+    "description": "목표 입력 필드에 대한 텍스트"
+  },
+  "noSearchQueryText": {
+    "message": "감지된 검색이 없습니다.",
+    "description": "검색이 감지되지 않았을 때 표시되는 텍스트"
+  },
+  "newRabbitHoleText": {
+    "message": "새로운 Rabbit Hole이 생성되었습니다.",
+    "description": "새로운 Rabbit Hole이 생성되었을 때 표시되는 텍스트"
+  },
+  "createNewRabbitHoleText": {
+    "message": "새로운 토끼굴 생성하기!",
+    "description": "새로운 Rabbit Hole을 생성하는 버튼 텍스트"
+  },
+  "recentSearchQueryText": {
+    "message": "최근 검색어",
+    "description": "최근 검색어를 표시하는 텍스트"
+  },
+  "currentRabbitHoleGoalValueInitialText": {
+    "message": "아직 없어요.",
+    "description": "Rabbit Hole 목표가 설정되지 않았을 때 표시되는 텍스트"
+  },
+  "depthProgressStatusText1": {
+    "message": "토끼굴 입구에서 멍하니 서 있는 중!",
+    "description": "깊이 레벨 1에서 표시되는 텍스트"
+  },
+  "depthProgressStatusText25": {
+    "message": "슬쩍 들어가봅니다!",
+    "description": "깊이 레벨 25에서 표시되는 텍스트"
+  },
+  "depthProgressStatusText50": {
+    "message": "벌써 절반이네요.",
+    "description": "깊이 레벨 50에서 표시되는 텍스트"
+  },
+  "depthProgressStatusText75": {
+    "message": "곧 끝에 도착해요.",
+    "description": "깊이 레벨 75에서 표시되는 텍스트"
+  },
+  "depthProgressStatusText99": {
+    "message": "거의 다왔어요.",
+    "description": "깊이 레벨 99에서 표시되는 텍스트"
+  },
+  "depthProgressStatusText100": {
+    "message": "최대 깊이에요! 괜찮은거죠?",
+    "description": "깊이 레벨 100에서 표시되는 텍스트"
+  },
+  "depthProgressStatusText125": {
+    "message": "처음 찾고자 했던 게 뭔지 떠올려봅시다!",
+    "description": "깊이 레벨 125에서 표시되는 텍스트"
+  },
+  "depthProgressStatusText150": {
+    "message": "아직 돌아갈 수 있어요!",
+    "description": "깊이 레벨 150에서 표시되는 텍스트"
+  },
+  "depthProgressStatusText175": {
+    "message": "원래 토끼굴은 이렇게 깊은 건가요?",
+    "description": "깊이 레벨 175에서 표시되는 텍스트"
+  },
+  "depthProgressStatusText200": {
+    "message": "너무 멀리왔어요. 돌아가야 해요!",
+    "description": "깊이 레벨 200에서 표시되는 텍스트"
+  },
+  "rabbitHoleDepthLabelText": {
+    "message": "토끼굴 깊이",
+    "description": "토끼굴 깊이를 표시하는 레이블"
+  },
+  "saveText": {
+    "message": "저장",
+    "description": "저장 버튼에 대한 텍스트"
+  },
+  "settingText": {
+    "message": "설정",
+    "description": "설정 버튼에 대한 텍스트"
+  }
+}

@@ -3,6 +3,7 @@ import ChromeStorage from "../../chromeApi/storageData";
 import toast from "../../ui/toast";
 import PopupUI from "../popupUI";
 import SettingElements from "./settingElements";
+import SettingUI from "./settingUI";
 
 export const initSubmitSettingButton = async () => {
   SettingElements.submitSetting.addEvent("click", async (event) => {
@@ -23,6 +24,12 @@ export const initSubmitSettingButton = async () => {
     } finally {
     }
   });
+};
+
+export const setSettingLabelTexts = () => {
+  SettingUI.setSubmitSettingButtonText();
+  SettingUI.setSettingLabelText();
+  SettingUI.setSettingItemLabelText();
 };
 
 export const addEnterEventToSubmitButton = () => {

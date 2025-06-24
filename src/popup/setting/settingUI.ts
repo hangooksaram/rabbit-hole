@@ -1,6 +1,9 @@
 import ChromeStorage from "../../chromeApi/storageData";
 import {
   hiddenClass,
+  rabbitHoleDepthLabelText,
+  saveText,
+  settingText,
   slideInBottomAnimation,
   slideOutBottomAnimation,
 } from "../constants";
@@ -33,6 +36,18 @@ class SettingUI {
     const maxHoleDepth = await RabbitHoleDepth.getMaxDepth();
 
     SettingElements.rabbitHoleDepthInput.setValue(maxHoleDepth.toString());
+  }
+
+  static setSubmitSettingButtonText() {
+    SettingElements.submitSetting.setText(saveText);
+  }
+
+  static setSettingLabelText() {
+    SettingElements.settingLabel.setText(settingText);
+  }
+
+  static setSettingItemLabelText() {
+    SettingElements.settingItemLabel.setText(rabbitHoleDepthLabelText);
   }
 }
 

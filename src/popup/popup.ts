@@ -5,6 +5,7 @@ import PopupUI from "./popupUI";
 import {
   addEnterEventToSubmitButton,
   initSubmitSettingButton,
+  setSettingLabelTexts,
 } from "./setting/setting";
 import SettingUI from "./setting/settingUI";
 
@@ -15,6 +16,7 @@ const initPopup = async () => {
   await PopupUI.setRabbitHoleDepthUI();
 
   PopupUI.setRecentSearchQueryUI(recentSearch?.searchQuery);
+  initLableTexts();
 
   if (recentSearch) {
     PopupUI.addToggleRecentSearchContentEvent();
@@ -33,10 +35,16 @@ const initPopup = async () => {
   }
 };
 
+const initLableTexts = () => {
+  PopupUI.setGoalLabelText();
+  PopupUI.setRecentSearchLabelText();
+};
+
 const initSetting = async () => {
   await SettingUI.init();
   await initSubmitSettingButton();
   addEnterEventToSubmitButton();
+  setSettingLabelTexts();
 };
 
 if (document.readyState === "loading") {

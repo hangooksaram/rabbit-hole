@@ -30,12 +30,12 @@
     </header>
     <div class="container">
       <div class="current-rabbit-hole-goal" id="currentRabbitHoleGoal">
-        <span>목표는 </span>
+        <span id="goalLabel"></span>
         <span id="currentRabbitHoleGoalValue" class="focus-in-expand"></span>
       </div>
       <div class="depth-progress-wrapper">
         <div class="depth-labels">
-          <span id="depthProgressStatus">토끼굴 깊이</span>
+          <span id="depthProgressStatus"></span>
           <span id="depth-count">
             <span id="currentRabbitHoleDepth"></span>
             <span>/</span>
@@ -46,7 +46,7 @@
           <div id="depthProgress" class="depth-progress-inner"></div>
         </div>
       </div>
-      <span class="recent-search-label" id="recentSearchLabel">최근 검색</span>
+      <span class="recent-search-label" id="recentSearchLabel"></span>
 
       <div class="recent-search-container" id="recentSearchContainer">
         <div class="recent-search button" id="recentSearch">
@@ -68,15 +68,17 @@
       class="setting-container slide-out-bottom hidden"
     >
       <header>
-        <div>설정</div>
+        <div id="settingLabel"></div>
         <img id="closeSettingButton" class="icon" src="/img/close-icon.svg" />
       </header>
       <div class="setting-content">
         <ul class="setting-list">
           <li class="setting-item">
-            <label class="setting-item-label" for="rabbit-hole-depth"
-              >토끼굴 깊이</label
-            >
+            <label
+              id="settingItemLabel"
+              class="setting-item-label"
+              for="rabbit-hole-depth"
+            ></label>
             <input
               id="rabbitHoleDepthInput"
               class="rabbit-hole-depth-input"
@@ -89,7 +91,7 @@
             />
           </li>
         </ul>
-        <button id="submit-setting" class="button">저장</button>
+        <button id="submit-setting" class="button"></button>
       </div>
     </div>
     <script src="./js/popup.js"></script>

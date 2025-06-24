@@ -16,6 +16,12 @@ const SettingElements = {
   submitSetting: new ElementWrapper(
     document.getElementById("submit-setting") as HTMLButtonElement
   ),
+  settingLabel: new ElementWrapper(
+    document.getElementById("settingLabel") as HTMLDivElement
+  ),
+  settingItemLabel: new ElementWrapper(
+    document.getElementById("settingItemLabel") as HTMLLabelElement
+  ),
 };
 
 export default SettingElements;
