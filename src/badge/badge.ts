@@ -4,7 +4,7 @@ import { DEFAULT_RABBIT_HOLE_MAX_DEPTH } from "../rabbitHole/rabbit-hole-constan
 export const badge = {
   default: (depth: number) => ({
     text: depth.toString(),
-    color: "#FFA500",
+    color: "#814fff",
   }),
   warning: {
     text: "!",
