@@ -2,7 +2,7 @@ import { History } from "../../chromeApi/storageDataType";
 
 const googleLogoImgPath = "/img/google-logo.png";
 const naverLogoImgPath = "/img/naver-logo.svg";
-const youtubeLogoImgPath = "/img/youtube-logo.jpeg";
+const youtubeLogoImgPath = "/img/youtube-logo.png";
 const defaultLogoImgPath = "/img/default-search-engine-logo.png";
 
 export class RabbitHoleHistoryItem {
