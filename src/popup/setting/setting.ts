@@ -1,6 +1,7 @@
 import { setBadgeConditional } from "../../badge/badge";
 import ChromeStorage from "../../chromeApi/storageData";
 import toast from "../../ui/toast";
+import { saveErrorText, saveSuccessText } from "../constants";
 import PopupUI from "../popupUI";
 import SettingElements from "./settingElements";
 import SettingUI from "./settingUI";
@@ -17,10 +18,10 @@ export const initSubmitSettingButton = async () => {
 
       await PopupUI.setRabbitHoleDepthUI();
       await setBadgeConditional();
-      toast("저장이 완료되었습니다.");
+      toast(saveSuccessText);
     } catch (error) {
       console.error("Error saving settings:", error);
-      toast("저장 중 오류가 발생했습니다.");
+      toast(saveErrorText);
     } finally {
     }
   });

@@ -74,5 +74,13 @@
   "settingText": {
     "message": "Settings",
     "description": "Text for the settings button"
+  },
+  "saveSuccessText": {
+    "message": "Saved successfully!",
+    "description": "Text displayed when settings are saved successfully"
+  },
+  "saveErrorText": {
+    "message": "Error saving settings.",
+    "description": "Text displayed when there is an error saving settings"
   }
 }
