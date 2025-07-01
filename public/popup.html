@@ -46,22 +46,30 @@
           <div id="depthProgress" class="depth-progress-inner"></div>
         </div>
       </div>
-      <span class="recent-search-label" id="recentSearchLabel"></span>
-
-      <div class="recent-search-container" id="recentSearchContainer">
-        <div class="recent-search button" id="recentSearch">
-          <div class="recent-search-text" id="recentSearchText"></div>
-        </div>
-        <div class="create-rabbit-hole-image button" id="createRabbitHoleImage">
-          <img
-            width="56px"
-            height="56px"
-            src="/img/create-rabbithole-image.png"
-          />
-        </div>
-      </div>
 
       <ul class="rabbit-hole-history" id="rabbitHoleHistory"></ul>
+      <div class="recent-search-container">
+        <span class="label" id="recentSearchLabel"></span>
+        <div class="recent-search-box" id="recentSearchBox">
+          <div class="recent-search button" id="recentSearch">
+            <div class="recent-search-text" id="recentSearchText"></div>
+          </div>
+          <div
+            class="create-rabbit-hole-image button"
+            id="createRabbitHoleImage"
+          >
+            <img
+              width="56px"
+              height="56px"
+              src="/img/create-rabbithole-image.png"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="close-rabbithole-container">
+        <span class="label" id="closeRabbitHoleLabel">토끼굴 닫기</span>
+        <button id="closeRabbitHoleButton" class="button"></button>
+      </div>
     </div>
     <div
       id="settingContainer"
