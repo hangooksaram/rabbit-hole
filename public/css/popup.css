@@ -13,6 +13,7 @@
   flex-direction: column;
   align-items: center;
   height: fit-content;
+  gap: 8px;
 }
 
 .setting-item {
@@ -148,7 +149,6 @@
 .rabbit-hole-history {
   position: relative;
   width: 100%;
-  margin-bottom: 8px;
   z-index: 1;
   max-height: 186px;
   overflow-y: auto;
@@ -191,7 +191,6 @@
 
 .depth-progress-wrapper {
   width: 100%;
-  margin: 10px 0 10px 0;
   position: relative;
 }
 
@@ -237,6 +236,13 @@
   background: var(--primary-color-deep);
 }
 
+.current-rabbit-hole-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .current-rabbit-hole-goal {
   font-size: 14px;
 
@@ -254,4 +260,16 @@
 
 .current-rabbit-hole-goal #currentRabbitHoleGoalValue {
   font-weight: bold;
+}
+
+.close-rabbit-hole-button {
+  width: fit-content;
+  min-width: 90px;
+  background-color: var(--primary-color-strong);
+  color: white;
+}
+
+.close-rabbit-hole-button:hover {
+  background-color: var(--primary-color);
+  transition: all 0.2s ease-in-out;
 }

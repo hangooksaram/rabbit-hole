@@ -28,6 +28,7 @@ const initPopup = async () => {
       PopupUI.setRabbitHoleHistoryItemUI(history);
     });
     PopupUI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
+    PopupUI.showCloseRabbitHoleButton();
   } else {
     PopupUI.setCurrentRabbitHoleGoalValueUI(
       currentRabbitHoleGoalValueInitialText
@@ -38,6 +39,7 @@ const initPopup = async () => {
 const initLableTexts = () => {
   PopupUI.setGoalLabelText();
   PopupUI.setRecentSearchLabelText();
+  PopupUI.setCloseRabbitHoleLabelText();
 };
 
 const initSetting = async () => {

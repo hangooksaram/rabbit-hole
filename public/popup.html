@@ -29,9 +29,16 @@
       />
     </header>
     <div class="container">
-      <div class="current-rabbit-hole-goal" id="currentRabbitHoleGoal">
-        <span id="goalLabel"></span>
-        <span id="currentRabbitHoleGoalValue" class="focus-in-expand"></span>
+      <div class="current-rabbit-hole-container">
+        <div class="current-rabbit-hole-goal" id="currentRabbitHoleGoal">
+          <span id="goalLabel"></span>
+          <span id="currentRabbitHoleGoalValue" class="focus-in-expand"></span>
+        </div>
+
+        <button
+          id="closeRabbitHoleButton"
+          class="button close-rabbit-hole-button hidden"
+        ></button>
       </div>
       <div class="depth-progress-wrapper">
         <div class="depth-labels">
@@ -65,10 +72,6 @@
             />
           </div>
         </div>
-      </div>
-      <div class="close-rabbithole-container">
-        <span class="label" id="closeRabbitHoleLabel">토끼굴 닫기</span>
-        <button id="closeRabbitHoleButton" class="button"></button>
       </div>
     </div>
     <div

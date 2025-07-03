@@ -4,8 +4,8 @@ const PopupElements = {
   recentSearch: new ElementWrapper(
     document.getElementById("recentSearch") as HTMLElement
   ),
-  recentSearchContainer: new ElementWrapper(
-    document.getElementById("recentSearchContainer") as HTMLElement
+  recentSearchBox: new ElementWrapper(
+    document.getElementById("recentSearchBox") as HTMLElement
   ),
   recentSearchText: new ElementWrapper(
     document.getElementById("recentSearchText") as HTMLDivElement
@@ -50,6 +50,12 @@ const PopupElements = {
 
   goalLabel: new ElementWrapper(
     document.getElementById("goalLabel") as HTMLSpanElement
+  ),
+  closeRabbitHoleLabel: new ElementWrapper(
+    document.getElementById("closeRabbitHoleLabel") as HTMLSpanElement
+  ),
+  closeRabbitHoleButton: new ElementWrapper(
+    document.getElementById("closeRabbitHoleButton") as HTMLButtonElement
   ),
 };
 

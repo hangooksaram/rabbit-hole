@@ -3,8 +3,8 @@ import { History } from "../chromeApi/storageDataType";
 import { initRabbitHole } from "../rabbitHole/rabbitHole";
 import toast from "../ui/toast";
 import {
+  closeRabbitHoleButtonText,
   createNewRabbitHoleText,
-  currentRabbitHoleGoalValueInitialText,
   goalLabelText,
   kawaiAnimation,
   newRabbitHoleText,
@@ -53,13 +53,13 @@ class PopupUI {
   }
 
   static addToggleRecentSearchContentEvent() {
-    PopupElements.recentSearchContainer.addEvent("mouseenter", () => {
+    PopupElements.recentSearchBox.addEvent("mouseenter", () => {
       PopupElements.recentSearch.toggleClass(scaleDownAnimation);
       PopupElements.recentSearchLabel.setText(createNewRabbitHoleText);
       PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
     });
 
-    PopupElements.recentSearchContainer.addEvent("mouseleave", () => {
+    PopupElements.recentSearchBox.addEvent("mouseleave", () => {
       PopupElements.recentSearch.toggleClass(scaleDownAnimation);
       PopupElements.recentSearchLabel.setText(recentSearchQueryText);
       PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
@@ -83,6 +83,14 @@ class PopupUI {
 
   static setRecentSearchLabelText() {
     PopupElements.recentSearchLabel.setText(recentSearchQueryText);
+  }
+
+  static setCloseRabbitHoleLabelText() {
+    PopupElements.closeRabbitHoleButton.setText(closeRabbitHoleButtonText);
+  }
+
+  static showCloseRabbitHoleButton() {
+    PopupElements.closeRabbitHoleButton.removeClass("hidden");
   }
 }
 
