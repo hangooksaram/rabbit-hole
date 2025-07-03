@@ -1,6 +1,8 @@
 import ChromeStorage from "../chromeApi/storageData";
 import { History } from "../chromeApi/storageDataType";
+import RabbitHoleDepth from "../rabbitHole/depth";
 import { initRabbitHole } from "../rabbitHole/rabbitHole";
+import { RabbitHoleHistoryItem } from "../rabbitHole/rabbitHoleHistoryItem";
 import toast from "../ui/toast";
 import {
   closeRabbitHoleButtonText,
@@ -14,8 +16,6 @@ import {
   scaleDownAnimation,
 } from "./constants";
 import PopupElements from "./popupElements";
-import RabbitHoleDepth from "./rabbitHole/depth";
-import { RabbitHoleHistoryItem } from "./rabbitHole/rabbitHoleHistoryItem";
 
 class PopupUI {
   static RabbitHoleDepth = RabbitHoleDepth;

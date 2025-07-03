@@ -1,10 +1,9 @@
-import ChromeStorage from "../../chromeApi/storageData";
-import { DEFAULT_RABBIT_HOLE_MAX_DEPTH } from "../../rabbitHole/rabbit-hole-constants";
+import ChromeStorage from "../chromeApi/storageData";
 import {
   depthProgressStatusCheckPoints,
   depthProgressStatusText,
-} from "../constants";
-import PopupElements from "../popupElements";
+} from "../popup/constants";
+import PopupElements from "../popup/popupElements";
 
 class RabbitHoleDepth {
   static async getCurrentDepth() {

@@ -1,4 +1,5 @@
 import ChromeStorage from "../../chromeApi/storageData";
+import RabbitHoleDepth from "../../rabbitHole/depth";
 import {
   hiddenClass,
   rabbitHoleDepthLabelText,
@@ -7,7 +8,6 @@ import {
   slideInBottomAnimation,
   slideOutBottomAnimation,
 } from "../constants";
-import RabbitHoleDepth from "../rabbitHole/depth";
 import SettingElements from "./settingElements";
 
 class SettingUI {

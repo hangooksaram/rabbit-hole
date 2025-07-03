@@ -1,4 +1,4 @@
-import { History } from "../../chromeApi/storageDataType";
+import { History } from "../chromeApi/storageDataType";
 
 const googleLogoImgPath = "/img/google-logo.png";
 const naverLogoImgPath = "/img/naver-logo.svg";
