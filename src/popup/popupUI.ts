@@ -44,6 +44,7 @@ class PopupUI {
         await PopupUI.setRabbitHoleDepthUI();
 
         PopupUI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
+        PopupUI.showCloseRabbitHoleButton();
 
         PopupUI.initRabbitHoleUI();
       });
@@ -89,6 +90,10 @@ class PopupUI {
 
   static showCloseRabbitHoleButton() {
     PopupElements.closeRabbitHoleButton.removeClass("hidden");
+  }
+
+  static hideCloseRabbitHoleButton() {
+    PopupElements.closeRabbitHoleButton.addClass("hidden");
   }
 }
 

@@ -81,7 +81,6 @@
 
 .button {
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,13 +110,12 @@
 .recent-search-box {
   width: 100%;
   position: relative;
-
-  margin-bottom: 15px;
-  height: 32px;
+  height: 48px;
 }
 .create-rabbit-hole-image {
   position: absolute;
   background-color: var(--primary-color) !important;
+  border: 2px solid var(--primary-color);
   opacity: 0;
 }
 .recent-search {
@@ -129,6 +127,7 @@
 
   display: flex;
   align-items: center;
+  height: 32px;
 }
 
 .recent-search-text {
@@ -240,7 +239,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .current-rabbit-hole-goal {
