@@ -13,8 +13,8 @@ const PopupElements = {
   recentSearchLabel: new ElementWrapper(
     document.getElementById("recentSearchLabel") as HTMLSpanElement
   ),
-  rabbitHoleHistory: new ElementWrapper(
-    document.getElementById("rabbitHoleHistory") as HTMLUListElement
+  rabbitHolePath: new ElementWrapper(
+    document.getElementById("rabbitHolePath") as HTMLUListElement
   ),
   rabbitHoleDepth: new ElementWrapper(
     document.getElementById("rabbitHoleDepth") as HTMLSpanElement

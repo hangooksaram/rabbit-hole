@@ -1,5 +1,5 @@
 import ChromeStorage from "../chromeApi/storageData";
-import { History, RabbitHole } from "../chromeApi/storageDataType";
+import { Path, RabbitHole } from "../chromeApi/storageDataType";
 import { currentRabbitHoleGoalValueInitialText } from "./constants";
 import PopupUI from "./popupUI";
 import {
@@ -10,7 +10,7 @@ import {
 import SettingUI from "../setting/settingUI";
 
 const initPopup = async () => {
-  const recentSearch: History = await ChromeStorage.get("recentSearch");
+  const recentSearch: Path = await ChromeStorage.get("recentSearch");
   const rabbitHole: RabbitHole = await ChromeStorage.get("rabbitHole");
 
   await PopupUI.setRabbitHoleDepthUI();
@@ -24,8 +24,8 @@ const initPopup = async () => {
   }
 
   if (rabbitHole) {
-    rabbitHole?.history.forEach((history: History) => {
-      PopupUI.setRabbitHoleHistoryItemUI(history);
+    rabbitHole?.path.forEach((path: Path) => {
+      PopupUI.setRabbitHolePathItemUI(path);
     });
     PopupUI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
     PopupUI.showCloseRabbitHoleButton();

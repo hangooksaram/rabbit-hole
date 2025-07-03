@@ -1,8 +1,8 @@
 import ChromeStorage from "../chromeApi/storageData";
-import { History } from "../chromeApi/storageDataType";
+import { Path } from "../chromeApi/storageDataType";
 import RabbitHoleDepth from "../rabbitHole/depth";
 import { initRabbitHole } from "../rabbitHole/rabbitHole";
-import { RabbitHoleHistoryItem } from "../rabbitHole/rabbitHoleHistoryItem";
+import { RabbitHolePathItem } from "../rabbitHole/rabbitHolePathItem";
 import toast from "../ui/toast";
 import {
   closeRabbitHoleButtonText,
@@ -25,15 +25,13 @@ class PopupUI {
   }
 
   static initRabbitHoleUI() {
-    PopupElements.rabbitHoleHistory.clearChildren();
+    PopupElements.rabbitHolePath.clearChildren();
   }
 
-  static setRabbitHoleHistoryItemUI(history: History) {
-    const newRabbitHoleHistoryItem = new RabbitHoleHistoryItem(
-      history
-    ).getElement();
+  static setRabbitHolePathItemUI(path: Path) {
+    const newRabbitHolePathItem = new RabbitHolePathItem(path).getElement();
 
-    PopupElements.rabbitHoleHistory.appendChild(newRabbitHoleHistoryItem);
+    PopupElements.rabbitHolePath.appendChild(newRabbitHolePathItem);
   }
 
   static addRabbitHoleStartButtonClickEvent() {

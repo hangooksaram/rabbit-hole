@@ -1,4 +1,4 @@
-interface History {
+interface Path {
   searchUrl?: string;
   searchQuery?: string;
   searchEngine?: string;
@@ -8,7 +8,7 @@ interface History {
 interface RabbitHole {
   query: string;
   holeDepth: number;
-  history: History[];
+  path: Path[];
 }
 
 interface Setting {
@@ -16,7 +16,7 @@ interface Setting {
 }
 
 export interface StorageData {
-  recentSearch: History;
+  recentSearch: Path;
   rabbitHole: RabbitHole;
   setting: Setting;
 }
