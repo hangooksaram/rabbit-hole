@@ -12,7 +12,7 @@ module.exports = {
     savePath: "./src/rabbitHole/savePath.ts",
     action: "./src/action.ts",
     badge: "./src/badge/badge.ts",
-    popup: "./src/popup/popup.ts",
+    popup: "./src/popup/popupController.ts",
   },
   output: {
     path: path.resolve(__dirname, "dist"),

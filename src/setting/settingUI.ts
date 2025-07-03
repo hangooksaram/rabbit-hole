@@ -8,21 +8,12 @@ import {
   slideOutBottomAnimation,
 } from "../popup/constants";
 import SettingElements from "./settingElements";
+import SettingEvents from "./settingEvents";
 
 class SettingUI {
   static async init() {
-    SettingUI.addSettingOpenAndCloseEvent();
+    SettingEvents.addSettingOpenAndCloseEvent();
     await SettingUI.setMaxRabbitHoleDepthInputInitialValue();
-  }
-
-  static addSettingOpenAndCloseEvent() {
-    SettingElements.settingOpenButton.addEvent("click", () => {
-      SettingUI.toggleSettingContainer();
-    });
-
-    SettingElements.settingCloseButton.addEvent("click", () => {
-      SettingUI.toggleSettingContainer();
-    });
   }
 
   static toggleSettingContainer() {

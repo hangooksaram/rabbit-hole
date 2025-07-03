@@ -6,8 +6,9 @@ import {
   addEnterEventToSubmitButton,
   initSubmitSettingButton,
   setSettingLabelTexts,
-} from "../setting/setting";
+} from "../setting/settingController";
 import SettingUI from "../setting/settingUI";
+import PopupEvents from "./popupEvents";
 
 const initPopup = async () => {
   const recentSearch: Path = await ChromeStorage.get("recentSearch");
@@ -19,8 +20,8 @@ const initPopup = async () => {
   initLableTexts();
 
   if (recentSearch) {
-    PopupUI.addToggleRecentSearchContentEvent();
-    PopupUI.addRabbitHoleStartButtonClickEvent();
+    PopupEvents.addToggleRecentSearchContentEvent();
+    PopupEvents.addRabbitHoleStartButtonClickEvent();
   }
 
   if (rabbitHole) {
