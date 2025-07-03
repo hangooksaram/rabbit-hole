@@ -6,8 +6,8 @@ import {
   addEnterEventToSubmitButton,
   initSubmitSettingButton,
   setSettingLabelTexts,
-} from "./setting/setting";
-import SettingUI from "./setting/settingUI";
+} from "../setting/setting";
+import SettingUI from "../setting/settingUI";
 
 const initPopup = async () => {
   const recentSearch: History = await ChromeStorage.get("recentSearch");

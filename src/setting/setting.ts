@@ -1,8 +1,8 @@
-import { setBadgeConditional } from "../../badge/badge";
-import ChromeStorage from "../../chromeApi/storageData";
-import toast from "../../ui/toast";
-import { saveErrorText, saveSuccessText } from "../constants";
-import PopupUI from "../popupUI";
+import { setBadgeConditional } from "../badge/badge";
+import ChromeStorage from "../chromeApi/storageData";
+import toast from "../ui/toast";
+import { saveErrorText, saveSuccessText } from "../popup/constants";
+import PopupUI from "../popup/popupUI";
 import SettingElements from "./settingElements";
 import SettingUI from "./settingUI";
 
