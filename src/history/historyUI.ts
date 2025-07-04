@@ -1,0 +1,29 @@
+import {
+  hiddenClass,
+  historyLabelText,
+  slideInBottomAnimation,
+  slideOutBottomAnimation,
+} from "../popup/constants";
+import HistoryElements from "./historyElements";
+
+class HistoryUI {
+  static toggleHistory() {
+    HistoryElements.historyContainer.toggleClass(hiddenClass);
+    HistoryElements.historyContainer.toggleClass(slideInBottomAnimation);
+    HistoryElements.historyContainer.toggleClass(slideOutBottomAnimation);
+  }
+
+  static closeHistoryPopup() {
+    HistoryElements.historyContainer.toggleClass(hiddenClass);
+  }
+
+  static setHitsoryLabelText() {
+    HistoryElements.hisotryLabel.setText(historyLabelText);
+  }
+
+  static setLabelTexts() {
+    HistoryUI.setHitsoryLabelText();
+  }
+}
+
+export default HistoryUI;

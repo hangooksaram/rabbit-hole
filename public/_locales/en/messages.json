@@ -94,5 +94,9 @@
   "closeSuccessText": {
     "message": "The Rabbit Hole has been closed.",
     "description": "Text displayed when the Rabbit Hole is successfully closed"
+  },
+  "historyLabelText": {
+    "message": "History",
+    "description": "Label for displaying Rabbit Hole history"
   }
 }

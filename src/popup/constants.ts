@@ -2,6 +2,7 @@ const goalLabelText = chrome.i18n.getMessage("goalLabelText");
 const rabbitHoleDepthLabelText = chrome.i18n.getMessage(
   "rabbitHoleDepthLabelText"
 );
+const historyLabelText = chrome.i18n.getMessage("historyLabelText");
 const noSearchQueryText = chrome.i18n.getMessage("noSearchQueryText");
 const newRabbitHoleText = chrome.i18n.getMessage("newRabbitHoleText");
 const createNewRabbitHoleText = chrome.i18n.getMessage(
@@ -79,4 +80,5 @@ export {
   saveErrorText,
   closeRabbitHoleButtonText,
   closeSuccessText,
+  historyLabelText,
 };

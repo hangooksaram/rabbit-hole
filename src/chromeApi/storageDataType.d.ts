@@ -15,6 +15,8 @@ interface Setting {
   maxHoleDepth: number;
 }
 
+interface History {}
+
 export interface StorageData {
   recentSearch: Path;
   rabbitHole: RabbitHole;

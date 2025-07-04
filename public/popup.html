@@ -80,10 +80,18 @@
         </div>
       </div>
     </div>
-    <div
-      id="settingContainer"
-      class="setting-container slide-out-bottom hidden"
-    >
+
+    <div id="historyContainer" class="menu-container slide-out-bottom hidden">
+      <header>
+        <div id="historyLabel"></div>
+        <img id="historyCloseButton" class="icon" src="/img/close-icon.svg" />
+      </header>
+      <div class="history-content">
+        <ul class="history-list" id="historyList"></ul>
+        <button id="clear-history-button" class="button"></button>
+      </div>
+    </div>
+    <div id="settingContainer" class="menu-container slide-out-bottom hidden">
       <header>
         <div id="settingLabel"></div>
         <img id="closeSettingButton" class="icon" src="/img/close-icon.svg" />

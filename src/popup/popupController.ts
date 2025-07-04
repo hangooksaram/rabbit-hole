@@ -9,6 +9,8 @@ import {
 } from "../setting/settingController";
 import SettingUI from "../setting/settingUI";
 import PopupEvents from "./popupEvents";
+import HistoryEvents from "../history/historyEvents";
+import HistoryUI from "../history/historyUI";
 
 const initPopup = async () => {
   const recentSearch: Path = await ChromeStorage.get("recentSearch");
@@ -51,14 +53,21 @@ const initSetting = async () => {
   setSettingLabelTexts();
 };
 
+const initHistory = () => {
+  HistoryEvents.addHistoryOpenAndCloseButtonEvent();
+  HistoryUI.setLabelTexts();
+};
+
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", async () => {
     await initPopup();
     await initSetting();
+    initHistory();
   });
 } else {
   (async () => {
     await initPopup();
     await initSetting();
+    initHistory();
   })();
 }
