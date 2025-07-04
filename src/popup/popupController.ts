@@ -30,6 +30,7 @@ const initPopup = async () => {
     });
     PopupUI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
     PopupUI.showCloseRabbitHoleButton();
+    PopupEvents.addCloseRabbitHoleButtonClickEvent();
   } else {
     PopupUI.setCurrentRabbitHoleGoalValueUI(
       currentRabbitHoleGoalValueInitialText

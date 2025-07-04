@@ -1,8 +1,10 @@
+import { setBadgeConditional } from "../badge/badge";
 import ChromeStorage from "../chromeApi/storageData";
 import { initRabbitHole } from "../rabbitHole/rabbitHole";
 import toast from "../ui/toast";
 import {
   createNewRabbitHoleText,
+  currentRabbitHoleGoalValueInitialText,
   kawaiAnimation,
   newRabbitHoleText,
   recentSearchQueryText,
@@ -25,6 +27,7 @@ class PopupEvents {
         PopupUI.showCloseRabbitHoleButton();
 
         PopupUI.initRabbitHoleUI();
+        await setBadgeConditional();
       });
     });
   }
@@ -40,6 +43,21 @@ class PopupEvents {
       PopupElements.recentSearch.toggleClass(scaleDownAnimation);
       PopupElements.recentSearchLabel.setText(recentSearchQueryText);
       PopupElements.createRabbitHoleImage.toggleClass(kawaiAnimation);
+    });
+  }
+
+  static addCloseRabbitHoleButtonClickEvent() {
+    PopupElements.closeRabbitHoleButton.addEvent("click", async () => {
+      await ChromeStorage.remove("rabbitHole");
+      await PopupUI.setRabbitHoleDepthUI();
+
+      PopupUI.hideCloseRabbitHoleButton();
+      PopupUI.initRabbitHoleUI();
+      PopupUI.setCurrentRabbitHoleGoalValueUI(
+        currentRabbitHoleGoalValueInitialText
+      );
+      await setBadgeConditional();
+      toast("Rabbit Hole closed");
     });
   }
 }

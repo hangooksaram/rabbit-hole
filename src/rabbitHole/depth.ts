@@ -8,6 +8,7 @@ import PopupElements from "../popup/popupElements";
 class RabbitHoleDepth {
   static async getCurrentDepth() {
     const rabbitHole = await ChromeStorage.get("rabbitHole");
+
     return rabbitHole ? rabbitHole.holeDepth : 0;
   }
 

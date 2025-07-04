@@ -8,3 +8,7 @@ export function initRabbitHole(query: string, cb?: () => void): void {
 
   chrome.runtime.sendMessage(updatedRabbitHole.holeDepth.toString());
 }
+
+export function closeRabbitHole(cb?: () => void): void {
+  ChromeStorage.remove("rabbitHole", cb);
+}

@@ -24,4 +24,16 @@ export default class ChromeStorage {
       });
     });
   }
+
+  static async remove<T extends keyof StorageData>(
+    key: T,
+    cb?: () => void
+  ): Promise<void> {
+    return new Promise((resolve) => {
+      chrome.storage.local.remove(key, () => {
+        resolve();
+        cb?.();
+      });
+    });
+  }
 }
