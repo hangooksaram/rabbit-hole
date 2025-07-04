@@ -90,5 +90,9 @@
   "closeRabbitHoleButtonText": {
     "message": "Close Rabbit Hole",
     "description": "Text for the button to close the Rabbit Hole"
+  },
+  "closeSuccessText": {
+    "message": "The Rabbit Hole has been closed.",
+    "description": "Text displayed when the Rabbit Hole is successfully closed"
   }
 }

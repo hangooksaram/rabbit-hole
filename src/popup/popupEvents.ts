@@ -3,6 +3,7 @@ import ChromeStorage from "../chromeApi/storageData";
 import { initRabbitHole } from "../rabbitHole/rabbitHole";
 import toast from "../ui/toast";
 import {
+  closeSuccessText,
   createNewRabbitHoleText,
   currentRabbitHoleGoalValueInitialText,
   kawaiAnimation,
@@ -57,7 +58,7 @@ class PopupEvents {
         currentRabbitHoleGoalValueInitialText
       );
       await setBadgeConditional();
-      toast("Rabbit Hole closed");
+      toast(closeSuccessText);
     });
   }
 }

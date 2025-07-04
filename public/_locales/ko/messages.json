@@ -90,5 +90,9 @@
   "closeRabbitHoleButtonText": {
     "message": "토끼굴 닫기",
     "description": "토끼굴을 닫는 버튼에 대한 텍스트"
+  },
+  "closeSuccessText": {
+    "message": "토끼굴이 닫혔습니다.",
+    "description": "토끼굴이 성공적으로 닫혔을 때 표시되는 텍스트"
   }
 }

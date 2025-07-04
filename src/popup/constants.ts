@@ -18,6 +18,7 @@ const saveErrorText = chrome.i18n.getMessage("saveErrorText");
 const closeRabbitHoleButtonText = chrome.i18n.getMessage(
   "closeRabbitHoleButtonText"
 );
+const closeSuccessText = chrome.i18n.getMessage("closeSuccessText");
 
 const depthProgressStatusCheckPoints: (keyof typeof depthProgressStatusText)[] =
   [1, 25, 50, 75, 99, 100, 125, 150, 175, 200];
@@ -77,4 +78,5 @@ export {
   saveSuccessText,
   saveErrorText,
   closeRabbitHoleButtonText,
+  closeSuccessText,
 };
