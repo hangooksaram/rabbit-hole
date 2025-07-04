@@ -1,7 +1,7 @@
 import { setBadgeConditional } from "../badge/badge";
 import ChromeStorage from "../chromeApi/storageData";
 import { Path } from "../chromeApi/storageDataType";
-import { saveRabbitHoleHistories } from "../rabbitHole/savePath";
+import { saveRabbitHolePaths } from "../rabbitHole/savePath";
 
 // 검색 엔진 URL 패턴 (예: 구글 검색)
 export const SEARCH_PATTERNS: string[] = [
@@ -37,7 +37,7 @@ chrome.tabs.onUpdated.addListener(async (_, changeInfo, tab) => {
     const rabbitHole = await ChromeStorage.get("rabbitHole");
 
     if (rabbitHole) {
-      await saveRabbitHoleHistories(newSearch);
+      await saveRabbitHolePaths(newSearch);
 
       await setBadgeConditional();
     }

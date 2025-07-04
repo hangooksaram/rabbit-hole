@@ -5,7 +5,7 @@ const isUrlDuplicated = (searchUrl: string, savedPath: Path[]): boolean => {
   return savedPath.some((item) => item.searchUrl === searchUrl);
 };
 
-export async function saveRabbitHoleHistories(newSearch: Path) {
+export async function saveRabbitHolePaths(newSearch: Path) {
   const { searchUrl } = newSearch;
 
   const rabbitHole = await ChromeStorage.get("rabbitHole");
