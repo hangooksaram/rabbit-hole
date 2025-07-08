@@ -9,7 +9,6 @@ module.exports = {
   entry: {
     background: "./src/background.ts",
     observeSearch: "./src/search/observeSearch.ts",
-    savePath: "./src/rabbitHole/savePath.ts",
     action: "./src/action.ts",
     badge: "./src/badge/badge.ts",
     popup: "./src/popup/popupController.ts",

@@ -9,6 +9,7 @@ import {
 } from "../popup/constants";
 import SettingElements from "./settingElements";
 import SettingEvents from "./settingEvents";
+import { getMaxRabbitHoleDepth } from "./setting";
 
 class SettingUI {
   static async init() {
@@ -23,7 +24,7 @@ class SettingUI {
   }
 
   static async setMaxRabbitHoleDepthInputInitialValue() {
-    const maxHoleDepth = await RabbitHoleDepth.getMaxDepth();
+    const maxHoleDepth = await getMaxRabbitHoleDepth();
 
     SettingElements.rabbitHoleDepthInput.setValue(maxHoleDepth.toString());
   }

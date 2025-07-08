@@ -9,6 +9,7 @@ interface RabbitHole {
   query: string;
   holeDepth: number;
   path: Path[];
+  percent: number;
 }
 
 interface Setting {

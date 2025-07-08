@@ -1,7 +1,7 @@
 import { setBadgeConditional } from "../badge/badge";
 import ChromeStorage from "../chromeApi/storageData";
 import { Path } from "../chromeApi/storageDataType";
-import { saveRabbitHolePaths } from "../rabbitHole/savePath";
+import { saveRabbitHolePaths } from "../rabbitHole/rabbitHole";
 
 // 검색 엔진 URL 패턴 (예: 구글 검색)
 export const SEARCH_PATTERNS: string[] = [
@@ -12,34 +12,45 @@ export const SEARCH_PATTERNS: string[] = [
 ];
 
 chrome.tabs.onUpdated.addListener(async (_, changeInfo, tab) => {
-  if (changeInfo.status === "complete" && tab.url !== undefined) {
-    const { url, title } = tab;
-    const isSearchUrl = SEARCH_PATTERNS.some((pattern) =>
-      url?.includes(pattern)
-    );
-    if (!isSearchUrl) {
-      return;
-    }
+  try {
+    if (isTabUpdated(changeInfo, tab)) {
+      const { url, title } = tab;
+      const isSearchUrl = SEARCH_PATTERNS.some((pattern) =>
+        url?.includes(pattern)
+      );
+      if (!isSearchUrl) {
+        return;
+      }
 
-    const searchQueryMatch = title?.match(/^(.*?)\s-\s(.*)$/);
-    const searchQuery = searchQueryMatch ? searchQueryMatch[1] : title;
-    const searchEngine = searchQueryMatch ? searchQueryMatch[2] : title;
+      const { searchQuery, searchEngine } = getSearchQueryAndEngine(title!);
 
-    const newSearch: Path = {
-      searchUrl: url,
-      searchQuery,
-      visitTime: new Date().getTime(),
-      searchEngine,
-    };
+      const newSearch: Path = {
+        searchUrl: url,
+        searchQuery,
+        visitTime: new Date().getTime(),
+        searchEngine,
+      };
 
-    ChromeStorage.set("recentSearch", newSearch);
+      ChromeStorage.set("recentSearch", newSearch);
 
-    const rabbitHole = await ChromeStorage.get("rabbitHole");
-
-    if (rabbitHole) {
       await saveRabbitHolePaths(newSearch);
-
       await setBadgeConditional();
     }
+  } catch (error) {
+    console.error("Error in onUpdated listener:", error);
   }
 });
+
+const isTabUpdated = (
+  changeInfo: chrome.tabs.TabChangeInfo,
+  tab: chrome.tabs.Tab
+) => {
+  return changeInfo.status === "complete" && tab.url !== undefined;
+};
+
+const getSearchQueryAndEngine = (title: string) => {
+  const searchQueryMatch = title?.match(/^(.*?)\s-\s(.*)$/);
+  const searchQuery = searchQueryMatch ? searchQueryMatch[1] : title;
+  const searchEngine = searchQueryMatch ? searchQueryMatch[2] : title;
+  return { searchQuery, searchEngine };
+};

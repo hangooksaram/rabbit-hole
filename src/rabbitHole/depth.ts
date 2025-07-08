@@ -4,6 +4,8 @@ import {
   depthProgressStatusText,
 } from "../popup/constants";
 import PopupElements from "../popup/popupElements";
+import { getMaxRabbitHoleDepth } from "../setting/setting";
+import { DEFAULT_RABBIT_HOLE_MAX_DEPTH } from "./rabbit-hole-constants";
 
 class RabbitHoleDepth {
   static async getCurrentDepth() {
@@ -12,13 +14,14 @@ class RabbitHoleDepth {
     return rabbitHole ? rabbitHole.holeDepth : 0;
   }
 
-  static async getMaxDepth() {
-    const setting = await ChromeStorage.get("setting");
-    return setting.maxHoleDepth;
+  static async getCurrentDepthPercentage() {
+    const rabbitHole = await ChromeStorage.get("rabbitHole");
+
+    return rabbitHole ? rabbitHole.percent : 0;
   }
 
   static async setDepthProgressStatusUI() {
-    const p = await RabbitHoleDepth.calculateCurrentDepthPercentage();
+    const p = await RabbitHoleDepth.getCurrentDepthPercentage();
 
     const isFull = p === 100;
 
@@ -53,7 +56,7 @@ class RabbitHoleDepth {
 
   static async setCurrentRabbitHoleDepthUI() {
     const holeDepth = await RabbitHoleDepth.getCurrentDepth();
-    const p = await RabbitHoleDepth.calculateCurrentDepthPercentage();
+    const p = await RabbitHoleDepth.getCurrentDepthPercentage();
     PopupElements.currentRabbitHoleDepth.setText(holeDepth.toString());
 
     if (p >= 100) {
@@ -67,22 +70,13 @@ class RabbitHoleDepth {
   }
 
   static async setMaxRabbitHoleDepthUI() {
-    const maxHoleDepth = await RabbitHoleDepth.getMaxDepth();
+    const maxHoleDepth = await getMaxRabbitHoleDepth();
     PopupElements.maxRabbitHoleDepth.setText(maxHoleDepth.toString());
-  }
-
-  static async calculateCurrentDepthPercentage() {
-    const maxHoleDepth = await RabbitHoleDepth.getMaxDepth();
-    const holeDepth = await RabbitHoleDepth.getCurrentDepth();
-    const currentDepthPercentage = (100 * holeDepth) / maxHoleDepth;
-
-    return currentDepthPercentage;
   }
 
   static async setDepthProgressUI() {
     const currentDepthPercentage =
-      await RabbitHoleDepth.calculateCurrentDepthPercentage();
-
+      await RabbitHoleDepth.getCurrentDepthPercentage();
     PopupElements.depthProgress.setStyle("width", `${currentDepthPercentage}%`);
 
     if (currentDepthPercentage >= 100) {
