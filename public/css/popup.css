@@ -72,7 +72,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-.setting-content {
+.menu-content {
   padding: 15px;
 }
 
@@ -277,4 +277,27 @@
 .close-rabbit-hole-button:hover {
   background-color: var(--primary-color);
   transition: all 0.2s ease-in-out;
+}
+
+.history-item-query {
+  font-weight: bold;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 8px;
+  cursor: pointer;
+
+  background-color: var(--primary-color);
 }

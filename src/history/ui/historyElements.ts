@@ -10,6 +10,9 @@ const HistoryElements = {
   historyContainer: new ElementWrapper(
     document.getElementById("historyContainer") as HTMLDivElement
   ),
+  historyList: new ElementWrapper(
+    document.getElementById("historyList") as HTMLUListElement
+  ),
   hisotryLabel: new ElementWrapper(
     document.getElementById("historyLabel") as HTMLDivElement
   ),

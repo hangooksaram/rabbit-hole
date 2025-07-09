@@ -29,7 +29,7 @@ class HistoryUI {
 
   static setHistoryItemUI(historyItem: RabbitHole) {
     const newHistoryItem = new HistoryItem(historyItem).getElement();
-    HistoryElements.historyContainer.appendChild(newHistoryItem);
+    HistoryElements.historyList.appendChild(newHistoryItem);
   }
 }
 

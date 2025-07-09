@@ -24,13 +24,8 @@ class HistoryItem {
     percentElement.innerText = `${this.history.percent}%`;
     percentElement.classList.add("history-item-percent");
 
-    const containerElement = document.createElement("div");
-    containerElement.style.display = "flex";
-    containerElement.style.justifyContent = "space-between";
-    containerElement.appendChild(searchQueryElement);
-    containerElement.appendChild(percentElement);
-
-    this.element.appendChild(containerElement);
+    this.element.appendChild(searchQueryElement);
+    this.element.appendChild(percentElement);
   }
 }
 
