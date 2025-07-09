@@ -8,9 +8,6 @@ module.exports = {
   mode: "production",
   entry: {
     background: "./src/background.ts",
-    observeSearch: "./src/search/observeSearch.ts",
-    action: "./src/action.ts",
-    badge: "./src/badge/badge.ts",
     popup: "./src/popup.ts",
   },
   output: {

@@ -1,2 +1,1 @@
-import "./action.ts";
-import "./search/observeSearch.ts";
+import "./backgroundActions/index.ts";

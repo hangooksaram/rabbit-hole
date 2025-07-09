@@ -3,14 +3,6 @@ import ChromeStorage from "../chromeApi/storageData";
 import { Path } from "../chromeApi/storageDataType";
 import { saveRabbitHolePaths } from "../rabbitHole/rabbitHole";
 
-// 검색 엔진 URL 패턴 (예: 구글 검색)
-export const SEARCH_PATTERNS: string[] = [
-  "google.com/search?q=",
-  "search.naver.com/search.naver?query=",
-  "search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=",
-  "youtube.com/results?search_query=",
-];
-
 chrome.tabs.onUpdated.addListener(async (_, changeInfo, tab) => {
   try {
     if (isTabUpdated(changeInfo, tab)) {
@@ -40,6 +32,13 @@ chrome.tabs.onUpdated.addListener(async (_, changeInfo, tab) => {
     console.error("Error in onUpdated listener:", error);
   }
 });
+
+export const SEARCH_PATTERNS: string[] = [
+  "google.com/search?q=",
+  "search.naver.com/search.naver?query=",
+  "search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=",
+  "youtube.com/results?search_query=",
+];
 
 const isTabUpdated = (
   changeInfo: chrome.tabs.TabChangeInfo,
