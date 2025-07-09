@@ -1,3 +1,4 @@
+import { RabbitHole } from "../chromeApi/storageDataType";
 import {
   hiddenClass,
   historyLabelText,
@@ -5,6 +6,7 @@ import {
   slideOutBottomAnimation,
 } from "../popup/constants";
 import HistoryElements from "./historyElements";
+import HistoryItem from "./historyItem";
 
 class HistoryUI {
   static toggleHistory() {
@@ -23,6 +25,11 @@ class HistoryUI {
 
   static setLabelTexts() {
     HistoryUI.setHitsoryLabelText();
+  }
+
+  static setHistoryItemUI(historyItem: RabbitHole) {
+    const newHistoryItem = new HistoryItem(historyItem).getElement();
+    HistoryElements.historyContainer.appendChild(newHistoryItem);
   }
 }
 

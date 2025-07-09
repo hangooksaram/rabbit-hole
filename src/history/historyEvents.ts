@@ -1,3 +1,5 @@
+import ChromeStorage from "../chromeApi/storageData";
+import { appendHistory } from "./history";
 import HistoryElements from "./historyElements";
 import HistoryUI from "./historyUI";
 

@@ -1,5 +1,7 @@
 import { setBadgeConditional } from "../badge/badge";
 import ChromeStorage from "../chromeApi/storageData";
+import { appendHistory } from "../history/history";
+import HistoryEvents from "../history/historyEvents";
 import { initRabbitHole } from "../rabbitHole/rabbitHole";
 import toast from "../ui/toast";
 import {
@@ -49,6 +51,8 @@ class PopupEvents {
 
   static addCloseRabbitHoleButtonClickEvent() {
     PopupElements.closeRabbitHoleButton.addEvent("click", async () => {
+      const currentRabbitHole = await ChromeStorage.get("rabbitHole");
+      await appendHistory(currentRabbitHole);
       await ChromeStorage.remove("rabbitHole");
       await PopupUI.setRabbitHoleDepthUI();
 
