@@ -3,9 +3,8 @@ import {
   depthProgressStatusCheckPoints,
   depthProgressStatusText,
 } from "../popup/constants";
-import PopupElements from "../popup/popupElements";
-import { getMaxRabbitHoleDepth } from "../setting/setting";
-import { DEFAULT_RABBIT_HOLE_MAX_DEPTH } from "./rabbit-hole-constants";
+import PopupElements from "../popup/ui/popupElements";
+import Setting from "../setting/setting";
 
 class RabbitHoleDepth {
   static async getCurrentDepth() {
@@ -70,7 +69,7 @@ class RabbitHoleDepth {
   }
 
   static async setMaxRabbitHoleDepthUI() {
-    const maxHoleDepth = await getMaxRabbitHoleDepth();
+    const maxHoleDepth = await Setting.Controller.getMaxRabbitHoleDepth();
     PopupElements.maxRabbitHoleDepth.setText(maxHoleDepth.toString());
   }
 

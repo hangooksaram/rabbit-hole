@@ -1,20 +1,11 @@
-import ChromeStorage from "../chromeApi/storageData";
-import { RabbitHole } from "../chromeApi/storageDataType";
+import HistoryController from "./historyController";
+import HistoryEvents from "./historyEvents";
+import HistoryUI from "./ui/historyUI";
 
-const appendHistory = async (newHistory: RabbitHole) => {
-  try {
-    const history = await ChromeStorage.get("history");
-    let newHistoryList: RabbitHole[] = [];
-    if (history) {
-      newHistoryList = [...history, newHistory];
-    } else {
-      newHistoryList = [newHistory];
-    }
+class History {
+  static UI = HistoryUI;
+  static Events = HistoryEvents;
+  static Controller = HistoryController;
+}
 
-    await ChromeStorage.set("history", newHistoryList);
-  } catch (error) {
-    console.error("Error adding history:", error);
-  }
-};
-
-export { appendHistory };
+export default History;

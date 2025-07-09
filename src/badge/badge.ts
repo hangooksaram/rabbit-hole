@@ -1,5 +1,5 @@
 import ChromeStorage from "../chromeApi/storageData";
-import { DEFAULT_RABBIT_HOLE_MAX_DEPTH } from "../rabbitHole/rabbit-hole-constants";
+import { DEFAULT_RABBIT_HOLE_MAX_DEPTH } from "../rabbitHole/constants";
 
 export const badge = {
   default: (depth: number) => ({

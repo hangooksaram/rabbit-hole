@@ -1,7 +1,11 @@
-import ChromeStorage from "../chromeApi/storageData";
-import { DEFAULT_RABBIT_HOLE_MAX_DEPTH } from "../rabbitHole/rabbit-hole-constants";
+import SettingController from "./settingController";
+import SettingEvents from "./settingEvents";
+import SettingUI from "./ui/settingUI";
 
-export const getMaxRabbitHoleDepth = async (): Promise<number> => {
-  const setting = await ChromeStorage.get("setting");
-  return setting.maxHoleDepth;
-};
+class Setting {
+  static UI = SettingUI;
+  static Events = SettingEvents;
+  static Controller = SettingController;
+}
+
+export default Setting;

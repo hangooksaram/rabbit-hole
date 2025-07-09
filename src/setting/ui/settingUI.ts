@@ -1,4 +1,3 @@
-import RabbitHoleDepth from "../rabbitHole/depth";
 import {
   hiddenClass,
   rabbitHoleDepthLabelText,
@@ -6,15 +5,14 @@ import {
   settingText,
   slideInBottomAnimation,
   slideOutBottomAnimation,
-} from "../popup/constants";
+} from "../../popup/constants";
 import SettingElements from "./settingElements";
-import SettingEvents from "./settingEvents";
-import { getMaxRabbitHoleDepth } from "./setting";
+import Setting from "../setting";
 
 class SettingUI {
   static async init() {
-    SettingEvents.addSettingOpenAndCloseEvent();
-    await SettingUI.setMaxRabbitHoleDepthInputInitialValue();
+    Setting.Events.addSettingOpenAndCloseEvent();
+    await Setting.UI.setMaxRabbitHoleDepthInputInitialValue();
   }
 
   static toggleSettingContainer() {
@@ -24,7 +22,7 @@ class SettingUI {
   }
 
   static async setMaxRabbitHoleDepthInputInitialValue() {
-    const maxHoleDepth = await getMaxRabbitHoleDepth();
+    const maxHoleDepth = await Setting.Controller.getMaxRabbitHoleDepth();
 
     SettingElements.rabbitHoleDepthInput.setValue(maxHoleDepth.toString());
   }

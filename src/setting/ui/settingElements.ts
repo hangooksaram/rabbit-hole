@@ -1,4 +1,4 @@
-import ElementWrapper from "../ui/ElementWrapper";
+import ElementWrapper from "../../ui/ElementWrapper";
 
 const SettingElements = {
   settingContainer: new ElementWrapper(

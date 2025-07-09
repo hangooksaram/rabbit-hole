@@ -1,16 +1,41 @@
 import ChromeStorage from "../chromeApi/storageData";
-import HistoryUI from "./historyUI";
+import { RabbitHole } from "../chromeApi/storageDataType";
+import History from "./history";
 
-const initHistoryList = async () => {
-  try {
-    const histories = await ChromeStorage.get("history");
+class HistoryController {
+  static initHistoryList = async () => {
+    try {
+      const histories = await ChromeStorage.get("history");
 
-    histories?.forEach((history) => {
-      HistoryUI.setHistoryItemUI(history);
-    });
-  } catch (error) {
-    console.error("Error initializing history list:", error);
-  }
-};
+      histories?.forEach((history) => {
+        History.UI.setHistoryItemUI(history);
+      });
+    } catch (error) {
+      console.error("Error initializing history list:", error);
+    }
+  };
 
-export { initHistoryList };
+  static initHistory = async () => {
+    History.Events.addHistoryOpenAndCloseButtonEvent();
+    History.UI.setLabelTexts();
+    await HistoryController.initHistoryList();
+  };
+
+  static appendHistory = async (newHistory: RabbitHole) => {
+    try {
+      const history = await ChromeStorage.get("history");
+      let newHistoryList: RabbitHole[] = [];
+      if (history) {
+        newHistoryList = [...history, newHistory];
+      } else {
+        newHistoryList = [newHistory];
+      }
+
+      await ChromeStorage.set("history", newHistoryList);
+    } catch (error) {
+      console.error("Error adding history:", error);
+    }
+  };
+}
+
+export default HistoryController;

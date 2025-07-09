@@ -1,4 +1,4 @@
-import ElementWrapper from "../ui/ElementWrapper";
+import ElementWrapper from "../../ui/ElementWrapper";
 
 const PopupElements = {
   recentSearch: new ElementWrapper(
@@ -27,15 +27,6 @@ const PopupElements = {
   ),
   maxRabbitHoleDepth: new ElementWrapper(
     document.getElementById("maxRabbitHoleDepth") as HTMLSpanElement
-  ),
-  settingContainer: new ElementWrapper(
-    document.getElementById("settingContainer") as HTMLDivElement
-  ),
-  settingOpenButton: new ElementWrapper(
-    document.getElementById("settingOpenButton") as HTMLImageElement
-  ),
-  settingCloseButton: new ElementWrapper(
-    document.getElementById("closeSettingButton") as HTMLImageElement
   ),
 
   depthProgress: new ElementWrapper(

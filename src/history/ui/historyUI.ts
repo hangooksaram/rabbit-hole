@@ -1,10 +1,10 @@
-import { RabbitHole } from "../chromeApi/storageDataType";
+import { RabbitHole } from "../../chromeApi/storageDataType";
 import {
   hiddenClass,
   historyLabelText,
   slideInBottomAnimation,
   slideOutBottomAnimation,
-} from "../popup/constants";
+} from "../../popup/constants";
 import HistoryElements from "./historyElements";
 import HistoryItem from "./historyItem";
 

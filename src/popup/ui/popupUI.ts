@@ -1,12 +1,12 @@
-import { Path } from "../chromeApi/storageDataType";
-import RabbitHoleDepth from "../rabbitHole/depth";
-import { RabbitHolePathItem } from "../rabbitHole/rabbitHolePathItem";
+import { Path } from "../../chromeApi/storageDataType";
+import RabbitHoleDepth from "../../rabbitHole/depth";
+import { RabbitHolePathItem } from "../../rabbitHole/rabbitHolePathItem";
 import {
   closeRabbitHoleButtonText,
   goalLabelText,
   noSearchQueryText,
   recentSearchQueryText,
-} from "./constants";
+} from "../constants";
 import PopupElements from "./popupElements";
 
 class PopupUI {

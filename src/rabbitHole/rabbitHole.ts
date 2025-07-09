@@ -1,7 +1,6 @@
 import { Path, RabbitHole } from "../chromeApi/storageDataType";
 import ChromeStorage from "../chromeApi/storageData";
-import RabbitHoleDepth from "./depth";
-import { getMaxRabbitHoleDepth } from "../setting/setting";
+import SettingController from "../setting/settingController";
 
 export function initRabbitHole(query: string, cb?: () => void): void {
   const updatedRabbitHole: RabbitHole = {
@@ -27,7 +26,7 @@ const isUrlDuplicated = (searchUrl: string, savedPath: Path[]): boolean => {
 export async function saveRabbitHolePaths(newSearch: Path) {
   try {
     const rabbitHole = await ChromeStorage.get("rabbitHole");
-    const maxHoleDepth = await getMaxRabbitHoleDepth();
+    const maxHoleDepth = (await ChromeStorage.get("setting")).maxHoleDepth;
 
     const { searchUrl } = newSearch;
 

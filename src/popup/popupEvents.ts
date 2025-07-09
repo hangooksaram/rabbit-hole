@@ -1,7 +1,6 @@
 import { setBadgeConditional } from "../badge/badge";
 import ChromeStorage from "../chromeApi/storageData";
-import { appendHistory } from "../history/history";
-import HistoryEvents from "../history/historyEvents";
+import History from "../history/history";
 import { initRabbitHole } from "../rabbitHole/rabbitHole";
 import toast from "../ui/toast";
 import {
@@ -13,8 +12,8 @@ import {
   recentSearchQueryText,
   scaleDownAnimation,
 } from "./constants";
-import PopupElements from "./popupElements";
-import PopupUI from "./popupUI";
+import Popup from "./popup";
+import PopupElements from "./ui/popupElements";
 
 class PopupEvents {
   static addRabbitHoleStartButtonClickEvent() {
@@ -24,12 +23,12 @@ class PopupEvents {
         const rabbitHole = await ChromeStorage.get("rabbitHole");
         toast(newRabbitHoleText);
 
-        await PopupUI.setRabbitHoleDepthUI();
+        await Popup.UI.setRabbitHoleDepthUI();
 
-        PopupUI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
-        PopupUI.showCloseRabbitHoleButton();
+        Popup.UI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
+        Popup.UI.showCloseRabbitHoleButton();
 
-        PopupUI.initRabbitHoleUI();
+        Popup.UI.initRabbitHoleUI();
         await setBadgeConditional();
       });
     });
@@ -52,13 +51,13 @@ class PopupEvents {
   static addCloseRabbitHoleButtonClickEvent() {
     PopupElements.closeRabbitHoleButton.addEvent("click", async () => {
       const currentRabbitHole = await ChromeStorage.get("rabbitHole");
-      await appendHistory(currentRabbitHole);
+      await History.Controller.appendHistory(currentRabbitHole);
       await ChromeStorage.remove("rabbitHole");
-      await PopupUI.setRabbitHoleDepthUI();
+      await Popup.UI.setRabbitHoleDepthUI();
 
-      PopupUI.hideCloseRabbitHoleButton();
-      PopupUI.initRabbitHoleUI();
-      PopupUI.setCurrentRabbitHoleGoalValueUI(
+      Popup.UI.hideCloseRabbitHoleButton();
+      Popup.UI.initRabbitHoleUI();
+      Popup.UI.setCurrentRabbitHoleGoalValueUI(
         currentRabbitHoleGoalValueInitialText
       );
       await setBadgeConditional();

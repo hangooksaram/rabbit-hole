@@ -11,7 +11,7 @@ module.exports = {
     observeSearch: "./src/search/observeSearch.ts",
     action: "./src/action.ts",
     badge: "./src/badge/badge.ts",
-    popup: "./src/popup/popupController.ts",
+    popup: "./src/popup.ts",
   },
   output: {
     path: path.resolve(__dirname, "dist"),

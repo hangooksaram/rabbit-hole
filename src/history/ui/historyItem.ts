@@ -1,4 +1,4 @@
-import { RabbitHole } from "../chromeApi/storageDataType";
+import { RabbitHole } from "../../chromeApi/storageDataType";
 
 class HistoryItem {
   private element: HTMLLIElement = document.createElement("li");
