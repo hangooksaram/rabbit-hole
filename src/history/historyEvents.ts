@@ -5,7 +5,7 @@ class HistoryEvents {
   static addHistoryOpenAndCloseButtonEvent() {
     HistoryElements.historyOpenButton.addEvent("click", async () => {
       History.UI.toggleHistory();
-      const histories = await History.Controller.getSortedHistory();
+      const histories = await History.Controller.getAscSortedHistory();
       History.UI.setHistoryListUI(histories);
     });
 

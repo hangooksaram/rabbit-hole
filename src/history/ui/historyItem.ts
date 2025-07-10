@@ -13,8 +13,16 @@ class HistoryItem {
     return this.element;
   }
 
+  getElementWidthByPercent() {
+    if (this.history.percent < 95) {
+      return this.history.percent + 5;
+    }
+    return 95;
+  }
+
   setHistoryItemUI() {
     this.element.classList.add("history-item");
+    this.element.style.width = `${this.getElementWidthByPercent()}%`;
 
     const searchQueryElement = document.createElement("div");
     searchQueryElement.innerText = this.history.query;

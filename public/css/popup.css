@@ -281,6 +281,8 @@
 
 .history-item-query {
   font-weight: bold;
+  margin-right: 8px;
+  min-width: max-content;
 }
 
 .history-menu-content {
