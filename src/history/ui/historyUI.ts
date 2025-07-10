@@ -33,16 +33,14 @@ class HistoryUI {
     HistoryElements.historyList.appendChild(newHistoryItem);
   }
 
-  static setHistoryListUI = async () => {
-    try {
-      const histories = await ChromeStorage.get("history");
+  static setHistoryListUI = (histories: RabbitHole[] | []) => {
+    histories?.forEach((history) => {
+      HistoryUI.setHistoryItemUI(history);
+    });
+  };
 
-      histories?.forEach((history) => {
-        HistoryUI.setHistoryItemUI(history);
-      });
-    } catch (error) {
-      console.error("Error initializing history list:", error);
-    }
+  static initHistoryListUI = () => {
+    HistoryElements.historyList.clearChildren();
   };
 }
 

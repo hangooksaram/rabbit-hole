@@ -3,10 +3,22 @@ import { RabbitHole } from "../chromeApi/storageDataType";
 import History from "./history";
 
 class HistoryController {
+  static getSortedHistory = async (): Promise<RabbitHole[]> => {
+    try {
+      const histories = await ChromeStorage.get("history");
+      histories?.forEach((history) => console.log(history));
+      return histories?.sort((a, b) => b.percent - a.percent) || [];
+    } catch (error) {
+      console.error("Error fetching sorted history:", error);
+      return [];
+    }
+  };
+
   static initHistory = async () => {
+    const histories = await HistoryController.getSortedHistory();
+
     History.Events.addHistoryOpenAndCloseButtonEvent();
     History.UI.setLabelTexts();
-    await History.UI.setHistoryListUI();
   };
 
   static appendHistory = async (newHistory: RabbitHole) => {
