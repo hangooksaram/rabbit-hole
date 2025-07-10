@@ -95,7 +95,6 @@
   background-color: var(--button-color);
   cursor: pointer;
   border-radius: 4px;
-  font-size: 14px;
   padding: 8px;
   border: none;
 
@@ -176,7 +175,6 @@
   gap: 6px;
   width: 100%;
   max-width: 100%;
-  font-size: 14px;
   color: #333;
 }
 
@@ -218,7 +216,6 @@
 .depth-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
   margin-bottom: 4px;
 }
 
@@ -249,8 +246,6 @@
 }
 
 .current-rabbit-hole-goal {
-  font-size: 14px;
-
   display: flex;
   gap: 4px;
   width: 100%;
@@ -310,7 +305,6 @@
   justify-content: space-between;
   align-items: flex-start;
   border-radius: 4px;
-  font-size: 14px;
   padding: 8px;
   cursor: default;
 

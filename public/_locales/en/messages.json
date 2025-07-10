@@ -98,5 +98,9 @@
   "historyLabelText": {
     "message": "History",
     "description": "Label for displaying Rabbit Hole history"
+  },
+  "emptyHistoryText": {
+    "message": "No history available. Complete a Rabbit Hole!",
+    "description": "Text displayed when there is no Rabbit Hole history"
   }
 }

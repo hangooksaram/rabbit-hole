@@ -15,8 +15,6 @@ class HistoryController {
   };
 
   static initHistory = async () => {
-    const histories = await HistoryController.getAscSortedHistory();
-
     History.Events.addHistoryOpenAndCloseButtonEvent();
     History.UI.setLabelTexts();
   };

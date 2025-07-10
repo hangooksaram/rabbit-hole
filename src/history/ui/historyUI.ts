@@ -1,6 +1,7 @@
 import ChromeStorage from "../../chromeApi/storageData";
 import { RabbitHole } from "../../chromeApi/storageDataType";
 import {
+  emptyHistoryText,
   hiddenClass,
   historyLabelText,
   slideInBottomAnimation,
@@ -44,6 +45,14 @@ class HistoryUI {
 
   static initHistoryListUI = () => {
     HistoryElements.historyList.clearChildren();
+  };
+
+  static setEmptyUI = () => {
+    HistoryElements.historyList.clearChildren();
+    const emptyElement = document.createElement("div");
+    emptyElement.className = "empty-history";
+    emptyElement.textContent = emptyHistoryText;
+    HistoryElements.historyList.appendChild(emptyElement);
   };
 }
 

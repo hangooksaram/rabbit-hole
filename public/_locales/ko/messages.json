@@ -98,5 +98,9 @@
   "historyLabelText": {
     "message": "기록",
     "description": "토끼굴 기록을 표시하는 레이블"
+  },
+  "emptyHistoryText": {
+    "message": "기록이 없어요. 토끼굴을 완성해보세요!",
+    "description": "토끼굴 기록이 비어있을 때 표시되는 텍스트"
   }
 }
