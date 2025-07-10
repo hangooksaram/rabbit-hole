@@ -297,6 +297,13 @@
   overflow-y: auto;
 }
 
+.history-item.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  visibility: hidden;
+}
+
 .history-item {
   text-align: left;
   display: flex;
@@ -308,4 +315,13 @@
   cursor: default;
 
   background-color: var(--primary-color);
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.history-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

@@ -28,14 +28,17 @@ class HistoryUI {
     HistoryUI.setHitsoryLabelText();
   }
 
-  static setHistoryItemUI(historyItem: RabbitHole) {
-    const newHistoryItem = new HistoryItem(historyItem).getElement();
-    HistoryElements.historyList.appendChild(newHistoryItem);
+  static setHistoryItemUI(historyItem: RabbitHole, index: number) {
+    const newHistoryItem = new HistoryItem(historyItem, index);
+
+    HistoryElements.historyList.appendChild(newHistoryItem.getElement());
+
+    newHistoryItem.setHistoryItemUI(index);
   }
 
   static setHistoryListUI = (histories: RabbitHole[] | []) => {
-    histories?.forEach((history) => {
-      HistoryUI.setHistoryItemUI(history);
+    histories?.forEach((history, index) => {
+      HistoryUI.setHistoryItemUI(history, index);
     });
   };
 
