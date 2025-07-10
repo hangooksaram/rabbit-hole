@@ -283,10 +283,16 @@
   font-weight: bold;
 }
 
+.history-menu-content {
+  height: calc(100% - 72px);
+}
+
 .history-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 .history-item {
@@ -297,7 +303,7 @@
   border-radius: 4px;
   font-size: 14px;
   padding: 8px;
-  cursor: pointer;
+  cursor: default;
 
   background-color: var(--primary-color);
 }
