@@ -3,22 +3,10 @@ import { RabbitHole } from "../chromeApi/storageDataType";
 import History from "./history";
 
 class HistoryController {
-  static initHistoryList = async () => {
-    try {
-      const histories = await ChromeStorage.get("history");
-
-      histories?.forEach((history) => {
-        History.UI.setHistoryItemUI(history);
-      });
-    } catch (error) {
-      console.error("Error initializing history list:", error);
-    }
-  };
-
   static initHistory = async () => {
     History.Events.addHistoryOpenAndCloseButtonEvent();
     History.UI.setLabelTexts();
-    await HistoryController.initHistoryList();
+    await History.UI.setHistoryListUI();
   };
 
   static appendHistory = async (newHistory: RabbitHole) => {

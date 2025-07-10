@@ -1,12 +1,11 @@
 import History from "./history";
-import HistoryController from "./historyController";
 import HistoryElements from "./ui/historyElements";
 
 class HistoryEvents {
   static addHistoryOpenAndCloseButtonEvent() {
     HistoryElements.historyOpenButton.addEvent("click", async () => {
       History.UI.toggleHistory();
-      await History.Controller.initHistoryList();
+      await History.UI.setHistoryListUI();
     });
 
     HistoryElements.historyCloseButton.addEvent("click", () => {

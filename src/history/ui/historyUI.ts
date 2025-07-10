@@ -1,3 +1,4 @@
+import ChromeStorage from "../../chromeApi/storageData";
 import { RabbitHole } from "../../chromeApi/storageDataType";
 import {
   hiddenClass,
@@ -31,6 +32,18 @@ class HistoryUI {
     const newHistoryItem = new HistoryItem(historyItem).getElement();
     HistoryElements.historyList.appendChild(newHistoryItem);
   }
+
+  static setHistoryListUI = async () => {
+    try {
+      const histories = await ChromeStorage.get("history");
+
+      histories?.forEach((history) => {
+        HistoryUI.setHistoryItemUI(history);
+      });
+    } catch (error) {
+      console.error("Error initializing history list:", error);
+    }
+  };
 }
 
 export default HistoryUI;
