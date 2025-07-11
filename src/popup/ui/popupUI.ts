@@ -56,6 +56,12 @@ class PopupUI {
   static hideCloseRabbitHoleButton() {
     PopupElements.closeRabbitHoleButton.addClass("hidden");
   }
+
+  static initLabelTexts = () => {
+    PopupUI.setGoalLabelText();
+    PopupUI.setRecentSearchLabelText();
+    PopupUI.setCloseRabbitHoleLabelText();
+  };
 }
 
 export default PopupUI;

@@ -12,7 +12,7 @@ class PopupController {
     await PopupUI.setRabbitHoleDepthUI();
 
     Popup.UI.setRecentSearchQueryUI(recentSearch?.searchQuery);
-    PopupController.initLabelTexts();
+    Popup.UI.initLabelTexts();
 
     if (recentSearch) {
       Popup.Events.addToggleRecentSearchContentEvent();
@@ -31,12 +31,6 @@ class PopupController {
         currentRabbitHoleGoalValueInitialText
       );
     }
-  };
-
-  static initLabelTexts = () => {
-    Popup.UI.setGoalLabelText();
-    Popup.UI.setRecentSearchLabelText();
-    Popup.UI.setCloseRabbitHoleLabelText();
   };
 }
 export default PopupController;
