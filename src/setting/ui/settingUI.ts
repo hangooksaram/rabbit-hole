@@ -7,23 +7,15 @@ import {
   slideOutBottomAnimation,
 } from "../../popup/constants";
 import SettingElements from "./settingElements";
-import Setting from "../setting";
 
 class SettingUI {
-  static async init() {
-    Setting.Events.addSettingOpenAndCloseEvent();
-    await Setting.UI.setMaxRabbitHoleDepthInputInitialValue();
-  }
-
   static toggleSettingContainer() {
     SettingElements.settingContainer.toggleClass(hiddenClass);
     SettingElements.settingContainer.toggleClass(slideInBottomAnimation);
     SettingElements.settingContainer.toggleClass(slideOutBottomAnimation);
   }
 
-  static async setMaxRabbitHoleDepthInputInitialValue() {
-    const maxHoleDepth = await Setting.Controller.getMaxRabbitHoleDepth();
-
+  static setMaxRabbitHoleDepthInputInitialValue(maxHoleDepth: string) {
     SettingElements.rabbitHoleDepthInput.setValue(maxHoleDepth.toString());
   }
 
@@ -38,6 +30,12 @@ class SettingUI {
   static setSettingItemLabelText() {
     SettingElements.settingItemLabel.setText(rabbitHoleDepthLabelText);
   }
+
+  static setSettingLabelTexts = () => {
+    SettingUI.setSubmitSettingButtonText();
+    SettingUI.setSettingLabelText();
+    SettingUI.setSettingItemLabelText();
+  };
 }
 
 export default SettingUI;
