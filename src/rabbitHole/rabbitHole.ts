@@ -48,3 +48,12 @@ export async function saveRabbitHolePaths(newSearch: Path) {
     console.error("Error saving rabbit hole paths:", error);
   }
 }
+
+export async function getCurrentRabbitHoleDepth(): Promise<number> {
+  try {
+    const rabbitHole = await ChromeStorage.get("rabbitHole");
+    return rabbitHole.holeDepth || 0;
+  } catch (error) {
+    return 0;
+  }
+}

@@ -1,5 +1,6 @@
 import ChromeStorage from "../chromeApi/storageData";
 import { DEFAULT_RABBIT_HOLE_MAX_DEPTH } from "../rabbitHole/constants";
+import { getCurrentRabbitHoleDepth } from "../rabbitHole/rabbitHole";
 
 export const badge = {
   default: (depth: number) => ({
@@ -10,6 +11,14 @@ export const badge = {
     text: "!",
     color: "red",
   },
+  loading: {
+    text: "…",
+    color: "#814fff",
+  },
+  initial: {
+    text: "",
+    color: "#814fff",
+  },
 };
 
 export const setBadge = ({ text, color }: { text: string; color: string }) => {
@@ -17,20 +26,27 @@ export const setBadge = ({ text, color }: { text: string; color: string }) => {
   chrome.action.setBadgeBackgroundColor({ color });
 };
 
+const isTooDeepFromEntrance = async () => {
+  const rabbitHole = await ChromeStorage.get("rabbitHole");
+  const setting = await ChromeStorage.get("setting");
+  return rabbitHole.holeDepth >= setting.maxHoleDepth;
+};
+
+export const setLoadingBadge = () => {
+  setBadge(badge.loading);
+};
+
 export const setBadgeConditional = async () => {
   try {
-    const rabbitHole = await ChromeStorage.get("rabbitHole");
-    const setting = await ChromeStorage.get("setting");
+    const rabbitHoleDepth = await getCurrentRabbitHoleDepth();
 
-    const isTooDeepFromEntrance = rabbitHole.holeDepth >= setting.maxHoleDepth;
-
-    if (isTooDeepFromEntrance) {
+    if (await isTooDeepFromEntrance()) {
       setBadge(badge.warning);
       return;
     }
-    setBadge(badge.default(rabbitHole.holeDepth));
+    setBadge(badge.default(rabbitHoleDepth));
     return;
-  } catch (_) {
-    setBadge(badge.default(0));
+  } catch (error) {
+    setBadge(badge.initial);
   }
 };
