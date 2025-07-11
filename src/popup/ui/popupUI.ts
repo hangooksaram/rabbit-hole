@@ -1,6 +1,6 @@
 import { Path } from "../../chromeApi/storageDataType";
 import RabbitHoleDepth from "../../rabbitHole/depth";
-import { RabbitHolePathItem } from "../../rabbitHole/rabbitHolePathItem";
+import { RabbitHolePathItem } from "../../rabbitHole/ui/rabbitHolePathItem";
 import {
   closeRabbitHoleButtonText,
   goalLabelText,
