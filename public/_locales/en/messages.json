@@ -27,8 +27,12 @@
     "message": "Not set yet.",
     "description": "Text displayed when the Rabbit Hole goal is not set"
   },
-  "depthProgressStatusText1": {
+  "depthProgressStatusText0": {
     "message": "Standing idly at the entrance of the Rabbit Hole!",
+    "description": "Text displayed at depth level 0"
+  },
+  "depthProgressStatusText1": {
+    "message": "More deeply inside!",
     "description": "Text displayed at depth level 1"
   },
   "depthProgressStatusText25": {

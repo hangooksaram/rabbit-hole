@@ -23,9 +23,10 @@ const closeSuccessText = chrome.i18n.getMessage("closeSuccessText");
 const emptyHistoryText = chrome.i18n.getMessage("emptyHistoryText");
 
 const depthProgressStatusCheckPoints: (keyof typeof depthProgressStatusText)[] =
-  [1, 25, 50, 75, 99, 100, 125, 150, 175, 200];
+  [0, 1, 25, 50, 75, 99, 100, 125, 150, 175, 200];
 
 const depthProgressStatusText = {
+  0: chrome.i18n.getMessage("depthProgressStatusText0"),
   1: chrome.i18n.getMessage("depthProgressStatusText1"),
   25: chrome.i18n.getMessage("depthProgressStatusText25"),
   50: chrome.i18n.getMessage("depthProgressStatusText50"),

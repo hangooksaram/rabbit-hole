@@ -27,12 +27,16 @@
     "message": "아직 없어요.",
     "description": "Rabbit Hole 목표가 설정되지 않았을 때 표시되는 텍스트"
   },
-  "depthProgressStatusText1": {
+  "depthProgressStatusText0": {
     "message": "토끼굴 입구에서 멍하니 서 있는 중!",
     "description": "깊이 레벨 1에서 표시되는 텍스트"
   },
-  "depthProgressStatusText25": {
+  "depthProgressStatusText1": {
     "message": "슬쩍 들어가봅니다!",
+    "description": "깊이 레벨 1에서 표시되는 텍스트"
+  },
+  "depthProgressStatusText25": {
+    "message": "조금 더 깊숙이 들어갔어요!",
     "description": "깊이 레벨 25에서 표시되는 텍스트"
   },
   "depthProgressStatusText50": {
