@@ -25,21 +25,6 @@ class PopupUI {
     PopupElements.rabbitHolePath.appendChild(newRabbitHolePathItem);
   }
 
-  static async setRabbitHoleDepthUI() {
-    const currentPercent =
-      await RabbitHoleDepth.Controller.getCurrentDepthPercentage();
-    const holeDepth = await RabbitHoleDepth.Controller.getCurrentDepth();
-    const maxHoleDepth = await Setting.Controller.getMaxRabbitHoleDepth();
-
-    RabbitHoleDepth.UI.setMaxRabbitHoleDepthTextUI(maxHoleDepth);
-    RabbitHoleDepth.UI.setCurrentRabbitHoleDepthTextUI(
-      holeDepth,
-      currentPercent
-    );
-    RabbitHoleDepth.UI.setDepthProgressBarUI(currentPercent);
-    RabbitHoleDepth.UI.setDepthProgressStatusTextUI(currentPercent);
-  }
-
   static setCurrentRabbitHoleGoalValueUI(goal: string) {
     PopupElements.currentRabbitHoleGoalValue.setText(`${goal}`);
   }

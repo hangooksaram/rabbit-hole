@@ -2,6 +2,7 @@ import { setBadgeConditional } from "../badge/badge";
 import ChromeStorage from "../chromeApi/storageData";
 import History from "../history/history";
 import { initRabbitHole } from "../rabbitHole/rabbitHole";
+import RabbitHoleDepth from "../rabbitHole/rabbitHoleDepth/rabbitHoleDepth";
 import toast from "../ui/toast";
 import {
   closeSuccessText,
@@ -23,7 +24,13 @@ class PopupEvents {
         const rabbitHole = await ChromeStorage.get("rabbitHole");
         toast(newRabbitHoleText);
 
-        await Popup.UI.setRabbitHoleDepthUI();
+        const { currentHoleDepth, currentPercent, maxHoleDepth } =
+          await RabbitHoleDepth.Controller.getRabbitHoleDepthsAndPercentage();
+        RabbitHoleDepth.UI.setAllRabbitHoleDepthUIs({
+          currentHoleDepth,
+          currentPercent,
+          maxHoleDepth,
+        });
 
         Popup.UI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
         Popup.UI.showCloseRabbitHoleButton();
@@ -57,7 +64,13 @@ class PopupEvents {
       }
 
       await ChromeStorage.remove("rabbitHole");
-      await Popup.UI.setRabbitHoleDepthUI();
+      const { currentHoleDepth, currentPercent, maxHoleDepth } =
+        await RabbitHoleDepth.Controller.getRabbitHoleDepthsAndPercentage();
+      RabbitHoleDepth.UI.setAllRabbitHoleDepthUIs({
+        currentHoleDepth,
+        currentPercent,
+        maxHoleDepth,
+      });
 
       Popup.UI.hideCloseRabbitHoleButton();
       Popup.UI.initRabbitHoleUI();

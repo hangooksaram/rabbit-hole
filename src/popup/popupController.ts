@@ -3,13 +3,19 @@ import { Path, RabbitHole } from "../chromeApi/storageDataType";
 import { currentRabbitHoleGoalValueInitialText } from "./constants";
 import PopupUI from "./ui/popupUI";
 import Popup from "./popup";
+import RabbitHoleDepth from "../rabbitHole/rabbitHoleDepth/rabbitHoleDepth";
 
 class PopupController {
   static initPopup = async () => {
     const recentSearch: Path = await ChromeStorage.get("recentSearch");
     const rabbitHole: RabbitHole = await ChromeStorage.get("rabbitHole");
-
-    await PopupUI.setRabbitHoleDepthUI();
+    const { currentHoleDepth, currentPercent, maxHoleDepth } =
+      await RabbitHoleDepth.Controller.getRabbitHoleDepthsAndPercentage();
+    RabbitHoleDepth.UI.setAllRabbitHoleDepthUIs({
+      currentHoleDepth,
+      currentPercent,
+      maxHoleDepth,
+    });
 
     Popup.UI.setRecentSearchQueryUI(recentSearch?.searchQuery);
     Popup.UI.initLabelTexts();

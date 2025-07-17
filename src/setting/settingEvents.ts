@@ -40,7 +40,13 @@ class SettingEvents {
           ),
         });
 
-        await Popup.UI.setRabbitHoleDepthUI();
+        const { currentHoleDepth, currentPercent, maxHoleDepth } =
+          await RabbitHoleDepth.Controller.getRabbitHoleDepthsAndPercentage();
+        RabbitHoleDepth.UI.setAllRabbitHoleDepthUIs({
+          currentHoleDepth,
+          currentPercent,
+          maxHoleDepth,
+        });
         await setBadgeConditional();
         toast(saveSuccessText);
       } catch (error) {

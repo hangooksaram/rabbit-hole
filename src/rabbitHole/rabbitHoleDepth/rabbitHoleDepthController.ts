@@ -1,4 +1,6 @@
 import ChromeStorage from "../../chromeApi/storageData";
+import Setting from "../../setting/setting";
+import RabbitHoleDepth from "./rabbitHoleDepth";
 
 class RabbitHoleDepthController {
   static async getCurrentDepth() {
@@ -11,6 +13,19 @@ class RabbitHoleDepthController {
     const rabbitHole = await ChromeStorage.get("rabbitHole");
 
     return rabbitHole ? rabbitHole.percent : 0;
+  }
+
+  static async getRabbitHoleDepthsAndPercentage() {
+    const currentPercent =
+      await RabbitHoleDepthController.getCurrentDepthPercentage();
+    const currentHoleDepth = await RabbitHoleDepthController.getCurrentDepth();
+    const maxHoleDepth = await Setting.Controller.getMaxRabbitHoleDepth();
+
+    return {
+      currentPercent,
+      currentHoleDepth,
+      maxHoleDepth,
+    };
   }
 }
 

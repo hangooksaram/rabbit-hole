@@ -61,6 +61,24 @@ class RabbitHoleDepthUI {
       RabbitHoleDepthElements.depthProgress.removeClass("depth-progress-max");
     }
   }
+
+  static setAllRabbitHoleDepthUIs({
+    currentPercent,
+    currentHoleDepth,
+    maxHoleDepth,
+  }: {
+    currentPercent?: number;
+    currentHoleDepth?: number;
+    maxHoleDepth?: number;
+  }) {
+    RabbitHoleDepthUI.setMaxRabbitHoleDepthTextUI(maxHoleDepth || 0);
+    RabbitHoleDepthUI.setCurrentRabbitHoleDepthTextUI(
+      currentHoleDepth || 0,
+      currentPercent || 0
+    );
+    RabbitHoleDepthUI.setDepthProgressBarUI(currentPercent || 0);
+    RabbitHoleDepthUI.setDepthProgressStatusTextUI(currentPercent || 0);
+  }
 }
 
 export default RabbitHoleDepthUI;
