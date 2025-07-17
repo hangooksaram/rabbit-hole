@@ -1,6 +1,7 @@
 import { Path } from "../../chromeApi/storageDataType";
-import RabbitHoleDepth from "../../rabbitHole/depth";
+import RabbitHoleDepth from "../../rabbitHole/rabbitHoleDepth/rabbitHoleDepth";
 import { RabbitHolePathItem } from "../../rabbitHole/rabbitHolePathItem";
+import Setting from "../../setting/setting";
 import {
   closeRabbitHoleButtonText,
   goalLabelText,
@@ -10,8 +11,6 @@ import {
 import PopupElements from "./popupElements";
 
 class PopupUI {
-  static RabbitHoleDepth = RabbitHoleDepth;
-
   static setRecentSearchQueryUI(query: string | undefined) {
     PopupElements.recentSearchText.setText(query || noSearchQueryText);
   }
@@ -27,10 +26,18 @@ class PopupUI {
   }
 
   static async setRabbitHoleDepthUI() {
-    await PopupUI.RabbitHoleDepth.setMaxRabbitHoleDepthUI();
-    await PopupUI.RabbitHoleDepth.setCurrentRabbitHoleDepthUI();
-    await PopupUI.RabbitHoleDepth.setDepthProgressUI();
-    await PopupUI.RabbitHoleDepth.setDepthProgressStatusUI();
+    const currentPercent =
+      await RabbitHoleDepth.Controller.getCurrentDepthPercentage();
+    const holeDepth = await RabbitHoleDepth.Controller.getCurrentDepth();
+    const maxHoleDepth = await Setting.Controller.getMaxRabbitHoleDepth();
+
+    RabbitHoleDepth.UI.setMaxRabbitHoleDepthTextUI(maxHoleDepth);
+    RabbitHoleDepth.UI.setCurrentRabbitHoleDepthTextUI(
+      holeDepth,
+      currentPercent
+    );
+    RabbitHoleDepth.UI.setDepthProgressBarUI(currentPercent);
+    RabbitHoleDepth.UI.setDepthProgressStatusTextUI(currentPercent);
   }
 
   static setCurrentRabbitHoleGoalValueUI(goal: string) {

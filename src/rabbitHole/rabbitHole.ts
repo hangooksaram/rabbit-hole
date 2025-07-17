@@ -1,6 +1,6 @@
 import { Path, RabbitHole } from "../chromeApi/storageDataType";
 import ChromeStorage from "../chromeApi/storageData";
-import SettingController from "../setting/settingController";
+import { calculateCurrentPercentage } from "./rabbitHoleDepth/calculateProgress";
 
 export function initRabbitHole(query: string, cb?: () => void): void {
   const updatedRabbitHole: RabbitHole = {
@@ -23,6 +23,17 @@ const isUrlDuplicated = (searchUrl: string, savedPath: Path[]): boolean => {
   return savedPath.some((item) => item.searchUrl === searchUrl);
 };
 
+export const updateRabbitHole = async (
+  updatedRabbitHole: Partial<RabbitHole>
+) => {
+  const originalRabbitHole = await ChromeStorage.get("rabbitHole");
+
+  await ChromeStorage.set("rabbitHole", {
+    ...originalRabbitHole,
+    ...updatedRabbitHole,
+  });
+};
+
 export async function saveRabbitHolePaths(newSearch: Path) {
   try {
     const rabbitHole = await ChromeStorage.get("rabbitHole");
@@ -38,11 +49,10 @@ export async function saveRabbitHolePaths(newSearch: Path) {
 
     savedPath.push(newSearch);
 
-    await ChromeStorage.set("rabbitHole", {
-      ...rabbitHole,
+    await updateRabbitHole({
       path: savedPath,
       holeDepth: savedPath.length,
-      percent: Math.floor((savedPath.length / maxHoleDepth) * 100),
+      percent: calculateCurrentPercentage(savedPath.length, maxHoleDepth),
     });
   } catch (error) {
     console.error("Error saving rabbit hole paths:", error);

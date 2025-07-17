@@ -1,4 +1,4 @@
-import { Path } from "../../chromeApi/storageDataType";
+import { Path } from "../chromeApi/storageDataType";
 
 const googleLogoImgPath = "/img/google-logo.png";
 const naverLogoImgPath = "/img/naver-logo.svg";
@@ -12,11 +12,18 @@ export class RabbitHolePathItem {
   constructor(path: Path) {
     this.searchPath = path;
 
-    this.setRabbitHolePathItemUI();
+    this.element.classList.add("button", "rabbit-hole-path-item");
+
+    this.createRabbitHolePathItemLogoElement();
+    this.createRabbitHoleInformationElement();
     this.addClickEventListener();
   }
 
-  getRabbitHolePathIconPath() {
+  getElement() {
+    return this.element;
+  }
+
+  private getRabbitHolePathIconPathConditional() {
     switch (true) {
       case this.searchPath.searchEngine?.toLowerCase().includes("google"):
         return googleLogoImgPath;
@@ -29,11 +36,7 @@ export class RabbitHolePathItem {
     }
   }
 
-  getElement() {
-    return this.element;
-  }
-
-  createRabbitHoleSearchTimeElement() {
+  private createRabbitHoleSearchTimeElement() {
     const timeElement = document.createElement("span");
     timeElement.innerText = new Date(
       this.searchPath.visitTime!
@@ -41,9 +44,9 @@ export class RabbitHolePathItem {
     return timeElement;
   }
 
-  createRabbitHolePathItemLogoElement() {
+  private createRabbitHolePathItemLogoElement() {
     const imgElement = document.createElement("img");
-    const imgSrc = this.getRabbitHolePathIconPath();
+    const imgSrc = this.getRabbitHolePathIconPathConditional();
 
     imgElement.width = 20;
     imgElement.height = 20;
@@ -51,16 +54,16 @@ export class RabbitHolePathItem {
 
     imgElement.src = imgSrc;
 
-    return imgElement;
+    this.element.prepend(imgElement);
   }
 
-  createSearchQueryElement() {
+  private createSearchQueryElement() {
     const searchQueryElement = document.createElement("div");
     searchQueryElement.innerText = this.searchPath.searchQuery!;
     return searchQueryElement;
   }
 
-  createRabbitHoleInformationelement() {
+  private createRabbitHoleInformationElement() {
     const infoElement = document.createElement("div");
     const searchQueryElement = this.createSearchQueryElement();
     const timeElement = this.createRabbitHoleSearchTimeElement();
@@ -69,10 +72,10 @@ export class RabbitHolePathItem {
     infoElement.appendChild(timeElement);
     infoElement.classList.add("rabbit-hole-path-item-info");
 
-    return infoElement;
+    this.element.appendChild(infoElement);
   }
 
-  addClickEventListener() {
+  private addClickEventListener() {
     this.element.addEventListener("click", () => {
       if (this.searchPath.searchUrl) {
         window.open(this.searchPath.searchUrl, "_blank");
@@ -80,15 +83,5 @@ export class RabbitHolePathItem {
         console.warn("Search URL is not available for this path item.");
       }
     });
-  }
-
-  setRabbitHolePathItemUI() {
-    const imgElement = this.createRabbitHolePathItemLogoElement();
-    const infoElement = this.createRabbitHoleInformationelement();
-
-    this.element.prepend(imgElement);
-    this.element.appendChild(infoElement);
-
-    this.element.classList.add("button", "rabbit-hole-path-item");
   }
 }

@@ -2,6 +2,9 @@ import { setBadgeConditional } from "../badge/badge";
 import ChromeStorage from "../chromeApi/storageData";
 import { saveErrorText, saveSuccessText } from "../popup/constants";
 import Popup from "../popup/popup";
+import { updateRabbitHole } from "../rabbitHole/rabbitHole";
+import { calculateCurrentPercentage } from "../rabbitHole/rabbitHoleDepth/calculateProgress";
+import RabbitHoleDepth from "../rabbitHole/rabbitHoleDepth/rabbitHoleDepth";
 import toast from "../ui/toast";
 import Setting from "./setting";
 import SettingElements from "./ui/settingElements";
@@ -21,10 +24,20 @@ class SettingEvents {
     SettingElements.submitSetting.addEvent("click", async (event) => {
       try {
         const rabbitHoleDepth = SettingElements.rabbitHoleDepthInput.getValue();
+
+        const currentDepth = await RabbitHoleDepth.Controller.getCurrentDepth();
         event.preventDefault();
 
         await ChromeStorage.set("setting", {
           maxHoleDepth: Number(rabbitHoleDepth),
+        });
+
+        await updateRabbitHole({
+          holeDepth: currentDepth,
+          percent: calculateCurrentPercentage(
+            currentDepth,
+            Number(rabbitHoleDepth)
+          ),
         });
 
         await Popup.UI.setRabbitHoleDepthUI();
