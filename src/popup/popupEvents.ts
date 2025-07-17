@@ -51,7 +51,11 @@ class PopupEvents {
   static addCloseRabbitHoleButtonClickEvent() {
     PopupElements.closeRabbitHoleButton.addEvent("click", async () => {
       const currentRabbitHole = await ChromeStorage.get("rabbitHole");
-      await History.Controller.appendHistory(currentRabbitHole);
+
+      if (currentRabbitHole.holeDepth > 0) {
+        await History.Controller.appendHistory(currentRabbitHole);
+      }
+
       await ChromeStorage.remove("rabbitHole");
       await Popup.UI.setRabbitHoleDepthUI();
 
