@@ -1,7 +1,7 @@
 {
   "extensionName": { "message": "Rabbit Hole" },
   "extensionDescription": {
-    "message": "An extension that helps you stay on track while browsing the web, avoiding the 'rabbit hole' of information and maintaining focus."
+    "message": "Make sure you're not searching outside your goal."
   },
   "goalLabelText": {
     "message": "Goal is",

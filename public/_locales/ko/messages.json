@@ -1,7 +1,7 @@
 {
   "extensionName": { "message": "Rabbit Hole" },
   "extensionDescription": {
-    "message": "웹 탐색 중 원래의 목표에서 벗어나지 않도록 도와주는 확장 프로그램입니다. 정보의 '토끼굴'에 빠지지 않고 집중을 유지하세요."
+    "message": "목표에서 벗어나는 검색을 하고있지 않은지 확인하세요."
   },
   "goalLabelText": {
     "message": "목표는",
