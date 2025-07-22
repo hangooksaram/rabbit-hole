@@ -8,6 +8,7 @@ import RabbitHoleDepth from "../rabbitHole/rabbitHoleDepth/rabbitHoleDepth";
 class PopupController {
   static initPopup = async () => {
     const recentSearch: Path = await ChromeStorage.get("recentSearch");
+
     const rabbitHole: RabbitHole = await ChromeStorage.get("rabbitHole");
     const { currentHoleDepth, currentPercent, maxHoleDepth } =
       await RabbitHoleDepth.Controller.getRabbitHoleDepthsAndPercentage();

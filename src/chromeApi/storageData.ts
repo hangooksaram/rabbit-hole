@@ -16,6 +16,7 @@ export default class ChromeStorage {
     value: StorageData[T],
     cb?: () => void
   ): Promise<void> {
+    console.log(`Setting ${key} in ChromeStorage`, value);
     return new Promise((resolve) => {
       const data = { [key]: value };
       chrome.storage.local.set(data, () => {
