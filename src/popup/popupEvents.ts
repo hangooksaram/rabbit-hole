@@ -1,7 +1,12 @@
 import { setBadgeConditional } from "../badge/badge";
 import ChromeStorage from "../chromeApi/storageData";
+import { Path, RabbitHole } from "../chromeApi/storageDataType";
 import History from "../history/history";
-import { initRabbitHole } from "../rabbitHole/rabbitHole";
+import {
+  getRabbitHole,
+  initRabbitHole,
+  removeRabbitHole,
+} from "../rabbitHole/rabbitHole";
 import RabbitHoleDepth from "../rabbitHole/rabbitHoleDepth/rabbitHoleDepth";
 import toast from "../ui/toast";
 import {
@@ -17,11 +22,12 @@ import Popup from "./popup";
 import PopupElements from "./ui/popupElements";
 
 class PopupEvents {
-  static addRabbitHoleStartButtonClickEvent() {
+  static addRabbitHoleStartButtonClickEvent(
+    recentSearch: Path,
+    rabbitHole: RabbitHole
+  ) {
     PopupElements.createRabbitHoleImage.addEvent("click", async () => {
-      const recentSearch = await ChromeStorage.get("recentSearch");
-      initRabbitHole(recentSearch?.searchQuery || "", async () => {
-        const rabbitHole = await ChromeStorage.get("rabbitHole");
+      initRabbitHole(recentSearch.searchQuery || "", async () => {
         toast(newRabbitHoleText);
 
         const { currentHoleDepth, currentPercent, maxHoleDepth } =
@@ -32,7 +38,7 @@ class PopupEvents {
           maxHoleDepth,
         });
 
-        Popup.UI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
+        Popup.UI.setCurrentRabbitHoleGoalValueUI(rabbitHole!.query);
         Popup.UI.showCloseRabbitHoleButton();
 
         Popup.UI.initRabbitHoleUI();
@@ -55,15 +61,13 @@ class PopupEvents {
     });
   }
 
-  static addCloseRabbitHoleButtonClickEvent() {
+  static addCloseRabbitHoleButtonClickEvent(currentRabbitHole: RabbitHole) {
     PopupElements.closeRabbitHoleButton.addEvent("click", async () => {
-      const currentRabbitHole = await ChromeStorage.get("rabbitHole");
-
       if (currentRabbitHole.holeDepth > 0) {
         await History.Controller.appendHistory(currentRabbitHole);
       }
 
-      await ChromeStorage.remove("rabbitHole");
+      await removeRabbitHole();
       const { currentHoleDepth, currentPercent, maxHoleDepth } =
         await RabbitHoleDepth.Controller.getRabbitHoleDepthsAndPercentage();
       RabbitHoleDepth.UI.setAllRabbitHoleDepthUIs({

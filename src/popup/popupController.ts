@@ -1,7 +1,6 @@
 import ChromeStorage from "../chromeApi/storageData";
 import { Path, RabbitHole } from "../chromeApi/storageDataType";
 import { currentRabbitHoleGoalValueInitialText } from "./constants";
-import PopupUI from "./ui/popupUI";
 import Popup from "./popup";
 import RabbitHoleDepth from "../rabbitHole/rabbitHoleDepth/rabbitHoleDepth";
 
@@ -23,7 +22,7 @@ class PopupController {
 
     if (recentSearch) {
       Popup.Events.addToggleRecentSearchContentEvent();
-      Popup.Events.addRabbitHoleStartButtonClickEvent();
+      Popup.Events.addRabbitHoleStartButtonClickEvent(recentSearch, rabbitHole);
     }
 
     if (rabbitHole) {
@@ -32,7 +31,7 @@ class PopupController {
       });
       Popup.UI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
       Popup.UI.showCloseRabbitHoleButton();
-      Popup.Events.addCloseRabbitHoleButtonClickEvent();
+      Popup.Events.addCloseRabbitHoleButtonClickEvent(rabbitHole);
     } else {
       Popup.UI.setCurrentRabbitHoleGoalValueUI(
         currentRabbitHoleGoalValueInitialText

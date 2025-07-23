@@ -2,6 +2,10 @@ import { Path, RabbitHole } from "../chromeApi/storageDataType";
 import ChromeStorage from "../chromeApi/storageData";
 import { calculateCurrentPercentage } from "./rabbitHoleDepth/calculateProgress";
 
+export async function removeRabbitHole() {
+  await ChromeStorage.remove("rabbitHole");
+}
+
 export function initRabbitHole(query: string, cb?: () => void): void {
   const updatedRabbitHole: RabbitHole = {
     query,
@@ -65,5 +69,13 @@ export async function getCurrentRabbitHoleDepth(): Promise<number> {
     return rabbitHole.holeDepth || 0;
   } catch (error) {
     return 0;
+  }
+}
+
+export async function getRabbitHole(): Promise<RabbitHole | null> {
+  try {
+    return await ChromeStorage.get("rabbitHole");
+  } catch (error) {
+    return null;
   }
 }
