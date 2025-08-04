@@ -12,10 +12,10 @@
     "service_worker": "/js/background.js",
     "type": "module"
   },
-
   "icons": {
     "16": "img/default-icon.png",
     "48": "img/default-icon.png",
     "128": "img/default-icon.png"
-  }
+  },
+  "homepage_url": "https://github.com/hangooksaram/rabbit-hole"
 }
