@@ -22,7 +22,7 @@ class PopupController {
 
     if (recentSearch) {
       Popup.Events.addToggleRecentSearchContentEvent();
-      Popup.Events.addRabbitHoleStartButtonClickEvent(recentSearch, rabbitHole);
+      Popup.Events.addRabbitHoleStartButtonClickEvent(recentSearch);
     }
 
     if (rabbitHole) {

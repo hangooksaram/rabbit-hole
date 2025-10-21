@@ -22,14 +22,12 @@ import Popup from "./popup";
 import PopupElements from "./ui/popupElements";
 
 class PopupEvents {
-  static addRabbitHoleStartButtonClickEvent(
-    recentSearch: Path,
-    rabbitHole: RabbitHole
-  ) {
+  static addRabbitHoleStartButtonClickEvent(recentSearch: Path) {
     PopupElements.createRabbitHoleImage.addEvent("click", async () => {
       initRabbitHole(recentSearch.searchQuery || "", async () => {
         toast(newRabbitHoleText);
 
+        const rabbitHole = await getRabbitHole();
         const { currentHoleDepth, currentPercent, maxHoleDepth } =
           await RabbitHoleDepth.Controller.getRabbitHoleDepthsAndPercentage();
         RabbitHoleDepth.UI.setAllRabbitHoleDepthUIs({
