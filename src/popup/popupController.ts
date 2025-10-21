@@ -31,12 +31,13 @@ class PopupController {
       });
       Popup.UI.setCurrentRabbitHoleGoalValueUI(rabbitHole.query);
       Popup.UI.showCloseRabbitHoleButton();
-      Popup.Events.addCloseRabbitHoleButtonClickEvent(rabbitHole);
     } else {
       Popup.UI.setCurrentRabbitHoleGoalValueUI(
         currentRabbitHoleGoalValueInitialText
       );
     }
+
+    Popup.Events.addCloseRabbitHoleButtonClickEvent(rabbitHole);
   };
 }
 export default PopupController;

@@ -61,8 +61,11 @@ class PopupEvents {
 
   static addCloseRabbitHoleButtonClickEvent(currentRabbitHole: RabbitHole) {
     PopupElements.closeRabbitHoleButton.addEvent("click", async () => {
-      if (currentRabbitHole.holeDepth > 0) {
-        await History.Controller.appendHistory(currentRabbitHole);
+      const rabbitHole = currentRabbitHole || (await getRabbitHole());
+
+      if (rabbitHole.holeDepth > 0) {
+        await History.Controller.appendHistory(rabbitHole);
+        History.UI.setHistoryItemUI(rabbitHole, 0);
       }
 
       await removeRabbitHole();
