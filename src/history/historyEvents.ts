@@ -1,21 +1,21 @@
 import { RabbitHole } from "../chromeApi/storageDataType";
-import History from "./history";
 import HistoryElements from "./ui/historyElements";
+import HistoryUI from "./ui/historyUI";
 
 class HistoryEvents {
   static addHistoryOpenAndCloseButtonEvent(histories: RabbitHole[]) {
     HistoryElements.historyOpenButton.addEvent("click", () => {
-      History.UI.toggleHistory();
+      HistoryUI.toggleHistory();
       if (!histories || histories.length === 0) {
-        History.UI.setEmptyUI();
+        HistoryUI.setEmptyUI();
         return;
       }
-      History.UI.setHistoryListUI(histories);
+      HistoryUI.setHistoryListUI(histories);
     });
 
     HistoryElements.historyCloseButton.addEvent("click", () => {
-      History.UI.toggleHistory();
-      History.UI.initHistoryListUI();
+      HistoryUI.toggleHistory();
+      HistoryUI.initHistoryListUI();
     });
   }
 }

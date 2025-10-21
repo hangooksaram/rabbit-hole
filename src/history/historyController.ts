@@ -1,7 +1,8 @@
 import ChromeStorage from "../chromeApi/storageData";
 import { RabbitHole } from "../chromeApi/storageDataType";
 import IHistoryController from "./abstract/HistoryControllerInterface";
-import History from "./history";
+import HistoryEvents from "./historyEvents";
+import HistoryUI from "./ui/historyUI";
 
 class HistoryController extends IHistoryController {
   static getHistory = async (): Promise<RabbitHole[]> => {
@@ -32,8 +33,8 @@ class HistoryController extends IHistoryController {
 
   static initHistory = async () => {
     const histories = await HistoryController.getAscSortedHistory();
-    History.Events.addHistoryOpenAndCloseButtonEvent(histories);
-    History.UI.setLabelTexts();
+    HistoryEvents.addHistoryOpenAndCloseButtonEvent(histories);
+    HistoryUI.setLabelTexts();
   };
 
   static appendHistory = async (newHistory: RabbitHole) => {

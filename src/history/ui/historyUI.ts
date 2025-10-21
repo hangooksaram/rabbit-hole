@@ -1,4 +1,3 @@
-import ChromeStorage from "../../chromeApi/storageData";
 import { RabbitHole } from "../../chromeApi/storageDataType";
 import {
   emptyHistoryText,
